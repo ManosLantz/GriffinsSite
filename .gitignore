@@ -1,0 +1,10 @@
+# Original full-size phone photos (kept locally as a backup).
+# The web-optimized copies that the site actually uses live in images/.
+photos/
+
+# Temporary build/helper scripts
+_*.py
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
