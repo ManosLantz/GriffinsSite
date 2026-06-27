@@ -2,6 +2,9 @@
 # The web-optimized copies that the site actually uses live in images/.
 photos/
 
+# Original player photos + info (kept locally). Web copies live in images/players/.
+Roster/
+
 # Temporary build/helper scripts
 _*.py
 
