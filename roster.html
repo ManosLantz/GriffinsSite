@@ -48,6 +48,7 @@
         <li><a href="roster.html" class="active" aria-current="page"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
         <li><a href="history.html"><span data-lang-en>History</span><span data-lang-el>Ιστορία</span></a></li>
         <li><a href="rules.html"><span data-lang-en>Rules</span><span data-lang-el>Κανόνες</span></a></li>
+        <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
         <li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
       </ul>
 
@@ -72,43 +73,153 @@
 
         <!-- =====================================================
              HOW TO ADD A PLAYER
-             Copy one <article class="player-card"> ... </article> block, then:
-               1) add a 4:5 photo to images/players/ and update the background-image URL
-               2) set the name and position (position names stay in English in both languages)
+             Copy a <article class="player-card"> block, then:
+               1) name: put English in data-lang-en, Greek in data-lang-el
+               2) position: stays in English for both languages
+               3) photo: either give .player-photo an inline background-image,
+                  OR use class "player-photo player-photo--logo" to show the crest
+                  placeholder until a real photo is added.
              ===================================================== -->
         <div class="roster-grid">
 
-          <article class="player-card">
-            <div class="player-photo" style="background-image:url('images/players/giannis-geronimakis.jpg');background-size:cover;background-position:center top;"></div>
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
             <div class="player-info">
-              <h3 class="player-name">Giannis Geronimakis</h3>
-              <p class="player-position">Winger</p>
+              <h3 class="player-name"><span data-lang-en>Aggeliki Plevritaki</span><span data-lang-el>Αγγελική Πλευριτάκη</span></h3>
+              <p class="player-position">Prop</p>
             </div>
           </article>
 
-          <article class="player-card">
-            <div class="player-photo" style="background-image:url('images/players/manos-lantzourakis.jpg');background-size:cover;background-position:center top;"></div>
-            <div class="player-info">
-              <h3 class="player-name">Manos Lantzourakis</h3>
-              <p class="player-position">Centre</p>
-            </div>
-          </article>
-
-          <article class="player-card">
+          <article class="player-card" data-gender="M">
             <div class="player-photo" style="background-image:url('images/players/alex-buzz.jpg');background-size:cover;background-position:center top;"></div>
             <div class="player-info">
-              <h3 class="player-name">Alex Buzz</h3>
+              <h3 class="player-name"><span data-lang-en>Alex "Buzz" Bazopoulos</span><span data-lang-el>Άλεξ "Buzz" Μπαζόπουλος</span></h3>
               <p class="player-position">Lock</p>
             </div>
           </article>
 
-          <article class="player-card">
-            <div class="player-photo" style="background-image:url('images/players/vaggelis-tsakalides.jpg');background-size:cover;background-position:center top;"></div>
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
             <div class="player-info">
-              <h3 class="player-name">Vaggelis Tsakalides</h3>
-              <p class="player-position">Scrum half</p>
+              <h3 class="player-name"><span data-lang-en>Anna Baxouthianaki</span><span data-lang-el>Άννα Βαχουθιανάκη</span></h3>
+              <p class="player-position">Centre</p>
             </div>
           </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Dimitris Misirlis</span><span data-lang-el>Δημήτρης Μισιρλής</span></h3>
+              <p class="player-position">Forward</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo" style="background-image:url('images/players/giannis-geronimakis.jpg');background-size:cover;background-position:center top;"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Giannis Geronimakis</span><span data-lang-el>Γιάννης Γερωνυμάκης</span></h3>
+              <p class="player-position">Winger</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Giorgos Papadakis</span><span data-lang-el>Γιώργος Παπαδάκης</span></h3>
+              <p class="player-position">Flanker</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo" style="background-image:url('images/players/gonzalo-otero-seminario.jpg');background-size:cover;background-position:center top;"></div>
+            <div class="player-info">
+              <h3 class="player-name">Gonzalo Otero Seminario</h3>
+              <p class="player-position">Fly Half</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Ioulia P.</span><span data-lang-el>Ιουλία Π.</span></h3>
+              <p class="player-position">Back</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Lais Margiori</span><span data-lang-el>Λαις Μαργιωρή</span></h3>
+              <p class="player-position">Back</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo" style="background-image:url('images/players/manos-lantzourakis.jpg');background-size:cover;background-position:center top;"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Manos Lantzourakis</span><span data-lang-el>Μάνος Λαντζουράκης</span></h3>
+              <p class="player-position">Centre</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Maria Daskalaki</span><span data-lang-el>Μαρία Δασκαλάκη</span></h3>
+              <p class="player-position">Forward</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Marinos Tountas</span><span data-lang-el>Μαρίνος Τούντας</span></h3>
+              <p class="player-position">Prop</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name">Melanie Tiemes</h3>
+              <p class="player-position">Flanker</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="F">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name">Tatiana</h3>
+              <p class="player-position">Forward</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo player-photo--logo"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Vaggelis Merkouris</span><span data-lang-el>Βαγγέλης Μερκούρης</span></h3>
+              <p class="player-position">Flanker</p>
+            </div>
+          </article>
+
+          <article class="player-card" data-gender="M">
+            <div class="player-photo" style="background-image:url('images/players/vaggelis-tsakalides.jpg');background-size:cover;background-position:center top;"></div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>Vaggelis Tsakalides</span><span data-lang-el>Βαγγέλης Τσακαλίδης</span></h3>
+              <p class="player-position">Scrum Half</p>
+            </div>
+          </article>
+
+          <!-- Join card: clicking anywhere on it goes to the contact page -->
+          <a class="player-card player-card--join" href="contact.html">
+            <div class="player-photo player-photo--join">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+            </div>
+            <div class="player-info">
+              <h3 class="player-name"><span data-lang-en>You</span><span data-lang-el>Εσύ</span></h3>
+              <p class="player-position"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></p>
+            </div>
+          </a>
 
         </div>
       </div>
@@ -142,6 +253,7 @@
           <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
           <li><a href="history.html"><span data-lang-en>History</span><span data-lang-el>Ιστορία</span></a></li>
           <li><a href="rules.html"><span data-lang-en>Rules</span><span data-lang-el>Κανόνες</span></a></li>
+          <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
           <li><a href="contact.html"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
         </ul>
       </div>

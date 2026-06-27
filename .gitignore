@@ -5,6 +5,9 @@ photos/
 # Original player photos + info (kept locally). Web copies live in images/players/.
 Roster/
 
+# Supporter source notes (kept locally). Content lives in supporters.html.
+Supporters/
+
 # Temporary build/helper scripts
 _*.py
 
