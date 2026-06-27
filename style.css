@@ -398,6 +398,15 @@ ul { margin: 0; padding: 0; }
 }
 .gallery-item:hover img { transform: scale(1.07); }
 
+/* ---------- Featured single news item ---------- */
+.news-feature { grid-column: 1 / -1; }
+@media (min-width: 720px) {
+  .news-feature { display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch; }
+  .news-feature .news-thumb { aspect-ratio: auto; height: 100%; min-height: 300px; }
+  .news-feature .news-body { padding: clamp(1.75rem, 4vw, 2.75rem); justify-content: center; }
+}
+.news-feature .news-card h3, .news-feature h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
 /* ---------- CTA band ---------- */
 .cta-band {
   background:
