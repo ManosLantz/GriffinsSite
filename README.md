@@ -3,7 +3,7 @@
 Static website for **Griffins Rugby**, a rugby club based in Heraklion, Crete.
 Plain HTML + CSS (no frameworks), hosted on GitHub Pages.
 
-🔗 **Live site:** https://manoslantz.github.io/GriffinsSite/
+🔗 **Live site:** https://griffinsrugby.gr/
 
 ## Pages
 | File | Purpose |
