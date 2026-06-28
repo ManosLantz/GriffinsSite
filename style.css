@@ -104,13 +104,12 @@ ul { margin: 0; padding: 0; }
 .section-head p { color: var(--muted); margin-bottom: 0; }
 .section-head--center .title-rule { margin-inline: auto; }
 
-/* Kicked-ball flight arc: a dotted crimson trajectory with a small gold ball.
-   Site-wide rugby motif under every section title (replaces the old plain bar). */
 .title-rule {
-  width: 90px;
-  height: 26px;
-  margin-top: 1rem;
-  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 26'><path d='M12 18 Q 48 2 84 13' fill='none' stroke='%23C8102E' stroke-width='3' stroke-linecap='round' stroke-dasharray='0.5 7'/><g transform='rotate(-18 14 17)'><path d='M5.5 17 Q14 12 22.5 17 Q14 22 5.5 17 Z' fill='%23D4AF37'/><path d='M8.5 17 H19.5 M11.5 15.6 V18.4 M14 15.3 V18.7 M16.5 15.6 V18.4' fill='none' stroke='%237e6212' stroke-width='1' stroke-linecap='round'/></g></svg>") left center / contain no-repeat;
+  width: 70px;
+  height: 5px;
+  background: var(--primary);
+  margin-top: 1.1rem;
+  transform: skewX(-20deg);
 }
 
 .lead { font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem); color: #e9e9e9; }
@@ -629,8 +628,9 @@ ul { margin: 0; padding: 0; }
 .fact-list li::before {
   content: "";
   flex: 0 0 auto;
-  width: 17px; height: 12px; margin-top: .42rem;
-  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 14'><path d='M2 7 Q11 2 20 7 Q11 12 2 7 Z' fill='%23C8102E'/><path d='M5 7 H17 M8.5 5.7 V8.3 M11 5.4 V8.6 M13.5 5.7 V8.3' fill='none' stroke='%23ffffff' stroke-opacity='0.5' stroke-width='1' stroke-linecap='round'/></svg>") center / contain no-repeat;
+  width: 9px; height: 9px; margin-top: .55rem;
+  background: var(--primary);
+  transform: skewX(-15deg);
 }
 .scoring-table { width: 100%; border-collapse: collapse; margin-top: .75rem; }
 .scoring-table th, .scoring-table td {
