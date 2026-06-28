@@ -3,10 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0D0D0D" />
   <meta name="robots" content="noindex" />
-  <title>Griffins Rugby — Content Manager</title>
+  <title>Griffins Rugby - Content Manager</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <style>
+    /* Dark, branded placeholder so there is no white flash before the CMS loads.
+       Sveltia CMS mounts its own full-screen UI on top of this. */
+    html, body { margin: 0; height: 100%; background: #0D0D0D; }
+    .cms-loading {
+      position: fixed; inset: 0; z-index: 0;
+      display: grid; place-content: center; justify-items: center; gap: 1rem;
+      color: #fff; text-align: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      pointer-events: none;
+    }
+    .cms-loading img { width: 72px; height: auto; opacity: .95; }
+    .cms-loading p { margin: 0; letter-spacing: .04em; color: #9a9a9a; font-size: .95rem; }
+  </style>
 </head>
 <body>
+  <div class="cms-loading" aria-hidden="true">
+    <img src="../images/logo.png" alt="Griffins Rugby" width="72" height="86" />
+    <p>Φόρτωση… / Loading…</p>
+  </div>
+
   <!-- Sveltia CMS: a fast, drop-in replacement for Decap/Netlify CMS.
        It reads ./config.yml and lets editors manage data/*.json + photos
        through forms, committing straight to the GitHub repo. -->

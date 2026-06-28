@@ -19,7 +19,7 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - `gallery.html` (all photos; home shows the first 4 + a "See all photos" link here)
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
-- `style.css` (one stylesheet), `lang.js` (EN/EL toggle)
+- `style.css` (one stylesheet), `lang.js` (EN/EL toggle), `enhance.js` (optional UX: gallery lightbox + back-to-top, isolated/non-critical)
 - `data/players.json`, `data/news.json`, `data/gallery.json`, `data/supporters.json` (content data)
 - `render-players.js`, `render-news.js`, `render-gallery.js`, `render-supporters.js` (build cards from the JSON at load)
 - `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters), `.github/` (image-optimizer Action)

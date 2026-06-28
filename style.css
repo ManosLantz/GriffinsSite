@@ -832,6 +832,116 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 html[data-lang="el"] [data-lang-en] { display: none; }
 html[data-lang="el"] [data-lang-el] { display: inline; }
 
+/* ============================================================
+   POLISH: small UX + aesthetic niceties (added later)
+   ============================================================ */
+
+/* Smooth in-page scrolling, offset for the sticky header on anchor jumps */
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 90px; }
+
+/* Branded text selection + accessible keyboard focus ring */
+::selection { background: var(--primary); color: #fff; }
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Themed scrollbar */
+* { scrollbar-width: thin; scrollbar-color: var(--primary) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* Gallery photos hint they are clickable (open in lightbox) */
+.gallery-item img { cursor: zoom-in; }
+
+/* ---------- Back to top button ---------- */
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 900;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), background .2s var(--ease);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: #e11d3a; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(8, 8, 8, .94);
+  backdrop-filter: blur(2px);
+}
+.lightbox.is-open { display: flex; }
+.lightbox-figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 14px 50px rgba(0, 0, 0, .65);
+}
+.lightbox-caption { color: #d8d8d8; font-size: .9rem; text-align: center; max-width: 80vw; }
+.lightbox-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+.lightbox-btn:hover { background: var(--primary); border-color: var(--primary); }
+.lightbox-close { top: 1rem; right: 1rem; }
+.lightbox-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+@media (max-width: 560px) {
+  .lightbox-prev { left: .4rem; }
+  .lightbox-next { right: .4rem; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
 /* Keep brand + menu + language toggle tidy on small phones */
 @media (max-width: 430px) {
   .nav { gap: .55rem; }
