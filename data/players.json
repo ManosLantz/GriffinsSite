@@ -75,7 +75,9 @@
       "nameEl": "Μάνος Λαντζουράκης",
       "position": "Centre",
       "gender": "M",
-      "photo": "images/players/manos-lantzourakis.jpg"
+      "photo": "images/players/manos-lantzourakis.jpg",
+      "descriptionEn": ":)",
+      "descriptionEl": ":)"
     },
     {
       "nameEn": "Maria Daskalaki",
