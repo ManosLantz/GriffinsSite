@@ -71,39 +71,15 @@
 
     <section class="section">
       <div class="container">
-        <div class="card-grid">
-
-          <!-- Featured: field change -->
-          <article class="news-card news-feature">
-            <div class="news-thumb" style="background-image:url('images/img_9072.jpg');background-size:cover;background-position:center;"></div>
-            <div class="news-body">
-              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Announcement</span><span data-lang-el>Ανακοίνωση</span></span></p>
-              <h3><span data-lang-en>Field Change!</span><span data-lang-el>Αλλαγή γηπέδου!</span></h3>
-              <p><span data-lang-en>Sessions will be conducted at Lido Soccer every Monday and Thursday, 17:00-19:00. Same crew, new ground, come find us on the pitch.</span><span data-lang-el>Οι προπονήσεις θα γίνονται στο γήπεδο του Lido κάθε Δευτέρα και Πέμπτη, 17:00-19:00. Ίδια παρέα, νέο γήπεδο, έλα να μας βρεις.</span></p>
-            </div>
-          </article>
-
-          <!-- Recruitment -->
-          <article class="news-card">
-            <div class="news-thumb" style="background-image:url('images/img_8894.jpg');background-size:cover;background-position:center;"></div>
-            <div class="news-body">
-              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Recruitment</span><span data-lang-el>Εγγραφές</span></span></p>
-              <h3><span data-lang-en>New Players Welcome</span><span data-lang-el>Νέοι Παίκτες Ευπρόσδεκτοι</span></h3>
-              <p><span data-lang-en>No experience needed. Whether you've played before or have never held a rugby ball, come to a session and give it a go. All ages and abilities welcome.</span><span data-lang-el>Δεν χρειάζεται εμπειρία. Είτε έχεις ξαναπαίξει είτε δεν έχεις κρατήσει ποτέ μπάλα, έλα σε μια προπόνηση και δοκίμασε. Όλες οι ηλικίες και τα επίπεδα ευπρόσδεκτα.</span></p>
-              <a class="read-more" href="contact.html"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></a>
-            </div>
-          </article>
-
-          <!-- Welcome to the new site -->
-          <article class="news-card">
-            <div class="news-thumb" style="background-image:url('images/img_8921.jpg');background-size:cover;background-position:center;"></div>
-            <div class="news-body">
-              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Club</span><span data-lang-el>Σύλλογος</span></span></p>
-              <h3><span data-lang-en>Our New Website Is Live</span><span data-lang-el>Το Νέο μας Website</span></h3>
-              <p><span data-lang-en>Welcome to griffinsrugby.gr. Here you'll find our roster, training times, the story and rules of rugby, and everything you need to come and play with us in Heraklion.</span><span data-lang-el>Καλώς ήρθες στο griffinsrugby.gr. Εδώ θα βρεις την ομάδα μας, τις ώρες προπόνησης, την ιστορία και τους κανόνες του ράγκμπι, και όλα όσα χρειάζεσαι για να έρθεις να παίξεις μαζί μας στο Ηράκλειο.</span></p>
-            </div>
-          </article>
-
+        <!-- News cards are injected by render-news.js from data/news.json
+             (array order = newest first; the first item is the big feature).
+             Edit the data, not this markup; later the captain edits via /admin. -->
+        <div class="card-grid" id="news-grid">
+          <noscript>
+            <p style="grid-column:1/-1;color:var(--muted);text-align:center;">
+              <span data-lang-en>Enable JavaScript to read our news, or follow us on </span><span data-lang-el>Ενεργοποίησε τη JavaScript για να δεις τα νέα μας, ή ακολούθησέ μας στο </span><a href="https://www.instagram.com/griffins_heraklion_rugby/" target="_blank" rel="noopener noreferrer">Instagram</a>.
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -162,6 +138,7 @@
     </div>
   </footer>
 
+  <script src="render-news.js" defer></script>
   <script src="lang.js" defer></script>
 </body>
 </html>

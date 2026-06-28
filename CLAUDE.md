@@ -14,12 +14,29 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 ## Pages & files
 - `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, photo gallery, CTA)
 - `roster.html` (players), `supporters.html`
-- `rugby.html` (merged: short history of rugby + basic rules of Union vs League. Replaced the old `history.html` + `rules.html`, which were deleted.)
+- `rugby.html` (merged: short history of rugby + basic rules of Union vs League. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
 - `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle)
+- `data/players.json`, `data/news.json`, `data/gallery.json` (content data)
+- `render-players.js`, `render-news.js`, `render-gallery.js` (build cards from the JSON at load)
 - `sitemap.xml`, `robots.txt`
+
+## Content data (rendered client-side, CMS-ready)
+- Roster, news, and the home gallery are **no longer hardcoded** in HTML. They live in `data/*.json`
+  and are rendered at page load by the `render-*.js` scripts, which rebuild the exact same card
+  markup (same classes + EN/EL spans), so CSS and the language toggle are unaffected.
+  - `players.json`: array; each `{nameEn,nameEl,position,gender,photo}`. Renderer sorts by English
+    name and keeps the static "You/Εσύ" join card last. Empty `nameEl` (or equal to `nameEn`) =>
+    plain text, no spans (e.g. Latin-only names). Empty `photo` => crest placeholder.
+  - `news.json`: array, **newest first**; item 0 is the big feature on `news.html` AND the home teaser.
+    Each `{categoryEn/El,titleEn/El,bodyEn/El,image,linkHref,linkEn/El}` (link optional).
+  - `gallery.json`: array; each `{image,alt,width,height}`.
+- This is the data layer for the planned **Sveltia CMS** (`/admin`) so a non-technical captain can
+  edit players/news/photos via forms. See memory `cms-plan`. To add content now, edit the JSON.
+- **Local preview now needs a server** (`python -m http.server`), not double-clicking the file:
+  `fetch()` of the JSON is blocked under `file://`. On GitHub Pages (https) it works normally.
 
 ## CONVENTIONS — follow these exactly
 - **Bilingual text:** every visible string is two spans:
@@ -50,8 +67,9 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - Card: `<article class="player-card" data-gender="M|F">` → photo (or `player-photo--logo`) + bilingual name + English position.
 - `data-gender` is stored but **NOT** used for grouping (owner may use it later).
 - Last card is the **"You / Εσύ"** join card: `<a class="player-card player-card--join" href="contact.html">`.
-- Owner adds players as `Roster/<Name>/info.txt` (Greek Name, English Name, Position, Gender) + optional photo;
-  insert each card **alphabetically by English name**, before the You card.
+- To add a player: add an object to `data/players.json` (the renderer auto-sorts by English name and
+  keeps the You card last, so order in the file doesn't matter). Owner still keeps source material as
+  `Roster/<Name>/info.txt` (Greek Name, English Name, Position, Gender) + optional photo locally.
 - **Players still needing real photos:** Aggeliki Plevritaki, Anna Baxouthianaki, Dimitris Misirlis,
   Giorgos Papadakis, Ioulia P., Kostas Xristakis, Lais Margiori, Maria Daskalaki, Marinos Tountas,
   Melanie Tiemes, Oguz Baskaya, Tatiana, Vaggelis Merkouris.

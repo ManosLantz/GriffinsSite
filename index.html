@@ -161,17 +161,8 @@
           <div class="title-rule"></div>
         </div>
 
-        <!-- Single featured update. To add more, switch back to multiple .news-card items (remove .news-feature). -->
-        <div class="card-grid">
-          <article class="news-card news-feature">
-            <div class="news-thumb" style="background-image:url('images/img_9072.jpg');background-size:cover;background-position:center;"></div>
-            <div class="news-body">
-              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Announcement</span><span data-lang-el>Ανακοίνωση</span></span></p>
-              <h3><span data-lang-en>Field Change!</span><span data-lang-el>Αλλαγή γηπέδου!</span></h3>
-              <p><span data-lang-en>Sessions will be conducted at Lido soccer every Monday and Thursday 17:00-19:00.</span><span data-lang-el>Οι προπονήσεις θα γίνονται Δευτέρα Πέμπτη 17:00-19:00 στο γήπεδο του lido.</span></p>
-            </div>
-          </article>
-        </div>
+        <!-- Latest item is injected by render-news.js (the first item in data/news.json). -->
+        <div class="card-grid" id="home-news"></div>
         <div style="text-align:center;margin-top:1.75rem;">
           <a class="btn btn-outline" href="news.html"><span data-lang-en>See all news</span><span data-lang-el>Όλα τα νέα</span></a>
         </div>
@@ -186,14 +177,8 @@
           <h2 class="section-title"><span data-lang-en>Life at the Club</span><span data-lang-el>Η Ζωή στον Σύλλογο</span></h2>
           <div class="title-rule"></div>
         </div>
-        <div class="gallery-grid">
-          <figure class="gallery-item"><img src="images/img_8912.jpg" alt="Griffins Rugby players training at Lido Soccer" width="854" height="1280" loading="lazy"></figure>
-          <figure class="gallery-item"><img src="images/img_8913.jpg" alt="Griffins Rugby training session in Heraklion" width="854" height="1280" loading="lazy"></figure>
-          <figure class="gallery-item"><img src="images/img_8922.jpg" alt="Griffins Rugby squad in action" width="854" height="1280" loading="lazy"></figure>
-          <figure class="gallery-item"><img src="images/img_8906.jpg" alt="Griffins Rugby players at training in Heraklion" width="854" height="1280" loading="lazy"></figure>
-          <figure class="gallery-item"><img src="images/img_8921.jpg" alt="Griffins Rugby teammates on the pitch" width="854" height="1280" loading="lazy"></figure>
-          <figure class="gallery-item"><img src="images/img_8894.jpg" alt="Griffins Rugby squad together at Lido Soccer" width="1280" height="854" loading="lazy"></figure>
-        </div>
+        <!-- Photos are injected by render-gallery.js from data/gallery.json. -->
+        <div class="gallery-grid" id="gallery-grid"></div>
       </div>
     </section>
 
@@ -251,6 +236,8 @@
     </div>
   </footer>
 
+  <script src="render-news.js" defer></script>
+  <script src="render-gallery.js" defer></script>
   <script src="lang.js" defer></script>
 </body>
 </html>
