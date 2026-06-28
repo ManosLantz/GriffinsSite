@@ -934,6 +934,56 @@ html { scroll-behavior: smooth; }
   .lightbox-next { right: .4rem; }
 }
 
+/* ---------- Fixtures & Results ---------- */
+.fixtures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+.fixtures-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  padding: 1.5rem 0;
+}
+.fixture-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.3rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.fixture-card--win { border-top-color: var(--accent); }
+.fixture-card--loss { border-top-color: #555; }
+.fixture-meta {
+  display: flex; justify-content: space-between; gap: .5rem;
+  font-family: var(--ff-head); font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted);
+}
+.fixture-comp { color: var(--primary); font-weight: 800; }
+.fixture-teams { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.fixture-team {
+  flex: 1; min-width: 0;
+  font-family: var(--ff-head); font-weight: 800; text-transform: uppercase; font-size: 1rem;
+  color: var(--muted);
+}
+.fixture-team:last-child { text-align: right; }
+.fixture-team.is-griffins { color: #fff; }
+.fixture-score { font-family: var(--ff-head); font-weight: 900; font-size: 1.4rem; color: var(--accent); white-space: nowrap; }
+.fixture-vs { font-family: var(--ff-head); font-weight: 700; font-size: .8rem; color: var(--muted); }
+.fixture-tag {
+  align-self: flex-start;
+  font-family: var(--ff-head); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .08em; font-size: .7rem;
+  padding: .2rem .6rem; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--muted);
+}
+.fixture-card--upcoming .fixture-tag { color: var(--primary); border-color: rgba(200,16,46,.4); background: rgba(200,16,46,.08); }
+.fixture-card--win .fixture-tag { color: var(--accent); border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.08); }
+
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

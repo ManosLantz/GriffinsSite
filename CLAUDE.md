@@ -20,9 +20,9 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle), `enhance.js` (optional UX: gallery lightbox + back-to-top, isolated/non-critical)
-- `data/players.json`, `data/news.json`, `data/gallery.json`, `data/supporters.json` (content data)
-- `render-players.js`, `render-news.js`, `render-gallery.js`, `render-supporters.js` (build cards from the JSON at load)
-- `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters), `.github/` (image-optimizer Action)
+- `data/*.json` content/config: `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
+- `render-*.js` (build from the JSON at load): `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
+- `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters, Fixtures, Settings), `.github/` (image-optimizer Action)
 - `sitemap.xml`, `robots.txt`
 
 ## Content data (rendered client-side, edited via the CMS)
@@ -39,6 +39,13 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   - `gallery.json` (`{photos:[...]}`): each `{image,alt,width,height}`. The home `#gallery-grid` has
     `data-limit="4"` (shows first 4 + "See all photos"); `gallery.html` shows all.
   - `supporters.json` (`{supporters:[...]}`): each `{name,roleEn/El,textEn/El}` (heart icon is fixed in JS).
+  - `fixtures.json` (`{fixtures:[...]}`): each `{opponent,dateText,homeAway,competition,played,scoreUs,scoreThem}`.
+    Rendered into the home "Fixtures & Results" section; empty list shows a "coming soon" note.
+  - `settings.json`: single object of site-wide facts (venue, area En/El, days short/long En/El, time,
+    mapsUrl, social URLs, email, phone). `render-settings.js` fills **language-aware placeholders**
+    (`.js-venue` neutral, `.js-area`/`.js-daysShort`/`.js-daysLong` by EN/EL context, `.js-time` neutral)
+    in the footer (every page), home training card, and contact page, plus social hrefs (matched by URL)
+    and `.js-maps`. HTML keeps current values as static fallback. So training venue/time changes in ONE place.
 - Editing: the **Sveltia CMS** at `/admin` (GitHub login via a Cloudflare auth Worker) gives the captain
   forms for Players / News / Gallery / Supporters with photo upload. Config: `admin/config.yml` (bilingual
   labels + per-field hints). See memory `cms-plan`. To edit by hand instead, change the JSON directly.

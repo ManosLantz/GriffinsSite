@@ -132,6 +132,37 @@ collections:
               - { name: textEn, label: "Ευχαριστίες στα Αγγλικά / Thank-you (English)", widget: text, required: false, hint: "Μια σύντομη ευχαριστία στα Αγγλικά." }
               - { name: textEl, label: "Ευχαριστίες στα Ελληνικά / Thank-you (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }
 
+  # ---------------- FIXTURES & RESULTS ----------------
+  - name: fixtures
+    label: "🏉 Αγώνες / Fixtures"
+    delete: false
+    files:
+      - name: fixtures
+        label: "Αγώνες & Αποτελέσματα / Fixtures & Results"
+        file: "data/fixtures.json"
+        description: "Επόμενοι αγώνες και αποτελέσματα. Βάλε τον επόμενο ή πιο πρόσφατο πάνω-πάνω. / Upcoming matches and results; put the next or most recent at the top."
+        fields:
+          - name: fixtures
+            label: "Αγώνες / Matches"
+            label_singular: "Αγώνα / Match"
+            widget: list
+            collapsed: true
+            summary: "{{fields.opponent}}  {{fields.dateText}}"
+            fields:
+              - { name: opponent, label: "Αντίπαλος / Opponent", widget: string, hint: "Το όνομα της αντίπαλης ομάδας. Π.χ. Chania Rugby" }
+              - { name: dateText, label: "Ημερομηνία / Date", widget: string, required: false, hint: "Ελεύθερο κείμενο. Π.χ. Σάβ 12 Οκτ, 15:00 ή Sat 12 Oct" }
+              - name: homeAway
+                label: "Έδρα / Home or Away"
+                widget: select
+                default: "home"
+                options:
+                  - { label: "Εντός έδρας / Home", value: "home" }
+                  - { label: "Εκτός έδρας / Away", value: "away" }
+              - { name: competition, label: "Διοργάνωση / Competition", widget: string, required: false, hint: "Προαιρετικό. Π.χ. Φιλικό / Friendly, League" }
+              - { name: played, label: "Έχει παιχτεί; / Played?", widget: boolean, default: false, hint: "Άναψέ το όταν τελειώσει ο αγώνας και συμπλήρωσε το σκορ." }
+              - { name: scoreUs, label: "Σκορ Griffins / Griffins score", widget: number, required: false, value_type: int, hint: "Μόνο αν έχει παιχτεί." }
+              - { name: scoreThem, label: "Σκορ αντιπάλου / Opponent score", widget: number, required: false, value_type: int, hint: "Μόνο αν έχει παιχτεί." }
+
   # ---------------- SETTINGS (one place, updates the whole site) ----------------
   - name: settings
     label: "⚙️ Ρυθμίσεις / Settings"
