@@ -1,16 +1,17 @@
-# Griffins Rugby - Sveltia CMS configuration.
-# Sveltia CMS is a drop-in replacement for Decap/Netlify CMS and uses this same file format.
-#
-# >>> ONE THING TO SET: replace base_url below with your Cloudflare auth Worker URL <<<
-#     (the worker from https://github.com/sveltia/sveltia-cms-auth, e.g.
-#      https://sveltia-cms-auth.your-subdomain.workers.dev). Manos: send me the URL
-#      and I will drop it in, or just edit this one line.
+# Griffins Rugby - Sveltia CMS configuration (drop-in for Decap/Netlify CMS).
+# Labels are bilingual (Greek / English) and every field has an explicit hint
+# telling the editor exactly what to write.
 
 backend:
   name: github
-  repo: ManosLantz/GriffinsSite      # owner/repo on GitHub
+  repo: ManosLantz/GriffinsSite
   branch: main
   base_url: https://sveltia-cms-auth.manosmanos256.workers.dev
+
+# Branding + handy links on the login/editor screens.
+logo_url: https://griffinsrugby.gr/images/logo.png
+site_url: https://griffinsrugby.gr
+display_url: https://griffinsrugby.gr
 
 # Where uploaded images are stored in the repo (overridden per-field where needed).
 media_folder: "images"
@@ -21,68 +22,87 @@ locale: en
 collections:
   # ---------------- PLAYERS ----------------
   - name: roster
-    label: "Players"
+    label: "Παίκτες / Players"
     delete: false
     files:
       - name: players
-        label: "Roster"
+        label: "Ρόστερ / Roster"
         file: "data/players.json"
-        description: "Add, edit or remove players. They sort automatically by English name on the site, and the 'You / Εσύ' join card always stays last."
+        description: "Πρόσθεσε, άλλαξε ή σβήσε παίκτες. Ταξινομούνται μόνα τους αλφαβητικά με το αγγλικό όνομα και η κάρτα 'You / Εσύ' μένει πάντα τελευταία. / Add, edit or remove players; they auto-sort and the join card stays last."
         fields:
           - name: players
-            label: "Players"
-            label_singular: "Player"
+            label: "Παίκτες / Players"
+            label_singular: "Παίκτη / Player"
             widget: list
+            collapsed: true
             summary: "{{fields.nameEn}} ({{fields.position}})"
             fields:
-              - { name: nameEn, label: "Name (English)", widget: string }
-              - { name: nameEl, label: "Name (Greek)", widget: string, required: false, hint: "Leave blank if it is written the same as English (e.g. Latin names)." }
-              - { name: position, label: "Position", widget: string, hint: "In English for both languages: Prop, Hooker, Lock, Flanker, Number 8, Scrum Half, Fly Half, Centre, Winger, Full Back, Back, Forward." }
-              - { name: gender, label: "Gender", widget: select, options: [ { label: "Male", value: "M" }, { label: "Female", value: "F" } ] }
-              - { name: photo, label: "Photo", widget: image, required: false, media_folder: "/images/players", public_folder: "images/players", hint: "Optional. If left empty, the club crest is shown instead." }
+              - { name: nameEn, label: "Όνομα στα Αγγλικά / Name (English)", widget: string, hint: "Ονοματεπώνυμο με λατινικούς χαρακτήρες. Π.χ. Giannis Geronimakis" }
+              - { name: nameEl, label: "Όνομα στα Ελληνικά / Name (Greek)", widget: string, required: false, hint: "Το ίδιο όνομα στα ελληνικά. Π.χ. Γιάννης Γερωνυμάκης. Άφησέ το κενό αν γράφεται το ίδιο και στις δύο γλώσσες (ξένα ονόματα)." }
+              - name: position
+                label: "Θέση / Position"
+                widget: select
+                hint: "Διάλεξε θέση. Μένει στα Αγγλικά και στις δύο γλώσσες."
+                options: ["Prop", "Hooker", "Lock", "Flanker", "Number 8", "Scrum Half", "Fly Half", "Centre", "Winger", "Full Back", "Back", "Forward"]
+              - name: gender
+                label: "Φύλο / Gender"
+                widget: select
+                hint: "Δεν φαίνεται στην ιστοσελίδα, μόνο για εσωτερική χρήση."
+                options:
+                  - { label: "Άντρας / Male", value: "M" }
+                  - { label: "Γυναίκα / Female", value: "F" }
+              - name: photo
+                label: "Φωτογραφία / Photo"
+                widget: image
+                required: false
+                media_folder: "/images/players"
+                public_folder: "images/players"
+                hint: "Προαιρετικό. Καθαρή ΚΑΘΕΤΗ φωτογραφία προσώπου (όρθια). Αν δεν βάλεις, δείχνει το σήμα της ομάδας."
 
   # ---------------- NEWS ----------------
   - name: news
-    label: "News"
+    label: "Νέα / News"
     delete: false
     files:
       - name: items
-        label: "News items"
+        label: "Νέα / News items"
         file: "data/news.json"
-        description: "Newest first: the item at the top is shown big (featured) on the News page and as the teaser on the home page."
+        description: "Το ΠΡΩΤΟ στη λίστα (πιο πάνω) είναι το βασικό: δείχνει μεγάλο στη σελίδα News και στην αρχική. Σύρε για αναδιάταξη. / The top item is featured on the News page and the home page."
         fields:
           - name: items
-            label: "News items"
-            label_singular: "News item"
+            label: "Νέα / News items"
+            label_singular: "Νέο / News item"
             widget: list
+            collapsed: true
             summary: "{{fields.titleEn}}"
             fields:
-              - { name: categoryEn, label: "Category (English)", widget: string, hint: "e.g. Announcement, Recruitment, Match, Club" }
-              - { name: categoryEl, label: "Category (Greek)", widget: string, required: false }
-              - { name: titleEn, label: "Title (English)", widget: string }
-              - { name: titleEl, label: "Title (Greek)", widget: string, required: false }
-              - { name: bodyEn, label: "Text (English)", widget: text }
-              - { name: bodyEl, label: "Text (Greek)", widget: text, required: false }
-              - { name: image, label: "Photo", widget: image, required: false }
-              - { name: linkHref, label: "Button link (optional)", widget: string, required: false, hint: "e.g. contact.html . Leave blank for no button." }
-              - { name: linkEn, label: "Button text (English)", widget: string, required: false }
-              - { name: linkEl, label: "Button text (Greek)", widget: string, required: false }
+              - { name: categoryEn, label: "Κατηγορία στα Αγγλικά / Category (English)", widget: string, hint: "Μικρή ετικέτα στα Αγγλικά. Π.χ. Announcement, Recruitment, Match, Club" }
+              - { name: categoryEl, label: "Κατηγορία στα Ελληνικά / Category (Greek)", widget: string, required: false, hint: "Η ίδια ετικέτα στα Ελληνικά. Π.χ. Ανακοίνωση, Εγγραφές, Αγώνας, Σύλλογος" }
+              - { name: titleEn, label: "Τίτλος στα Αγγλικά / Title (English)", widget: string, hint: "Σύντομος τίτλος στα Αγγλικά. Π.χ. Field Change!" }
+              - { name: titleEl, label: "Τίτλος στα Ελληνικά / Title (Greek)", widget: string, required: false, hint: "Ο ίδιος τίτλος στα Ελληνικά. Π.χ. Αλλαγή γηπέδου!" }
+              - { name: bodyEn, label: "Κείμενο στα Αγγλικά / Text (English)", widget: text, hint: "2-3 προτάσεις στα Αγγλικά. ΧΩΡΙΣ παύλες (—), βάλε κόμμα." }
+              - { name: bodyEl, label: "Κείμενο στα Ελληνικά / Text (Greek)", widget: text, required: false, hint: "Το ίδιο κείμενο στα Ελληνικά. ΧΩΡΙΣ παύλες (—)." }
+              - { name: image, label: "Φωτογραφία / Photo", widget: image, required: false, hint: "Ανέβασε μια ΟΡΙΖΟΝΤΙΑ (landscape) φωτογραφία για το νέο." }
+              - { name: linkHref, label: "Κουμπί: σύνδεσμος / Button link", widget: string, required: false, hint: "ΠΡΟΑΙΡΕΤΙΚΟ. Πού πάει το κουμπί, π.χ. contact.html. Άφησέ το κενό αν δεν θες κουμπί." }
+              - { name: linkEn, label: "Κουμπί: κείμενο στα Αγγλικά / Button text (English)", widget: string, required: false, hint: "Μόνο αν έβαλες σύνδεσμο. Π.χ. Join the squad" }
+              - { name: linkEl, label: "Κουμπί: κείμενο στα Ελληνικά / Button text (Greek)", widget: string, required: false, hint: "Μόνο αν έβαλες σύνδεσμο. Π.χ. Έλα στην ομάδα" }
 
   # ---------------- GALLERY ----------------
   - name: gallery
-    label: "Gallery"
+    label: "Φωτογραφίες / Gallery"
     delete: false
     files:
       - name: photos
-        label: "Home gallery"
+        label: "Gallery αρχικής / Home gallery"
         file: "data/gallery.json"
-        description: "Photos shown in the 'Life at the Club' gallery on the home page."
+        description: "Οι φωτογραφίες στην ενότητα 'Η Ζωή στον Σύλλογο / Life at the Club' της αρχικής σελίδας. / Photos in the home page gallery."
         fields:
           - name: photos
-            label: "Photos"
-            label_singular: "Photo"
+            label: "Φωτογραφίες / Photos"
+            label_singular: "Φωτογραφία / Photo"
             widget: list
+            collapsed: true
             summary: "{{fields.alt}}"
             fields:
-              - { name: image, label: "Photo", widget: image }
-              - { name: alt, label: "Description", widget: string, hint: "A short description of the photo, used for accessibility and SEO." }
+              - { name: image, label: "Φωτογραφία / Photo", widget: image, hint: "Ανέβασε φωτογραφία από προπόνηση ή αγώνα." }
+              - { name: alt, label: "Περιγραφή / Description", widget: string, hint: "Σύντομη περιγραφή στα Αγγλικά (για προσβασιμότητα και SEO). Π.χ. Griffins players training at Lido" }
