@@ -187,6 +187,41 @@
       </div>
     </section>
 
+    <!-- ===================== ANIMATED PASS ===================== -->
+    <section class="section pass-band" aria-hidden="true">
+      <div class="container">
+        <svg class="pass-svg" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="passBallGrad" gradientUnits="userSpaceOnUse" x1="-20" y1="-12" x2="20" y2="12">
+              <stop offset="0" stop-color="#f1d584"/><stop offset="1" stop-color="#b58c1c"/>
+            </linearGradient>
+            <g id="passBallShape">
+              <ellipse cx="0" cy="0" rx="20" ry="12" fill="url(#passBallGrad)" stroke="#7e6212" stroke-width="2"/>
+              <path d="M0 -9 V9" fill="none" stroke="#7e6212" stroke-width="2" stroke-linecap="round"/>
+              <path d="M-7 -4 H7 M-7 0 H7 M-7 4 H7" fill="none" stroke="#7e6212" stroke-width="1.6" stroke-linecap="round"/>
+            </g>
+          </defs>
+
+          <!-- two simple player silhouettes (passer and receiver) -->
+          <g fill="#C8102E" opacity="0.8">
+            <g transform="translate(80 168)"><circle cx="0" cy="-78" r="12"/><rect x="-11" y="-64" width="22" height="64" rx="11"/></g>
+            <g transform="translate(1120 168)"><circle cx="0" cy="-78" r="12"/><rect x="-11" y="-64" width="22" height="64" rx="11"/></g>
+          </g>
+
+          <!-- pass trajectory -->
+          <path id="passPath" d="M104 96 Q 600 6 1096 96" fill="none" stroke="#C8102E" stroke-width="3" stroke-dasharray="0.5 11" stroke-linecap="round" opacity="0.4"/>
+
+          <!-- ball arcs along the trajectory, pauses on the catch, loops -->
+          <g>
+            <use href="#passBallShape"/>
+            <animateMotion dur="4s" repeatCount="indefinite" rotate="auto" calcMode="linear" keyPoints="0;1;1" keyTimes="0;0.78;1">
+              <mpath href="#passPath"/>
+            </animateMotion>
+          </g>
+        </svg>
+      </div>
+    </section>
+
     <!-- ===================== CTA BAND ===================== -->
     <section class="section cta-band">
       <div class="container">

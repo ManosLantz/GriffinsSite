@@ -99,8 +99,18 @@
     });
   }
 
+  /* ---------------- Reduced-motion: pause SVG (SMIL) animations ---------------- */
+  function respectReducedMotion() {
+    if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var svgs = document.querySelectorAll('svg');
+    for (var i = 0; i < svgs.length; i++) {
+      if (typeof svgs[i].pauseAnimations === 'function') svgs[i].pauseAnimations();
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     try { initBackToTop(); } catch (e) { /* non-critical */ }
     try { initLightbox(); } catch (e) { /* non-critical */ }
+    try { respectReducedMotion(); } catch (e) { /* non-critical */ }
   });
 })();

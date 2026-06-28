@@ -933,6 +933,20 @@ html { scroll-behavior: smooth; }
   .lightbox-next { right: .4rem; }
 }
 
+/* ---------- Animated "pass" band ---------- */
+.pass-band {
+  padding: 2rem 0 1.6rem;
+  overflow: hidden;
+  background: radial-gradient(70% 95% at 50% 38%, rgba(200, 16, 46, .08), transparent 70%);
+}
+.pass-svg {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
