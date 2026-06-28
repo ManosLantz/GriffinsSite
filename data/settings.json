@@ -11,5 +11,14 @@
   "instagramUrl": "https://www.instagram.com/griffins_heraklion_rugby/",
   "facebookUrl": "https://www.facebook.com/heraklion.rugby/",
   "email": "",
-  "phones": []
+  "phones": [
+    {
+      "number": "+306972777024",
+      "viber": true
+    },
+    {
+      "number": "694 2205747",
+      "viber": false
+    }
+  ]
 }
