@@ -188,6 +188,223 @@
       </div>
     </section>
 
+    <!-- ===================== PITCH MAP ===================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span data-lang-en>Find your spot</span><span data-lang-el>Βρες τη θέση σου</span></span>
+          <h2 class="section-title"><span data-lang-en>Positions on the Pitch</span><span data-lang-el>Θέσεις στο Γήπεδο</span></h2>
+          <div class="title-rule"></div>
+          <p style="color:var(--muted);max-width:58ch;margin:1rem auto 0;"><span data-lang-en>Rugby has a place for every shape and size. Tap a number to see what each position does.</span><span data-lang-el>Το ράγκμπι έχει θέση για κάθε σωματότυπο. Πάτα έναν αριθμό για να δεις τι κάνει η κάθε θέση.</span></p>
+        </div>
+
+        <div class="pitch-layout">
+          <div class="pitch-frame">
+            <svg id="pitch-map" class="pitch-svg" viewBox="0 0 1000 600" role="group" aria-label="Rugby positions map" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#ffffff" stroke-opacity="0.32" stroke-width="2" fill="none">
+                <rect x="6" y="6" width="988" height="588" rx="6"/>
+                <line x1="70" y1="6" x2="70" y2="594"/>
+                <line x1="930" y1="6" x2="930" y2="594"/>
+                <line x1="200" y1="6" x2="200" y2="594" stroke-dasharray="6 10"/>
+                <line x1="800" y1="6" x2="800" y2="594" stroke-dasharray="6 10"/>
+                <line x1="500" y1="6" x2="500" y2="594"/>
+              </g>
+              <g stroke="#ffffff" stroke-opacity="0.4" stroke-width="3" fill="none" stroke-linecap="round">
+                <path d="M70 250 V350 M62 270 H78"/>
+                <path d="M930 250 V350 M922 270 H938"/>
+              </g>
+              <g class="pos-marker" data-pos="1" transform="translate(110 200)" role="button" tabindex="0" aria-label="Number 1, Loosehead Prop"><circle r="24"/><text>1</text></g>
+              <g class="pos-marker" data-pos="2" transform="translate(110 300)" role="button" tabindex="0" aria-label="Number 2, Hooker"><circle r="24"/><text>2</text></g>
+              <g class="pos-marker" data-pos="3" transform="translate(110 400)" role="button" tabindex="0" aria-label="Number 3, Tighthead Prop"><circle r="24"/><text>3</text></g>
+              <g class="pos-marker" data-pos="lock" transform="translate(190 250)" role="button" tabindex="0" aria-label="Number 4, Lock"><circle r="24"/><text>4</text></g>
+              <g class="pos-marker" data-pos="lock" transform="translate(190 350)" role="button" tabindex="0" aria-label="Number 5, Lock"><circle r="24"/><text>5</text></g>
+              <g class="pos-marker" data-pos="6" transform="translate(278 190)" role="button" tabindex="0" aria-label="Number 6, Blindside Flanker"><circle r="24"/><text>6</text></g>
+              <g class="pos-marker" data-pos="8" transform="translate(278 300)" role="button" tabindex="0" aria-label="Number 8"><circle r="24"/><text>8</text></g>
+              <g class="pos-marker" data-pos="7" transform="translate(278 410)" role="button" tabindex="0" aria-label="Number 7, Openside Flanker"><circle r="24"/><text>7</text></g>
+              <g class="pos-marker" data-pos="9" transform="translate(372 305)" role="button" tabindex="0" aria-label="Number 9, Scrum-half"><circle r="24"/><text>9</text></g>
+              <g class="pos-marker" data-pos="10" transform="translate(458 300)" role="button" tabindex="0" aria-label="Number 10, Fly-half"><circle r="24"/><text>10</text></g>
+              <g class="pos-marker" data-pos="12" transform="translate(560 250)" role="button" tabindex="0" aria-label="Number 12, Inside Centre"><circle r="24"/><text>12</text></g>
+              <g class="pos-marker" data-pos="13" transform="translate(660 215)" role="button" tabindex="0" aria-label="Number 13, Outside Centre"><circle r="24"/><text>13</text></g>
+              <g class="pos-marker" data-pos="wing" transform="translate(605 455)" role="button" tabindex="0" aria-label="Number 11, Wing"><circle r="24"/><text>11</text></g>
+              <g class="pos-marker" data-pos="wing" transform="translate(835 165)" role="button" tabindex="0" aria-label="Number 14, Wing"><circle r="24"/><text>14</text></g>
+              <g class="pos-marker" data-pos="15" transform="translate(858 360)" role="button" tabindex="0" aria-label="Number 15, Fullback"><circle r="24"/><text>15</text></g>
+            </svg>
+          </div>
+
+          <div class="pos-panel" aria-live="polite">
+            <div class="pos-detail" data-pos="1" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">1</span><h3 class="pos-detail-name">Loosehead Prop</h3></div>
+              <p class="pos-unit">Front Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Strong and stocky, with powerful legs and a big upper body.</span><span data-lang-el>Δυνατός και γεροδεμένος, με δυνατά πόδια και γερό πάνω μέρος.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Scrummaging, lifting in the lineout, and carrying in close.</span><span data-lang-el>Σκραμ, σήκωμα στο lineout και κουβάλημα της μπάλας σε κοντινό χώρο.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="2" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">2</span><h3 class="pos-detail-name">Hooker</h3></div>
+              <p class="pos-unit">Front Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Compact and strong, quick for a forward.</span><span data-lang-el>Συμπαγής και δυνατός, γρήγορος για προωθητικός.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Hooks the ball in the scrum, throws into the lineout, busy all over the field.</span><span data-lang-el>Κερδίζει την μπάλα στο σκραμ, ρίχνει στο lineout, παντού στο γήπεδο.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="3" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">3</span><h3 class="pos-detail-name">Tighthead Prop</h3></div>
+              <p class="pos-unit">Front Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>The heaviest, most powerful frame, very stable.</span><span data-lang-el>Ο πιο βαρύς και δυνατός σωματότυπος, πολύ σταθερός.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>The anchor of the scrum, immovable in contact.</span><span data-lang-el>Η άγκυρα του σκραμ, ακλόνητος στη μονομαχία.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="lock" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">4 &middot; 5</span><h3 class="pos-detail-name">Lock</h3></div>
+              <p class="pos-unit">Second Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Tall and rangy, the engine room of the pack.</span><span data-lang-el>Ψηλός και μακρύς, η μηχανή του πακέτου.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Winning lineouts, pushing in the scrum, endless work in contact.</span><span data-lang-el>Κερδίζει lineouts, σπρώχνει στο σκραμ, ασταμάτητη δουλειά στη μονομαχία.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="6" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">6</span><h3 class="pos-detail-name">Blindside Flanker</h3></div>
+              <p class="pos-unit">Back Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Tall, strong and athletic.</span><span data-lang-el>Ψηλός, δυνατός και αθλητικός.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Big tackles, power at the breakdown, work in the lineout.</span><span data-lang-el>Δυνατά τάκλιν, ισχύς στο breakdown, δουλειά στο lineout.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="7" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">7</span><h3 class="pos-detail-name">Openside Flanker</h3></div>
+              <p class="pos-unit">Back Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Quick, mobile and incredibly fit.</span><span data-lang-el>Γρήγορος, ευκίνητος και με τεράστια αντοχή.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>First to every breakdown, winning turnovers, tackling all day.</span><span data-lang-el>Πρώτος σε κάθε breakdown, κλέβει μπάλες, τακλάρει ασταμάτητα.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="8" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">8</span><h3 class="pos-detail-name">Number 8</h3></div>
+              <p class="pos-unit">Back Row</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Big, athletic and powerful.</span><span data-lang-el>Μεγαλόσωμος, αθλητικός και δυνατός.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Carrying from the base of the scrum, linking play, power runs.</span><span data-lang-el>Κουβαλάει από τη βάση του σκραμ, συνδέει το παιχνίδι, δυνατά τρεξίματα.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="9" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">9</span><h3 class="pos-detail-name">Scrum-half</h3></div>
+              <p class="pos-unit">Half Backs</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Usually smaller, quick and agile.</span><span data-lang-el>Συνήθως πιο μικρόσωμος, γρήγορος και ευκίνητος.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Fast, accurate passing, links forwards and backs, the on-field organiser.</span><span data-lang-el>Γρήγορη, ακριβής πάσα, συνδέει προωθητικούς και μπακ, οργανωτής στο γήπεδο.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="10">
+              <div class="pos-detail-head"><span class="pos-detail-num">10</span><h3 class="pos-detail-name">Fly-half</h3></div>
+              <p class="pos-unit">Half Backs</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Agile and balanced, calm under pressure.</span><span data-lang-el>Ευκίνητος και ισορροπημένος, ψύχραιμος υπό πίεση.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>The playmaker: kicking, passing and deciding where the team attacks.</span><span data-lang-el>Ο εγκέφαλος: κλωτσιές, πάσες και αποφάσεις για το πού επιτίθεται η ομάδα.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="12" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">12</span><h3 class="pos-detail-name">Inside Centre</h3></div>
+              <p class="pos-unit">Centres</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Strong and powerful, a real runner.</span><span data-lang-el>Δυνατός και ισχυρός, πραγματικός «κριάρι».</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Crashing the line, distributing, and big defence in midfield.</span><span data-lang-el>Σπάει την άμυνα, μοιράζει μπάλες και αμύνεται δυνατά στο κέντρο.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="13" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">13</span><h3 class="pos-detail-name">Outside Centre</h3></div>
+              <p class="pos-unit">Centres</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Fast and strong, with sharp footwork.</span><span data-lang-el>Γρήγορος και δυνατός, με καλό πόδι.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Pace, timing the pass, and creating space out wide.</span><span data-lang-el>Ταχύτητα, σωστό τάιμινγκ στην πάσα και δημιουργία χώρου στα άκρα.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="wing" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">11 &middot; 14</span><h3 class="pos-detail-name">Wing</h3></div>
+              <p class="pos-unit">Back Three</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Fast and explosive, your quickest players.</span><span data-lang-el>Γρήγοροι και εκρηκτικοί, οι πιο ταχείς παίκτες.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>Finishing tries, raw speed, beating defenders one-on-one.</span><span data-lang-el>Σκοράρουν try, καθαρή ταχύτητα, περνούν αμυντικούς έναν προς έναν.</span></dd>
+              </dl>
+            </div>
+            <div class="pos-detail" data-pos="15" hidden>
+              <div class="pos-detail-head"><span class="pos-detail-num">15</span><h3 class="pos-detail-name">Fullback</h3></div>
+              <p class="pos-unit">Back Three</p>
+              <dl>
+                <dt><span data-lang-en>Body type</span><span data-lang-el>Σωματότυπος</span></dt>
+                <dd><span data-lang-en>Balanced and brave, safe under the high ball.</span><span data-lang-el>Ισορροπημένος και θαρραλέος, σίγουρος στην ψηλή μπάλα.</span></dd>
+                <dt><span data-lang-en>Key skills</span><span data-lang-el>Βασικές ικανότητες</span></dt>
+                <dd><span data-lang-en>The last line of defence, catching kicks, and launching counter-attacks.</span><span data-lang-el>Η τελευταία γραμμή άμυνας, πιάνει κλωτσιές και ξεκινά κόντρα επιθέσεις.</span></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <p class="pitch-hint" style="text-align:center"><span data-lang-en>Positions stay in English. 4 and 5 are both Locks; 11 and 14 are both Wings.</span><span data-lang-el>Οι θέσεις μένουν στα Αγγλικά. Τα 4 και 5 είναι Locks, τα 11 και 14 είναι Wings.</span></p>
+      </div>
+    </section>
+
+    <!-- ===================== MYTH-BUSTING FAQ ===================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span data-lang-en>Myth-busting</span><span data-lang-el>Καταρρίπτοντας μύθους</span></span>
+          <h2 class="section-title"><span data-lang-en>Common Questions</span><span data-lang-el>Συχνές Απορίες</span></h2>
+          <div class="title-rule"></div>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary><span data-lang-en>Do I need to be big to play?</span><span data-lang-el>Πρέπει να είμαι μεγαλόσωμος για να παίξω;</span></summary>
+            <p><span data-lang-en>No. Rugby has a position for every body type: fast and light on the wing, big and strong in the front row, and everything in between. There is a spot for you.</span><span data-lang-el>Όχι. Το ράγκμπι έχει θέση για κάθε σωματότυπο: γρήγορος και ελαφρύς στην πτέρυγα, μεγαλόσωμος και δυνατός στην πρώτη γραμμή, και όλα τα ενδιάμεσα. Υπάρχει θέση για σένα.</span></p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-lang-en>Is it dangerous?</span><span data-lang-el>Είναι επικίνδυνο;</span></summary>
+            <p><span data-lang-en>There is contact, but you are taught safe technique from your first session and it is properly coached. Played the right way, it is far safer than most people imagine.</span><span data-lang-el>Υπάρχει επαφή, αλλά μαθαίνεις σωστή τεχνική από την πρώτη προπόνηση και υπάρχει σωστή καθοδήγηση. Παιγμένο σωστά, είναι πολύ πιο ασφαλές απ' όσο νομίζουν οι περισσότεροι.</span></p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-lang-en>Is it the same as American football?</span><span data-lang-el>Είναι το ίδιο με το αμερικάνικο football;</span></summary>
+            <p><span data-lang-en>No. No heavy pads or helmets, the ball is passed backwards, play flows continuously, and the tackling technique is completely different.</span><span data-lang-el>Όχι. Χωρίς βαριές προστασίες ή κράνη, η μπάλα πασάρεται προς τα πίσω, το παιχνίδι είναι συνεχόμενο και η τεχνική του τάκλιν είναι εντελώς διαφορετική.</span></p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-lang-en>Do I need any experience?</span><span data-lang-el>Χρειάζομαι εμπειρία;</span></summary>
+            <p><span data-lang-en>None at all. Most people start as adults with zero background, and we teach you the basics step by step.</span><span data-lang-el>Καθόλου. Οι περισσότεροι ξεκινούν ως ενήλικες χωρίς καμία εμπειρία, και σου μαθαίνουμε τα βασικά βήμα-βήμα.</span></p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-lang-en>Is it only for men?</span><span data-lang-el>Είναι μόνο για άντρες;</span></summary>
+            <p><span data-lang-en>No. We welcome everyone, rugby is played by men and women alike.</span><span data-lang-el>Όχι. Είναι για όλους, το ράγκμπι παίζεται από άντρες και γυναίκες.</span></p>
+          </details>
+          <details class="faq-item">
+            <summary><span data-lang-en>Am I too old or unfit?</span><span data-lang-el>Είμαι πολύ μεγάλος ή εκτός φόρμας;</span></summary>
+            <p><span data-lang-en>All ages and fitness levels are welcome. You build match fitness by playing, so just come as you are and start.</span><span data-lang-el>Όλες οι ηλικίες και τα επίπεδα φυσικής κατάστασης είναι ευπρόσδεκτα. Χτίζεις φόρμα παίζοντας, οπότε έλα όπως είσαι και ξεκίνα.</span></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->
@@ -232,6 +449,7 @@
   </footer>
 
   <script src="enhance.js" defer></script>
+  <script src="pitch.js" defer></script>
   <script src="render-settings.js" defer></script>
   <script src="lang.js" defer></script>
 </body>

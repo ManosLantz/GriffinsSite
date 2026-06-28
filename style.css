@@ -934,6 +934,73 @@ html { scroll-behavior: smooth; }
   .lightbox-next { right: .4rem; }
 }
 
+/* ---------- Interactive pitch map (Rugby page) ---------- */
+.pitch-layout { display: grid; grid-template-columns: 1fr; gap: var(--gap); align-items: start; }
+@media (min-width: 880px) { .pitch-layout { grid-template-columns: 1.45fr 1fr; } }
+.pitch-frame {
+  background: linear-gradient(160deg, #16361f, #0e2415);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .6rem;
+}
+.pitch-svg { display: block; width: 100%; height: auto; }
+.pos-marker { cursor: pointer; }
+.pos-marker circle {
+  fill: var(--primary); stroke: #fff; stroke-width: 2;
+  transition: fill .15s var(--ease), stroke .15s var(--ease);
+}
+.pos-marker text {
+  fill: #fff; font-family: var(--ff-head); font-weight: 800; font-size: 24px;
+  text-anchor: middle; dominant-baseline: central; pointer-events: none;
+}
+.pos-marker:hover circle { fill: #e11d3a; }
+.pos-marker.is-active circle { fill: var(--accent); stroke: var(--accent); }
+.pos-marker.is-active text { fill: #161616; }
+.pos-marker:focus-visible { outline: none; }
+.pos-marker:focus-visible circle { stroke: var(--accent); stroke-width: 3.5; }
+
+.pos-panel {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: clamp(1.2rem, 3vw, 1.75rem);
+}
+.pos-detail[hidden] { display: none; }
+.pos-detail-head { display: flex; align-items: center; gap: .7rem; margin-bottom: .2rem; }
+.pos-detail-num {
+  flex: 0 0 auto;
+  display: grid; place-items: center;
+  min-width: 40px; height: 40px; padding: 0 .55rem; border-radius: 999px;
+  background: var(--primary); color: #fff;
+  font-family: var(--ff-head); font-weight: 800; font-size: 1.05rem; white-space: nowrap;
+}
+.pos-detail-name { font-family: var(--ff-head); font-weight: 800; text-transform: uppercase; font-size: 1.3rem; }
+.pos-unit { color: var(--accent); font-family: var(--ff-head); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 1rem; }
+.pos-panel dl { margin: 0; }
+.pos-panel dt { color: var(--primary); font-family: var(--ff-head); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: .76rem; margin-top: 1rem; }
+.pos-panel dd { margin: .25rem 0 0; color: #e3e3e3; }
+.pitch-hint { color: var(--muted); font-size: .92rem; margin: .8rem 0 0; }
+
+/* ---------- Myth-busting FAQ (native details) ---------- */
+.faq-list { max-width: 74ch; margin-inline: auto; display: grid; gap: .7rem; }
+.faq-item { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.faq-item summary {
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  font-family: var(--ff-head); font-weight: 700; color: #fff;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; flex: 0 0 auto;
+  font-family: var(--ff-head); font-weight: 700; font-size: 1.4rem; line-height: 1; color: var(--accent);
+  transition: transform .2s var(--ease);
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item p { margin: 0; padding: 0 1.25rem 1.15rem; color: #e3e3e3; }
+
 /* ---------- Contact: phone lines + Viber pill ---------- */
 .phone-line { margin: 0 0 .3rem; }
 .phone-line:last-child { margin-bottom: 0; }

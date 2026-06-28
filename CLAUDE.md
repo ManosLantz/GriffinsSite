@@ -14,12 +14,13 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 ## Pages & files
 - `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, 4-photo gallery preview, CTA)
 - `roster.html` (players), `supporters.html` (both data-driven)
-- `rugby.html` (merged: short history of rugby + basic rules of Union vs League. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
+- `rugby.html` (merged: short history of rugby + basic rules of Union vs League, an interactive positions pitch map, and a myth-busting FAQ. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
 - `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
 - `gallery.html` (all photos; home shows the first 4 + a "See all photos" link here)
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle), `enhance.js` (optional UX: gallery lightbox + back-to-top, isolated/non-critical)
+- `pitch.js` (Rugby page: interactive positions pitch map; clicking a numbered marker shows that position's detail block, content is static HTML for SEO/no-JS)
 - `data/*.json` content/config: `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
 - `render-*.js` (build from the JSON at load): `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
 - `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters, Fixtures, Settings), `.github/` (image-optimizer Action)
