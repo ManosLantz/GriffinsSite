@@ -37,16 +37,22 @@
       "height": 854
     },
     {
-      "image": "/images/instagram_1782657747895.jpg",
-      "alt": "Photo Griffins Gunners 1"
+      "image": "images/instagram_1782657747895.jpg",
+      "alt": "Griffins and Gunners players together after a match",
+      "width": 1080,
+      "height": 1080
     },
     {
-      "image": "/images/instagram_1782657737233.jpg",
-      "alt": "Photo Griffins Gunners 2"
+      "image": "images/instagram_1782657737233.jpg",
+      "alt": "Griffins Rugby in action against the Gunners",
+      "width": 1080,
+      "height": 1080
     },
     {
-      "image": "/images/aggeliki_1986_1782657729776.jpg",
-      "alt": "Photo Griffins Gunners 3"
+      "image": "images/aggeliki_1986_1782657729776.jpg",
+      "alt": "Griffins Rugby player on the pitch in Heraklion",
+      "width": 1080,
+      "height": 1080
     }
   ]
 }

@@ -5,7 +5,7 @@
   var grid = document.getElementById('gallery-grid');
   if (!grid) return;
 
-  fetch('data/gallery.json', { cache: 'no-cache' })
+  fetch('data/gallery.json')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();

@@ -81,7 +81,7 @@
     return card;
   }
 
-  fetch('data/fixtures.json', { cache: 'no-cache' })
+  fetch('data/fixtures.json')
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       var list = Array.isArray(data) ? data : (data.fixtures || []);

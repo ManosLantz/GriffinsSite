@@ -71,7 +71,7 @@
     return card;
   }
 
-  fetch('data/news.json', { cache: 'no-cache' })
+  fetch('data/news.json')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();

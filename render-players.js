@@ -77,7 +77,7 @@
     return card;
   }
 
-  fetch('data/players.json', { cache: 'no-cache' })
+  fetch('data/players.json')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();

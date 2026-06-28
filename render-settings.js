@@ -62,7 +62,7 @@
     row.style.display = '';
   }
 
-  fetch('data/settings.json', { cache: 'no-cache' })
+  fetch('data/settings.json')
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (s) {
       setText('.js-venue', s.venue);

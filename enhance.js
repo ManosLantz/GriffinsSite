@@ -96,11 +96,36 @@
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') show(index - 1);
       else if (e.key === 'ArrowRight') show(index + 1);
+      else if (e.key === 'Tab') {
+        // Keep keyboard focus inside the open dialog (focus trap).
+        var f = box.querySelectorAll('.lightbox-btn');
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
+  }
+
+  /* ---------------- Scroll reveal ---------------- */
+  function initReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll(
+      '.section-head, .training-card, .stats-grid, .rule-panel, .pitch-layout, .faq-list, .article'
+    );
+    if (!els.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    for (var i = 0; i < els.length; i++) { els[i].classList.add('reveal'); io.observe(els[i]); }
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     try { initBackToTop(); } catch (e) { /* non-critical */ }
     try { initLightbox(); } catch (e) { /* non-critical */ }
+    try { initReveal(); } catch (e) { /* non-critical */ }
   });
 })();
