@@ -131,3 +131,27 @@ collections:
               - { name: roleEl, label: "Ρόλος στα Ελληνικά / Role (Greek)", widget: string, required: false, hint: "Π.χ. Φωτογράφος, Χορηγός, Φίλος του συλλόγου" }
               - { name: textEn, label: "Ευχαριστίες στα Αγγλικά / Thank-you (English)", widget: text, required: false, hint: "Μια σύντομη ευχαριστία στα Αγγλικά." }
               - { name: textEl, label: "Ευχαριστίες στα Ελληνικά / Thank-you (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }
+
+  # ---------------- SETTINGS (one place, updates the whole site) ----------------
+  - name: settings
+    label: "⚙️ Ρυθμίσεις / Settings"
+    delete: false
+    files:
+      - name: club
+        label: "Στοιχεία συλλόγου / Club details"
+        file: "data/settings.json"
+        description: "Άλλαξε εδώ μία φορά και ενημερώνεται σε ΟΛΟ το site (προπόνηση, social, επικοινωνία). / Change once, updates the whole site."
+        fields:
+          - { name: venue, label: "Γήπεδο / Venue", widget: string, hint: "Το όνομα του γηπέδου. Π.χ. Lido Soccer" }
+          - { name: areaEn, label: "Περιοχή στα Αγγλικά / Area (English)", widget: string, hint: "Π.χ. Heraklion" }
+          - { name: areaEl, label: "Περιοχή στα Ελληνικά / Area (Greek)", widget: string, hint: "Π.χ. Ηράκλειο" }
+          - { name: daysShortEn, label: "Μέρες σύντομα στα Αγγλικά / Days short (English)", widget: string, hint: "Π.χ. Mon & Thu" }
+          - { name: daysShortEl, label: "Μέρες σύντομα στα Ελληνικά / Days short (Greek)", widget: string, hint: "Π.χ. Δευτ & Πέμ" }
+          - { name: daysLongEn, label: "Μέρες ολόκληρες στα Αγγλικά / Days full (English)", widget: string, hint: "Π.χ. Monday & Thursday" }
+          - { name: daysLongEl, label: "Μέρες ολόκληρες στα Ελληνικά / Days full (Greek)", widget: string, hint: "Π.χ. Δευτέρα & Πέμπτη" }
+          - { name: time, label: "Ώρα / Time", widget: string, hint: "Π.χ. 17:00-19:00 (με απλή παύλα, χωρίς κενά)" }
+          - { name: mapsUrl, label: "Google Maps σύνδεσμος / link", widget: string, required: false, hint: "Ο σύνδεσμος του γηπέδου στο Google Maps." }
+          - { name: instagramUrl, label: "Instagram σύνδεσμος / link", widget: string, required: false }
+          - { name: facebookUrl, label: "Facebook σύνδεσμος / link", widget: string, required: false }
+          - { name: email, label: "Email", widget: string, required: false, hint: "Άφησέ το κενό αν δεν υπάρχει. Εμφανίζεται στη σελίδα Επικοινωνία μόνο αν το συμπληρώσεις." }
+          - { name: phone, label: "Τηλέφωνο / Phone", widget: string, required: false, hint: "Άφησέ το κενό αν δεν υπάρχει." }

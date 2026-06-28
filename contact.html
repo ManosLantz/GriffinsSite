@@ -89,7 +89,7 @@
                 </span>
                 <div>
                   <h3><span data-lang-en>Training Ground</span><span data-lang-el>Γήπεδο προπόνησης</span></h3>
-                  <p><span data-lang-en>Lido Soccer, Heraklion, Crete</span><span data-lang-el>Lido Soccer, Ηράκλειο, Κρήτη</span></p>
+                  <p><span data-lang-en><span class="js-venue">Lido Soccer</span>, <span class="js-area">Heraklion</span>, Crete</span><span data-lang-el><span class="js-venue">Lido Soccer</span>, <span class="js-area">Ηράκλειο</span>, Κρήτη</span></p>
                 </div>
               </li>
               <li class="info-item">
@@ -98,7 +98,25 @@
                 </span>
                 <div>
                   <h3><span data-lang-en>Training Times</span><span data-lang-el>Ώρες προπόνησης</span></h3>
-                  <p><span data-lang-en>Every Monday &amp; Thursday, 17:00-19:00</span><span data-lang-el>Κάθε Δευτέρα &amp; Πέμπτη, 17:00-19:00</span></p>
+                  <p><span data-lang-en>Every <span class="js-daysLong">Monday &amp; Thursday</span>, <span class="js-time">17:00-19:00</span></span><span data-lang-el>Κάθε <span class="js-daysLong">Δευτέρα &amp; Πέμπτη</span>, <span class="js-time">17:00-19:00</span></span></p>
+                </div>
+              </li>
+              <li class="info-item js-email-row" style="display:none">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                </span>
+                <div>
+                  <h3>Email</h3>
+                  <p><a class="js-email" href="#"></a></p>
+                </div>
+              </li>
+              <li class="info-item js-phone-row" style="display:none">
+                <span class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.74a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div>
+                  <h3><span data-lang-en>Phone</span><span data-lang-el>Τηλέφωνο</span></h3>
+                  <p><a class="js-phone" href="#"></a></p>
                 </div>
               </li>
             </ul>
@@ -158,7 +176,7 @@
       </div>
       <div class="footer-col">
         <h4><span data-lang-en>Training</span><span data-lang-el>Προπόνηση</span></h4>
-        <p><span data-lang-en>Lido Soccer, Heraklion<br>Mon &amp; Thu<br>17:00-19:00</span><span data-lang-el>Lido Soccer, Ηράκλειο<br>Δευτ &amp; Πέμ<br>17:00-19:00</span></p>
+        <p><span data-lang-en><span class="js-venue">Lido Soccer</span>, <span class="js-area">Heraklion</span><br><span class="js-daysShort">Mon &amp; Thu</span><br><span class="js-time">17:00-19:00</span></span><span data-lang-el><span class="js-venue">Lido Soccer</span>, <span class="js-area">Ηράκλειο</span><br><span class="js-daysShort">Δευτ &amp; Πέμ</span><br><span class="js-time">17:00-19:00</span></span></p>
       </div>
       <div class="footer-col">
         <h4><span data-lang-en>Follow us</span><span data-lang-el>Ακολουθήστε μας</span></h4>
@@ -179,6 +197,7 @@
   </footer>
 
   <script src="enhance.js" defer></script>
+  <script src="render-settings.js" defer></script>
   <script src="lang.js" defer></script>
 </body>
 </html>
