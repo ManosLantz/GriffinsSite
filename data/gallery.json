@@ -1,10 +1,52 @@
 {
   "photos": [
-    { "image": "images/img_8912.jpg", "alt": "Griffins Rugby players training at Lido Soccer", "width": 854, "height": 1280 },
-    { "image": "images/img_8913.jpg", "alt": "Griffins Rugby training session in Heraklion", "width": 854, "height": 1280 },
-    { "image": "images/img_8922.jpg", "alt": "Griffins Rugby squad in action", "width": 854, "height": 1280 },
-    { "image": "images/img_8906.jpg", "alt": "Griffins Rugby players at training in Heraklion", "width": 854, "height": 1280 },
-    { "image": "images/img_8921.jpg", "alt": "Griffins Rugby teammates on the pitch", "width": 854, "height": 1280 },
-    { "image": "images/img_8894.jpg", "alt": "Griffins Rugby squad together at Lido Soccer", "width": 1280, "height": 854 }
+    {
+      "image": "images/img_8912.jpg",
+      "alt": "Griffins Rugby players training at Lido Soccer",
+      "width": 854,
+      "height": 1280
+    },
+    {
+      "image": "images/img_8913.jpg",
+      "alt": "Griffins Rugby training session in Heraklion",
+      "width": 854,
+      "height": 1280
+    },
+    {
+      "image": "images/img_8922.jpg",
+      "alt": "Griffins Rugby squad in action",
+      "width": 854,
+      "height": 1280
+    },
+    {
+      "image": "images/img_8906.jpg",
+      "alt": "Griffins Rugby players at training in Heraklion",
+      "width": 854,
+      "height": 1280
+    },
+    {
+      "image": "images/img_8921.jpg",
+      "alt": "Griffins Rugby teammates on the pitch",
+      "width": 854,
+      "height": 1280
+    },
+    {
+      "image": "images/img_8894.jpg",
+      "alt": "Griffins Rugby squad together at Lido Soccer",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "image": "/images/instagram_1782657747895.jpg",
+      "alt": "Photo Griffins Gunners 1"
+    },
+    {
+      "image": "/images/instagram_1782657737233.jpg",
+      "alt": "Photo Griffins Gunners 2"
+    },
+    {
+      "image": "/images/aggeliki_1986_1782657729776.jpg",
+      "alt": "Photo Griffins Gunners 3"
+    }
   ]
 }
