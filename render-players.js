@@ -51,6 +51,27 @@
     pos.textContent = p.position || '';
     info.appendChild(pos);
 
+    // Optional free-text description (nickname, quote, favourite food, etc.).
+    var dEn = p.descriptionEn || '';
+    var dEl = p.descriptionEl || '';
+    if (dEn || dEl) {
+      var desc = document.createElement('p');
+      desc.className = 'player-desc';
+      if (dEn && dEl && dEl !== dEn) {
+        var dsEn = document.createElement('span');
+        dsEn.setAttribute('data-lang-en', '');
+        dsEn.textContent = dEn;
+        var dsEl = document.createElement('span');
+        dsEl.setAttribute('data-lang-el', '');
+        dsEl.textContent = dEl;
+        desc.appendChild(dsEn);
+        desc.appendChild(dsEl);
+      } else {
+        desc.textContent = dEn || dEl;
+      }
+      info.appendChild(desc);
+    }
+
     card.appendChild(photo);
     card.appendChild(info);
     return card;

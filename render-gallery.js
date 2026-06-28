@@ -12,6 +12,9 @@
     })
     .then(function (data) {
       var photos = Array.isArray(data) ? data : (data.photos || []);
+      // A container can set data-limit (e.g. the home page shows only the first few).
+      var limit = parseInt(grid.getAttribute('data-limit'), 10);
+      if (!isNaN(limit)) photos = photos.slice(0, limit);
       var frag = document.createDocumentFragment();
       photos.forEach(function (ph) {
         var fig = document.createElement('figure');

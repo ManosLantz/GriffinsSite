@@ -499,6 +499,10 @@ ul { margin: 0; padding: 0; }
   font-family: var(--ff-head); font-weight: 700; text-transform: uppercase;
   letter-spacing: .08em; font-size: .82rem; color: var(--accent);
 }
+.player-desc {
+  margin: .55rem 0 0;
+  font-size: .9rem; line-height: 1.45; color: var(--muted);
+}
 
 /* Crest placeholder for players without a photo yet */
 .player-photo--logo {

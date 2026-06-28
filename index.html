@@ -77,6 +77,7 @@
         <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
         <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
         <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
+        <li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
         <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
         <li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
       </ul>
@@ -177,8 +178,11 @@
           <h2 class="section-title"><span data-lang-en>Life at the Club</span><span data-lang-el>Η Ζωή στον Σύλλογο</span></h2>
           <div class="title-rule"></div>
         </div>
-        <!-- Photos are injected by render-gallery.js from data/gallery.json. -->
-        <div class="gallery-grid" id="gallery-grid"></div>
+        <!-- Home shows the first 4 photos (data-limit); the rest live on gallery.html. -->
+        <div class="gallery-grid" id="gallery-grid" data-limit="4"></div>
+        <div style="text-align:center;margin-top:1.75rem;">
+          <a class="btn btn-outline" href="gallery.html"><span data-lang-en>See all photos</span><span data-lang-el>Όλες οι φωτογραφίες</span></a>
+        </div>
       </div>
     </section>
 
@@ -210,6 +214,7 @@
           <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
           <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
           <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
+          <li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
           <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
           <li><a href="contact.html"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
         </ul>

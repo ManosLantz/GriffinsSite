@@ -12,31 +12,39 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - **Never delete** `CNAME` or `googledf4229166551c411.html` (Google Search Console verification).
 
 ## Pages & files
-- `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, photo gallery, CTA)
-- `roster.html` (players), `supporters.html`
+- `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, 4-photo gallery preview, CTA)
+- `roster.html` (players), `supporters.html` (both data-driven)
 - `rugby.html` (merged: short history of rugby + basic rules of Union vs League. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
 - `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
+- `gallery.html` (all photos; home shows the first 4 + a "See all photos" link here)
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle)
-- `data/players.json`, `data/news.json`, `data/gallery.json` (content data)
-- `render-players.js`, `render-news.js`, `render-gallery.js` (build cards from the JSON at load)
+- `data/players.json`, `data/news.json`, `data/gallery.json`, `data/supporters.json` (content data)
+- `render-players.js`, `render-news.js`, `render-gallery.js`, `render-supporters.js` (build cards from the JSON at load)
+- `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters), `.github/` (image-optimizer Action)
 - `sitemap.xml`, `robots.txt`
 
-## Content data (rendered client-side, CMS-ready)
-- Roster, news, and the home gallery are **no longer hardcoded** in HTML. They live in `data/*.json`
-  and are rendered at page load by the `render-*.js` scripts, which rebuild the exact same card
-  markup (same classes + EN/EL spans), so CSS and the language toggle are unaffected.
-  - `players.json`: array; each `{nameEn,nameEl,position,gender,photo}`. Renderer sorts by English
-    name and keeps the static "You/Εσύ" join card last. Empty `nameEl` (or equal to `nameEn`) =>
-    plain text, no spans (e.g. Latin-only names). Empty `photo` => crest placeholder.
-  - `news.json`: array, **newest first**; item 0 is the big feature on `news.html` AND the home teaser.
+## Content data (rendered client-side, edited via the CMS)
+- Roster, news, gallery, and supporters are **no longer hardcoded** in HTML. They live in `data/*.json`
+  as objects with one top-level key (so the CMS can edit them as lists) and are rendered at page load
+  by the `render-*.js` scripts, which rebuild the exact same card markup (same classes + EN/EL spans),
+  so CSS and the language toggle are unaffected. Renderers accept either the keyed object or a bare array.
+  - `players.json` (`{players:[...]}`): each `{nameEn,nameEl,position,gender,photo,descriptionEn,descriptionEl}`.
+    Renderer sorts by English name and keeps the static "You/Εσύ" join card last. Empty `nameEl` (or equal
+    to `nameEn`) => plain text, no spans (Latin-only names). Empty `photo` => crest placeholder.
+    `descriptionEn/El` are optional free text (nickname, quote, etc.) shown under the position.
+  - `news.json` (`{items:[...]}`): **newest first**; item 0 is the big feature on `news.html` AND the home teaser.
     Each `{categoryEn/El,titleEn/El,bodyEn/El,image,linkHref,linkEn/El}` (link optional).
-  - `gallery.json`: array; each `{image,alt,width,height}`.
-- This is the data layer for the planned **Sveltia CMS** (`/admin`) so a non-technical captain can
-  edit players/news/photos via forms. See memory `cms-plan`. To add content now, edit the JSON.
-- **Local preview now needs a server** (`python -m http.server`), not double-clicking the file:
+  - `gallery.json` (`{photos:[...]}`): each `{image,alt,width,height}`. The home `#gallery-grid` has
+    `data-limit="4"` (shows first 4 + "See all photos"); `gallery.html` shows all.
+  - `supporters.json` (`{supporters:[...]}`): each `{name,roleEn/El,textEn/El}` (heart icon is fixed in JS).
+- Editing: the **Sveltia CMS** at `/admin` (GitHub login via a Cloudflare auth Worker) gives the captain
+  forms for Players / News / Gallery / Supporters with photo upload. Config: `admin/config.yml` (bilingual
+  labels + per-field hints). See memory `cms-plan`. To edit by hand instead, change the JSON directly.
+- **Local preview needs a server** (`python -m http.server`), not double-clicking the file:
   `fetch()` of the JSON is blocked under `file://`. On GitHub Pages (https) it works normally.
+- Uploaded JPEGs are auto-downscaled/recompressed by the `.github` image-optimizer Action on push.
 
 ## CONVENTIONS — follow these exactly
 - **Bilingual text:** every visible string is two spans:
@@ -49,8 +57,8 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   "AI-looking"). Use commas/colons. Time ranges use a plain hyphen: `17:00-19:00`.
 - **Player positions stay in English** in both languages (Lock, Winger, Scrum Half, etc.) — do NOT translate.
 - **Footer credit lines** (`© 2026 …` and `Built for the love of the game.`) stay **English** in both languages.
-- Nav order: Home · Roster · Rugby · News · Supporters · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
-  Greek nav labels: Αρχική · Ομάδα · Το Ράγκμπι · Νέα · Υποστηρικτές · Επικοινωνία.
+- Nav order: Home · Roster · Rugby · News · Gallery · Supporters · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
+  Greek nav labels: Αρχική · Ομάδα · Το Ράγκμπι · Νέα · Φωτογραφίες · Υποστηρικτές · Επικοινωνία.
 - All canonical / Open Graph / sitemap URLs use `https://griffinsrugby.gr/`.
 - Theme "Black & Crimson": CSS vars in `:root` (`--bg #0D0D0D`, `--primary #C8102E`, `--accent #D4AF37` gold).
   Fonts: Montserrat (headings) + Roboto (body).

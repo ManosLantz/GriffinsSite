@@ -22,7 +22,7 @@ locale: en
 collections:
   # ---------------- PLAYERS ----------------
   - name: roster
-    label: "Παίκτες / Players"
+    label: "👥 Παίκτες / Players"
     delete: false
     files:
       - name: players
@@ -58,10 +58,12 @@ collections:
                 media_folder: "/images/players"
                 public_folder: "images/players"
                 hint: "Προαιρετικό. Καθαρή ΚΑΘΕΤΗ φωτογραφία προσώπου (όρθια). Αν δεν βάλεις, δείχνει το σήμα της ομάδας."
+              - { name: descriptionEn, label: "Λεπτομέρεια στα Αγγλικά / Description (English)", widget: text, required: false, hint: "ΠΡΟΑΙΡΕΤΙΚΟ. Παρατσούκλι, αγαπημένο φαγητό, ένα ρητό, ό,τι ταιριάζει. Στα Αγγλικά." }
+              - { name: descriptionEl, label: "Λεπτομέρεια στα Ελληνικά / Description (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά. Άφησέ το κενό αν δεν χρειάζεται." }
 
   # ---------------- NEWS ----------------
   - name: news
-    label: "Νέα / News"
+    label: "📰 Νέα / News"
     delete: false
     files:
       - name: items
@@ -89,13 +91,13 @@ collections:
 
   # ---------------- GALLERY ----------------
   - name: gallery
-    label: "Φωτογραφίες / Gallery"
+    label: "📷 Φωτογραφίες / Gallery"
     delete: false
     files:
       - name: photos
-        label: "Gallery αρχικής / Home gallery"
+        label: "Φωτογραφίες / Photos"
         file: "data/gallery.json"
-        description: "Οι φωτογραφίες στην ενότητα 'Η Ζωή στον Σύλλογο / Life at the Club' της αρχικής σελίδας. / Photos in the home page gallery."
+        description: "Όλες οι φωτογραφίες του συλλόγου. Στην αρχική σελίδα φαίνονται οι 4 πρώτες, όλες μαζί στη σελίδα Gallery. / Home shows the first 4; all of them show on the Gallery page."
         fields:
           - name: photos
             label: "Φωτογραφίες / Photos"
@@ -106,3 +108,26 @@ collections:
             fields:
               - { name: image, label: "Φωτογραφία / Photo", widget: image, hint: "Ανέβασε φωτογραφία από προπόνηση ή αγώνα." }
               - { name: alt, label: "Περιγραφή / Description", widget: string, hint: "Σύντομη περιγραφή στα Αγγλικά (για προσβασιμότητα και SEO). Π.χ. Griffins players training at Lido" }
+
+  # ---------------- SUPPORTERS ----------------
+  - name: supporters
+    label: "🤝 Υποστηρικτές / Supporters"
+    delete: false
+    files:
+      - name: supporters
+        label: "Υποστηρικτές / Supporters"
+        file: "data/supporters.json"
+        description: "Άνθρωποι ή επιχειρήσεις που βοηθούν τον σύλλογο, εντός κι εκτός γηπέδου. / People or businesses who support the club."
+        fields:
+          - name: supporters
+            label: "Υποστηρικτές / Supporters"
+            label_singular: "Υποστηρικτή / Supporter"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Όνομα / Name", widget: string, hint: "Όνομα ατόμου ή επιχείρησης. Π.χ. Nikos Kritsotakis" }
+              - { name: roleEn, label: "Ρόλος στα Αγγλικά / Role (English)", widget: string, required: false, hint: "Π.χ. Photographer, Sponsor, Friend of the club" }
+              - { name: roleEl, label: "Ρόλος στα Ελληνικά / Role (Greek)", widget: string, required: false, hint: "Π.χ. Φωτογράφος, Χορηγός, Φίλος του συλλόγου" }
+              - { name: textEn, label: "Ευχαριστίες στα Αγγλικά / Thank-you (English)", widget: text, required: false, hint: "Μια σύντομη ευχαριστία στα Αγγλικά." }
+              - { name: textEl, label: "Ευχαριστίες στα Ελληνικά / Thank-you (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }

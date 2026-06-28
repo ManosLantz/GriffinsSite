@@ -49,6 +49,7 @@
         <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
         <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
         <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
+        <li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
         <li><a href="supporters.html" class="active" aria-current="page"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
         <li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
       </ul>
@@ -71,17 +72,13 @@
 
     <section class="section">
       <div class="container">
-        <div class="supporter-grid">
-
-          <article class="supporter-card">
-            <div class="supporter-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            </div>
-            <h3>Nikos Kritsotakis</h3>
-            <p class="supporter-role"><span data-lang-en>Photographer</span><span data-lang-el>Φωτογράφος</span></p>
-            <p><span data-lang-en>Special thanks to Nikos Kritsotakis for his incredible photographs.</span><span data-lang-el>Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του.</span></p>
-          </article>
-
+        <!-- Supporter cards are injected by render-supporters.js from data/supporters.json. -->
+        <div class="supporter-grid" id="supporter-grid">
+          <noscript>
+            <p style="grid-column:1/-1;color:var(--muted);text-align:center;">
+              <span data-lang-en>Enable JavaScript to see our supporters.</span><span data-lang-el>Ενεργοποίησε τη JavaScript για να δεις τους υποστηρικτές μας.</span>
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -116,6 +113,7 @@
           <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
           <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
           <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
+          <li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
           <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
           <li><a href="contact.html"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
         </ul>
@@ -142,6 +140,7 @@
     </div>
   </footer>
 
+  <script src="render-supporters.js" defer></script>
   <script src="lang.js" defer></script>
 </body>
 </html>

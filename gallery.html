@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{var l=localStorage.getItem('griffins-lang');if(!l){l=(navigator.language||'en').toLowerCase().indexOf('el')===0?'el':'en';}document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('lang',l);}catch(e){document.documentElement.setAttribute('data-lang','en');}})();</script>
-  <title>Team Roster | Griffins Rugby Heraklion</title>
-  <meta name="description" content="Meet the Griffins Rugby squad, the players who pull on the crimson and gold in Heraklion, Crete. Η ομάδα των Griffins Rugby, οι παίκτες του ράγκμπι στο Ηράκλειο.">
-  <link rel="canonical" href="https://griffinsrugby.gr/roster.html">
+  <title>Gallery | Griffins Rugby Heraklion</title>
+  <meta name="description" content="Photos from Griffins Rugby Heraklion: training, matches and club life at Lido Soccer. Φωτογραφίες από τις προπονήσεις και τη ζωή του συλλόγου ράγκμπι στο Ηράκλειο.">
+  <link rel="canonical" href="https://griffinsrugby.gr/gallery.html">
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Griffins Rugby Heraklion">
-  <meta property="og:title" content="Team Roster | Griffins Rugby Heraklion">
-  <meta property="og:description" content="Meet the Griffins Rugby squad, the players who pull on the crimson and gold.">
-  <meta property="og:url" content="https://griffinsrugby.gr/roster.html">
+  <meta property="og:title" content="Gallery | Griffins Rugby Heraklion">
+  <meta property="og:description" content="Photos from Griffins Rugby Heraklion: training, matches and club life.">
+  <meta property="og:url" content="https://griffinsrugby.gr/gallery.html">
   <meta property="og:image" content="https://griffinsrugby.gr/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Griffins Rugby players training in Heraklion">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Team Roster | Griffins Rugby Heraklion">
-  <meta name="twitter:description" content="Meet the Griffins Rugby squad, the players who pull on the crimson and gold.">
+  <meta name="twitter:title" content="Gallery | Griffins Rugby Heraklion">
+  <meta name="twitter:description" content="Photos from Griffins Rugby Heraklion: training, matches and club life.">
   <meta name="twitter:image" content="https://griffinsrugby.gr/images/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,10 +46,10 @@
 
       <ul class="nav-menu">
         <li><a href="index.html"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>
-        <li><a href="roster.html" class="active" aria-current="page"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
+        <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
         <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
         <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
-        <li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
+        <li><a href="gallery.html" class="active" aria-current="page"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>
         <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
         <li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
       </ul>
@@ -64,52 +64,21 @@
 
     <section class="page-header">
       <div class="container">
-        <span class="eyebrow"><span data-lang-en>Meet the pack</span><span data-lang-el>Γνώρισε την ομάδα</span></span>
-        <h1><span data-lang-en>Team Roster</span><span data-lang-el>Το Ρόστερ</span></h1>
-        <p><span data-lang-en>The players who pull on the crimson and gold. Built on teamwork, powered by heart.</span><span data-lang-el>Οι παίκτες που φοράνε το βυσσινί και το χρυσό. Χτισμένοι στην ομαδικότητα, με δύναμη την καρδιά.</span></p>
+        <span class="eyebrow"><span data-lang-en>On the pitch</span><span data-lang-el>Στο γήπεδο</span></span>
+        <h1><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></h1>
+        <p><span data-lang-en>Moments from training, matches and life around the club at Lido Soccer.</span><span data-lang-el>Στιγμές από προπονήσεις, αγώνες και τη ζωή του συλλόγου στο Lido Soccer.</span></p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-
-        <!-- =====================================================
-             Player cards are generated by render-players.js from
-             data/players.json (one object per player, sorted by English name).
-             Do not hand-edit cards here; edit the data instead (and, once it is
-             set up, the captain edits players through the CMS at /admin).
-             The "You / Εσύ" join card below stays last and is always shown.
-             ===================================================== -->
-        <div class="roster-grid" id="roster-grid">
+        <!-- All photos are injected by render-gallery.js from data/gallery.json (no data-limit = show all). -->
+        <div class="gallery-grid" id="gallery-grid">
           <noscript>
             <p style="grid-column:1/-1;color:var(--muted);text-align:center;">
-              <span data-lang-en>Enable JavaScript to see the squad, or </span><span data-lang-el>Ενεργοποίησε τη JavaScript για να δεις την ομάδα, ή </span><a href="contact.html"><span data-lang-en>get in touch</span><span data-lang-el>επικοινώνησε μαζί μας</span></a>.
+              <span data-lang-en>Enable JavaScript to see the gallery, or follow us on </span><span data-lang-el>Ενεργοποίησε τη JavaScript για να δεις τις φωτογραφίες, ή ακολούθησέ μας στο </span><a href="https://www.instagram.com/griffins_heraklion_rugby/" target="_blank" rel="noopener noreferrer">Instagram</a>.
             </p>
           </noscript>
-
-          <!-- Join card: clicking anywhere on it goes to the contact page -->
-          <a class="player-card player-card--join" href="contact.html">
-            <div class="player-photo player-photo--join">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
-            </div>
-            <div class="player-info">
-              <h3 class="player-name"><span data-lang-en>You</span><span data-lang-el>Εσύ</span></h3>
-              <p class="player-position"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></p>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CTA BAND ===================== -->
-    <section class="section cta-band">
-      <div class="container">
-        <h2><span data-lang-en>Want your name on this list?</span><span data-lang-el>Θέλεις το όνομά σου σε αυτή τη λίστα;</span></h2>
-        <p><span data-lang-en>We're always looking for new players. No experience required, just turn up at Lido Soccer or register your interest.</span><span data-lang-el>Ψάχνουμε πάντα νέους παίκτες. Δεν χρειάζεται εμπειρία, έλα στο Lido Soccer ή δήλωσε ενδιαφέρον.</span></p>
-        <div class="cta-actions">
-          <a class="btn btn-ghost btn-lg" href="https://docs.google.com/forms/d/e/1FAIpQLScpyUcZMkD7INLIcd80IRTE0Co-L3POAtTiTUV5bxaY_0U0DQ/viewform?usp=send_form" target="_blank" rel="noopener noreferrer"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></a>
-          <a class="btn btn-outline btn-lg" href="contact.html"><span data-lang-en>Contact us</span><span data-lang-el>Επικοινώνησε μαζί μας</span></a>
         </div>
       </div>
     </section>
@@ -157,7 +126,7 @@
     </div>
   </footer>
 
-  <script src="render-players.js" defer></script>
+  <script src="render-gallery.js" defer></script>
   <script src="lang.js" defer></script>
 </body>
 </html>
