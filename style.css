@@ -629,9 +629,8 @@ ul { margin: 0; padding: 0; }
 .fact-list li::before {
   content: "";
   flex: 0 0 auto;
-  width: 9px; height: 9px; margin-top: .55rem;
-  background: var(--primary);
-  transform: skewX(-15deg);
+  width: 17px; height: 12px; margin-top: .42rem;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'><ellipse cx='10' cy='7' rx='9' ry='5.6' fill='%23C8102E'/><path d='M4 7 H16 M8 4.6 V9.4 M10 4.2 V9.8 M12 4.6 V9.4' fill='none' stroke='%23ffffff' stroke-opacity='0.55' stroke-width='1' stroke-linecap='round'/></svg>") center / contain no-repeat;
 }
 .scoring-table { width: 100%; border-collapse: collapse; margin-top: .75rem; }
 .scoring-table th, .scoring-table td {
@@ -931,20 +930,6 @@ html { scroll-behavior: smooth; }
 @media (max-width: 560px) {
   .lightbox-prev { left: .4rem; }
   .lightbox-next { right: .4rem; }
-}
-
-/* ---------- Animated "pass" band ---------- */
-.pass-band {
-  padding: 2rem 0 1.6rem;
-  overflow: hidden;
-  background: radial-gradient(70% 95% at 50% 38%, rgba(200, 16, 46, .08), transparent 70%);
-}
-.pass-svg {
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  margin: 0 auto;
 }
 
 /* Respect users who prefer less motion */
