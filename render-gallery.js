@@ -10,7 +10,8 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
     })
-    .then(function (photos) {
+    .then(function (data) {
+      var photos = Array.isArray(data) ? data : (data.photos || []);
       var frag = document.createDocumentFragment();
       photos.forEach(function (ph) {
         var fig = document.createElement('figure');

@@ -1,0 +1,88 @@
+# Griffins Rugby - Sveltia CMS configuration.
+# Sveltia CMS is a drop-in replacement for Decap/Netlify CMS and uses this same file format.
+#
+# >>> ONE THING TO SET: replace base_url below with your Cloudflare auth Worker URL <<<
+#     (the worker from https://github.com/sveltia/sveltia-cms-auth, e.g.
+#      https://sveltia-cms-auth.your-subdomain.workers.dev). Manos: send me the URL
+#      and I will drop it in, or just edit this one line.
+
+backend:
+  name: github
+  repo: ManosLantz/GriffinsSite      # owner/repo on GitHub
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+
+# Where uploaded images are stored in the repo (overridden per-field where needed).
+media_folder: "images"
+public_folder: "images"
+
+locale: en
+
+collections:
+  # ---------------- PLAYERS ----------------
+  - name: roster
+    label: "Players"
+    delete: false
+    files:
+      - name: players
+        label: "Roster"
+        file: "data/players.json"
+        description: "Add, edit or remove players. They sort automatically by English name on the site, and the 'You / Εσύ' join card always stays last."
+        fields:
+          - name: players
+            label: "Players"
+            label_singular: "Player"
+            widget: list
+            summary: "{{fields.nameEn}} ({{fields.position}})"
+            fields:
+              - { name: nameEn, label: "Name (English)", widget: string }
+              - { name: nameEl, label: "Name (Greek)", widget: string, required: false, hint: "Leave blank if it is written the same as English (e.g. Latin names)." }
+              - { name: position, label: "Position", widget: string, hint: "In English for both languages: Prop, Hooker, Lock, Flanker, Number 8, Scrum Half, Fly Half, Centre, Winger, Full Back, Back, Forward." }
+              - { name: gender, label: "Gender", widget: select, options: [ { label: "Male", value: "M" }, { label: "Female", value: "F" } ] }
+              - { name: photo, label: "Photo", widget: image, required: false, media_folder: "/images/players", public_folder: "images/players", hint: "Optional. If left empty, the club crest is shown instead." }
+
+  # ---------------- NEWS ----------------
+  - name: news
+    label: "News"
+    delete: false
+    files:
+      - name: items
+        label: "News items"
+        file: "data/news.json"
+        description: "Newest first: the item at the top is shown big (featured) on the News page and as the teaser on the home page."
+        fields:
+          - name: items
+            label: "News items"
+            label_singular: "News item"
+            widget: list
+            summary: "{{fields.titleEn}}"
+            fields:
+              - { name: categoryEn, label: "Category (English)", widget: string, hint: "e.g. Announcement, Recruitment, Match, Club" }
+              - { name: categoryEl, label: "Category (Greek)", widget: string, required: false }
+              - { name: titleEn, label: "Title (English)", widget: string }
+              - { name: titleEl, label: "Title (Greek)", widget: string, required: false }
+              - { name: bodyEn, label: "Text (English)", widget: text }
+              - { name: bodyEl, label: "Text (Greek)", widget: text, required: false }
+              - { name: image, label: "Photo", widget: image, required: false }
+              - { name: linkHref, label: "Button link (optional)", widget: string, required: false, hint: "e.g. contact.html . Leave blank for no button." }
+              - { name: linkEn, label: "Button text (English)", widget: string, required: false }
+              - { name: linkEl, label: "Button text (Greek)", widget: string, required: false }
+
+  # ---------------- GALLERY ----------------
+  - name: gallery
+    label: "Gallery"
+    delete: false
+    files:
+      - name: photos
+        label: "Home gallery"
+        file: "data/gallery.json"
+        description: "Photos shown in the 'Life at the Club' gallery on the home page."
+        fields:
+          - name: photos
+            label: "Photos"
+            label_singular: "Photo"
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: image, label: "Photo", widget: image }
+              - { name: alt, label: "Description", widget: string, hint: "A short description of the photo, used for accessibility and SEO." }

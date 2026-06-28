@@ -1,0 +1,52 @@
+name: Optimize images
+
+# When new/changed JPEGs land in images/ (e.g. uploaded by an editor through the
+# CMS), downscale + recompress them so phone photos don't bloat the site, then
+# commit the optimized versions back. PNGs (logo/favicon) are left untouched.
+#
+# No infinite loop: the commit this makes uses the GITHUB_TOKEN, and pushes by
+# GITHUB_TOKEN do not trigger workflows; the "[skip ci]" message is a belt-and-
+# suspenders guard on top of that.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'images/**.jpg'
+      - 'images/**.jpeg'
+      - 'images/**.JPG'
+      - 'images/**.JPEG'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Pillow
+        run: pip install --quiet Pillow
+
+      - name: Optimize changed images
+        run: python .github/scripts/optimize_images.py "${{ github.event.before }}" "${{ github.sha }}"
+
+      - name: Commit optimized images
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add images
+            git commit -m "Auto-optimize images [skip ci]"
+            git push
+          else
+            echo "Nothing to optimize."
+          fi

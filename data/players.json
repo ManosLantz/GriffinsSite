@@ -1,20 +1,22 @@
-[
-  { "nameEn": "Aggeliki Plevritaki", "nameEl": "Αγγελική Πλευριτάκη", "position": "Prop", "gender": "F", "photo": "" },
-  { "nameEn": "Alex \"Buzz\" Bazopoulos", "nameEl": "Άλεξ \"Buzz\" Μπαζόπουλος", "position": "Lock", "gender": "M", "photo": "images/players/alex-buzz.jpg" },
-  { "nameEn": "Anna Baxouthianaki", "nameEl": "Άννα Βαχουθιανάκη", "position": "Centre", "gender": "F", "photo": "" },
-  { "nameEn": "Dimitris Misirlis", "nameEl": "Δημήτρης Μυσιρλής", "position": "Forward", "gender": "M", "photo": "" },
-  { "nameEn": "Giannis Geronimakis", "nameEl": "Γιάννης Γερωνυμάκης", "position": "Winger", "gender": "M", "photo": "images/players/giannis-geronimakis.jpg" },
-  { "nameEn": "Giorgos Papadakis", "nameEl": "Γιώργος Παπαδάκης", "position": "Flanker", "gender": "M", "photo": "" },
-  { "nameEn": "Gonzalo Otero Seminario", "nameEl": "", "position": "Fly Half", "gender": "M", "photo": "images/players/gonzalo-otero-seminario.jpg" },
-  { "nameEn": "Ioulia P.", "nameEl": "Ιουλία Π.", "position": "Back", "gender": "F", "photo": "" },
-  { "nameEn": "Kostas Xristakis", "nameEl": "Κώστας Χρηστάκης", "position": "Hooker", "gender": "M", "photo": "" },
-  { "nameEn": "Lais Margiori", "nameEl": "Λαις Μαργιωρή", "position": "Back", "gender": "F", "photo": "" },
-  { "nameEn": "Manos Lantzourakis", "nameEl": "Μάνος Λαντζουράκης", "position": "Centre", "gender": "M", "photo": "images/players/manos-lantzourakis.jpg" },
-  { "nameEn": "Maria Daskalaki", "nameEl": "Μαρία Δασκαλάκη", "position": "Forward", "gender": "F", "photo": "" },
-  { "nameEn": "Marinos Tountas", "nameEl": "Μαρίνος Τούντας", "position": "Prop", "gender": "M", "photo": "" },
-  { "nameEn": "Melanie Tiemes", "nameEl": "", "position": "Flanker", "gender": "F", "photo": "" },
-  { "nameEn": "Oguz Baskaya", "nameEl": "", "position": "Centre", "gender": "M", "photo": "" },
-  { "nameEn": "Tatiana", "nameEl": "", "position": "Forward", "gender": "F", "photo": "" },
-  { "nameEn": "Vaggelis Merkouris", "nameEl": "Βαγγέλης Μερκούρης", "position": "Flanker", "gender": "M", "photo": "" },
-  { "nameEn": "Vaggelis Tsakalides", "nameEl": "Βαγγέλης Τσακαλίδης", "position": "Scrum Half", "gender": "M", "photo": "images/players/vaggelis-tsakalides.jpg" }
-]
+{
+  "players": [
+    { "nameEn": "Aggeliki Plevritaki", "nameEl": "Αγγελική Πλευριτάκη", "position": "Prop", "gender": "F", "photo": "" },
+    { "nameEn": "Alex \"Buzz\" Bazopoulos", "nameEl": "Άλεξ \"Buzz\" Μπαζόπουλος", "position": "Lock", "gender": "M", "photo": "images/players/alex-buzz.jpg" },
+    { "nameEn": "Anna Baxouthianaki", "nameEl": "Άννα Βαχουθιανάκη", "position": "Centre", "gender": "F", "photo": "" },
+    { "nameEn": "Dimitris Misirlis", "nameEl": "Δημήτρης Μυσιρλής", "position": "Forward", "gender": "M", "photo": "" },
+    { "nameEn": "Giannis Geronimakis", "nameEl": "Γιάννης Γερωνυμάκης", "position": "Winger", "gender": "M", "photo": "images/players/giannis-geronimakis.jpg" },
+    { "nameEn": "Giorgos Papadakis", "nameEl": "Γιώργος Παπαδάκης", "position": "Flanker", "gender": "M", "photo": "" },
+    { "nameEn": "Gonzalo Otero Seminario", "nameEl": "", "position": "Fly Half", "gender": "M", "photo": "images/players/gonzalo-otero-seminario.jpg" },
+    { "nameEn": "Ioulia P.", "nameEl": "Ιουλία Π.", "position": "Back", "gender": "F", "photo": "" },
+    { "nameEn": "Kostas Xristakis", "nameEl": "Κώστας Χρηστάκης", "position": "Hooker", "gender": "M", "photo": "" },
+    { "nameEn": "Lais Margiori", "nameEl": "Λαις Μαργιωρή", "position": "Back", "gender": "F", "photo": "" },
+    { "nameEn": "Manos Lantzourakis", "nameEl": "Μάνος Λαντζουράκης", "position": "Centre", "gender": "M", "photo": "images/players/manos-lantzourakis.jpg" },
+    { "nameEn": "Maria Daskalaki", "nameEl": "Μαρία Δασκαλάκη", "position": "Forward", "gender": "F", "photo": "" },
+    { "nameEn": "Marinos Tountas", "nameEl": "Μαρίνος Τούντας", "position": "Prop", "gender": "M", "photo": "" },
+    { "nameEn": "Melanie Tiemes", "nameEl": "", "position": "Flanker", "gender": "F", "photo": "" },
+    { "nameEn": "Oguz Baskaya", "nameEl": "", "position": "Centre", "gender": "M", "photo": "" },
+    { "nameEn": "Tatiana", "nameEl": "", "position": "Forward", "gender": "F", "photo": "" },
+    { "nameEn": "Vaggelis Merkouris", "nameEl": "Βαγγέλης Μερκούρης", "position": "Flanker", "gender": "M", "photo": "" },
+    { "nameEn": "Vaggelis Tsakalides", "nameEl": "Βαγγέλης Τσακαλίδης", "position": "Scrum Half", "gender": "M", "photo": "images/players/vaggelis-tsakalides.jpg" }
+  ]
+}

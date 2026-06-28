@@ -61,7 +61,8 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
     })
-    .then(function (players) {
+    .then(function (data) {
+      var players = Array.isArray(data) ? data : (data.players || []);
       players.sort(function (a, b) {
         return (a.nameEn || '').localeCompare(b.nameEn || '', 'en', { sensitivity: 'base' });
       });

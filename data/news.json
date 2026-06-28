@@ -1,38 +1,40 @@
-[
-  {
-    "categoryEn": "Announcement",
-    "categoryEl": "Ανακοίνωση",
-    "titleEn": "Field Change!",
-    "titleEl": "Αλλαγή γηπέδου!",
-    "bodyEn": "Sessions will be conducted at Lido Soccer every Monday and Thursday, 17:00-19:00. Same crew, new ground, come find us on the pitch.",
-    "bodyEl": "Οι προπονήσεις θα γίνονται στο γήπεδο του Lido κάθε Δευτέρα και Πέμπτη, 17:00-19:00. Ίδια παρέα, νέο γήπεδο, έλα να μας βρεις.",
-    "image": "images/img_9072.jpg",
-    "linkHref": "",
-    "linkEn": "",
-    "linkEl": ""
-  },
-  {
-    "categoryEn": "Recruitment",
-    "categoryEl": "Εγγραφές",
-    "titleEn": "New Players Welcome",
-    "titleEl": "Νέοι Παίκτες Ευπρόσδεκτοι",
-    "bodyEn": "No experience needed. Whether you've played before or have never held a rugby ball, come to a session and give it a go. All ages and abilities welcome.",
-    "bodyEl": "Δεν χρειάζεται εμπειρία. Είτε έχεις ξαναπαίξει είτε δεν έχεις κρατήσει ποτέ μπάλα, έλα σε μια προπόνηση και δοκίμασε. Όλες οι ηλικίες και τα επίπεδα ευπρόσδεκτα.",
-    "image": "images/img_8894.jpg",
-    "linkHref": "contact.html",
-    "linkEn": "Join the squad",
-    "linkEl": "Έλα στην ομάδα"
-  },
-  {
-    "categoryEn": "Club",
-    "categoryEl": "Σύλλογος",
-    "titleEn": "Our New Website Is Live",
-    "titleEl": "Το Νέο μας Website",
-    "bodyEn": "Welcome to griffinsrugby.gr. Here you'll find our roster, training times, the story and rules of rugby, and everything you need to come and play with us in Heraklion.",
-    "bodyEl": "Καλώς ήρθες στο griffinsrugby.gr. Εδώ θα βρεις την ομάδα μας, τις ώρες προπόνησης, την ιστορία και τους κανόνες του ράγκμπι, και όλα όσα χρειάζεσαι για να έρθεις να παίξεις μαζί μας στο Ηράκλειο.",
-    "image": "images/img_8921.jpg",
-    "linkHref": "",
-    "linkEn": "",
-    "linkEl": ""
-  }
-]
+{
+  "items": [
+    {
+      "categoryEn": "Announcement",
+      "categoryEl": "Ανακοίνωση",
+      "titleEn": "Field Change!",
+      "titleEl": "Αλλαγή γηπέδου!",
+      "bodyEn": "Sessions will be conducted at Lido Soccer every Monday and Thursday, 17:00-19:00. Same crew, new ground, come find us on the pitch.",
+      "bodyEl": "Οι προπονήσεις θα γίνονται στο γήπεδο του Lido κάθε Δευτέρα και Πέμπτη, 17:00-19:00. Ίδια παρέα, νέο γήπεδο, έλα να μας βρεις.",
+      "image": "images/img_9072.jpg",
+      "linkHref": "",
+      "linkEn": "",
+      "linkEl": ""
+    },
+    {
+      "categoryEn": "Recruitment",
+      "categoryEl": "Εγγραφές",
+      "titleEn": "New Players Welcome",
+      "titleEl": "Νέοι Παίκτες Ευπρόσδεκτοι",
+      "bodyEn": "No experience needed. Whether you've played before or have never held a rugby ball, come to a session and give it a go. All ages and abilities welcome.",
+      "bodyEl": "Δεν χρειάζεται εμπειρία. Είτε έχεις ξαναπαίξει είτε δεν έχεις κρατήσει ποτέ μπάλα, έλα σε μια προπόνηση και δοκίμασε. Όλες οι ηλικίες και τα επίπεδα ευπρόσδεκτα.",
+      "image": "images/img_8894.jpg",
+      "linkHref": "contact.html",
+      "linkEn": "Join the squad",
+      "linkEl": "Έλα στην ομάδα"
+    },
+    {
+      "categoryEn": "Club",
+      "categoryEl": "Σύλλογος",
+      "titleEn": "Our New Website Is Live",
+      "titleEl": "Το Νέο μας Website",
+      "bodyEn": "Welcome to griffinsrugby.gr. Here you'll find our roster, training times, the story and rules of rugby, and everything you need to come and play with us in Heraklion.",
+      "bodyEl": "Καλώς ήρθες στο griffinsrugby.gr. Εδώ θα βρεις την ομάδα μας, τις ώρες προπόνησης, την ιστορία και τους κανόνες του ράγκμπι, και όλα όσα χρειάζεσαι για να έρθεις να παίξεις μαζί μας στο Ηράκλειο.",
+      "image": "images/img_8921.jpg",
+      "linkHref": "",
+      "linkEn": "",
+      "linkEl": ""
+    }
+  ]
+}

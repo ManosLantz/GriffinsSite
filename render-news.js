@@ -76,7 +76,8 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
     })
-    .then(function (items) {
+    .then(function (data) {
+      var items = Array.isArray(data) ? data : (data.items || []);
       if (homeNews && items.length) {
         homeNews.appendChild(buildCard(items[0], true));
       }
