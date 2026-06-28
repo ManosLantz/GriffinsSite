@@ -17,6 +17,7 @@
 
   function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
     try { localStorage.setItem(KEY, lang); } catch (e) {}
     setActive(lang);
   }

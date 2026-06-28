@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{var l=localStorage.getItem('griffins-lang');if(!l){l=(navigator.language||'en').toLowerCase().indexOf('el')===0?'el':'en';}document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('lang',l);}catch(e){document.documentElement.setAttribute('data-lang','en');}})();</script>
-  <title>Supporters | Griffins Rugby Heraklion</title>
-  <meta name="description" content="The people and businesses who help Griffins Rugby Heraklion thrive, on and off the pitch. Οι υποστηρικτές και χορηγοί του ράγκμπι στο Ηράκλειο. Thank you.">
-  <link rel="canonical" href="https://griffinsrugby.gr/supporters.html">
+  <title>News &amp; Updates | Griffins Rugby Heraklion</title>
+  <meta name="description" content="The latest news and announcements from Griffins Rugby Heraklion: training updates, club life and how to join. Νέα και ανακοινώσεις από τους Griffins Rugby στο Ηράκλειο.">
+  <link rel="canonical" href="https://griffinsrugby.gr/news.html">
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Griffins Rugby Heraklion">
-  <meta property="og:title" content="Supporters | Griffins Rugby Heraklion">
-  <meta property="og:description" content="The people who help Griffins Rugby Heraklion thrive, on and off the pitch. Thank you.">
-  <meta property="og:url" content="https://griffinsrugby.gr/supporters.html">
+  <meta property="og:title" content="News &amp; Updates | Griffins Rugby Heraklion">
+  <meta property="og:description" content="The latest news and announcements from Griffins Rugby Heraklion: training updates, club life and how to join.">
+  <meta property="og:url" content="https://griffinsrugby.gr/news.html">
   <meta property="og:image" content="https://griffinsrugby.gr/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Griffins Rugby players training in Heraklion">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Supporters | Griffins Rugby Heraklion">
-  <meta name="twitter:description" content="The people who help Griffins Rugby Heraklion thrive, on and off the pitch. Thank you.">
+  <meta name="twitter:title" content="News &amp; Updates | Griffins Rugby Heraklion">
+  <meta name="twitter:description" content="The latest news and announcements from Griffins Rugby Heraklion.">
   <meta name="twitter:image" content="https://griffinsrugby.gr/images/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,8 +48,8 @@
         <li><a href="index.html"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>
         <li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>
         <li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>
-        <li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
-        <li><a href="supporters.html" class="active" aria-current="page"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
+        <li><a href="news.html" class="active" aria-current="page"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>
+        <li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>
         <li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>
       </ul>
 
@@ -63,39 +63,59 @@
 
     <section class="page-header">
       <div class="container">
-        <span class="eyebrow"><span data-lang-en>Behind the Griffins</span><span data-lang-el>Πίσω από τους Griffins</span></span>
-        <h1><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></h1>
-        <p><span data-lang-en>The people who help the Griffins thrive, on and off the pitch. Thank you.</span><span data-lang-el>Οι άνθρωποι που βοηθούν τους Griffins να μεγαλώνουν, εντός κι εκτός γηπέδου. Σας ευχαριστούμε.</span></p>
+        <span class="eyebrow"><span data-lang-en>From the clubhouse</span><span data-lang-el>Από τον σύλλογο</span></span>
+        <h1><span data-lang-en>Club News</span><span data-lang-el>Νέα του Συλλόγου</span></h1>
+        <p><span data-lang-en>Announcements, training updates and what's happening with the Griffins. Follow us on Instagram and Facebook for the day to day.</span><span data-lang-el>Ανακοινώσεις, ενημερώσεις για τις προπονήσεις και ό,τι συμβαίνει στους Griffins. Ακολούθησέ μας σε Instagram και Facebook για την καθημερινότητα.</span></p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="supporter-grid">
+        <div class="card-grid">
 
-          <article class="supporter-card">
-            <div class="supporter-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <!-- Featured: field change -->
+          <article class="news-card news-feature">
+            <div class="news-thumb" style="background-image:url('images/img_9072.jpg');background-size:cover;background-position:center;"></div>
+            <div class="news-body">
+              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Announcement</span><span data-lang-el>Ανακοίνωση</span></span></p>
+              <h3><span data-lang-en>Field Change!</span><span data-lang-el>Αλλαγή γηπέδου!</span></h3>
+              <p><span data-lang-en>Sessions will be conducted at Lido Soccer every Monday and Thursday, 17:00-19:00. Same crew, new ground, come find us on the pitch.</span><span data-lang-el>Οι προπονήσεις θα γίνονται στο γήπεδο του Lido κάθε Δευτέρα και Πέμπτη, 17:00-19:00. Ίδια παρέα, νέο γήπεδο, έλα να μας βρεις.</span></p>
             </div>
-            <h3>Nikos Kritsotakis</h3>
-            <p class="supporter-role"><span data-lang-en>Photographer</span><span data-lang-el>Φωτογράφος</span></p>
-            <p><span data-lang-en>Special thanks to Nikos Kritsotakis for his incredible photographs.</span><span data-lang-el>Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του.</span></p>
+          </article>
+
+          <!-- Recruitment -->
+          <article class="news-card">
+            <div class="news-thumb" style="background-image:url('images/img_8894.jpg');background-size:cover;background-position:center;"></div>
+            <div class="news-body">
+              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Recruitment</span><span data-lang-el>Εγγραφές</span></span></p>
+              <h3><span data-lang-en>New Players Welcome</span><span data-lang-el>Νέοι Παίκτες Ευπρόσδεκτοι</span></h3>
+              <p><span data-lang-en>No experience needed. Whether you've played before or have never held a rugby ball, come to a session and give it a go. All ages and abilities welcome.</span><span data-lang-el>Δεν χρειάζεται εμπειρία. Είτε έχεις ξαναπαίξει είτε δεν έχεις κρατήσει ποτέ μπάλα, έλα σε μια προπόνηση και δοκίμασε. Όλες οι ηλικίες και τα επίπεδα ευπρόσδεκτα.</span></p>
+              <a class="read-more" href="contact.html"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></a>
+            </div>
+          </article>
+
+          <!-- Welcome to the new site -->
+          <article class="news-card">
+            <div class="news-thumb" style="background-image:url('images/img_8921.jpg');background-size:cover;background-position:center;"></div>
+            <div class="news-body">
+              <p class="news-tagline"><span class="news-cat"><span data-lang-en>Club</span><span data-lang-el>Σύλλογος</span></span></p>
+              <h3><span data-lang-en>Our New Website Is Live</span><span data-lang-el>Το Νέο μας Website</span></h3>
+              <p><span data-lang-en>Welcome to griffinsrugby.gr. Here you'll find our roster, training times, the story and rules of rugby, and everything you need to come and play with us in Heraklion.</span><span data-lang-el>Καλώς ήρθες στο griffinsrugby.gr. Εδώ θα βρεις την ομάδα μας, τις ώρες προπόνησης, την ιστορία και τους κανόνες του ράγκμπι, και όλα όσα χρειάζεσαι για να έρθεις να παίξεις μαζί μας στο Ηράκλειο.</span></p>
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ===================== SUPPORT US CTA ===================== -->
+    <!-- ===================== CTA BAND ===================== -->
     <section class="section cta-band">
       <div class="container">
-        <h2><span data-lang-en>Want to support the Griffins?</span><span data-lang-el>Θες να στηρίξεις τους Griffins;</span></h2>
-        <p><span data-lang-en>Sponsorship, gear, a helping hand, or simply spreading the word. Every bit helps the club grow.</span><span data-lang-el>Χορηγία, εξοπλισμός, ένα χέρι βοηθείας ή απλώς διάδοση. Κάθε βοήθεια μετράει για να μεγαλώσει ο σύλλογος.</span></p>
+        <h2><span data-lang-en>Want to be in the next update?</span><span data-lang-el>Θες να είσαι στο επόμενο νέο;</span></h2>
+        <p><span data-lang-en>Come to a training session at Lido Soccer, or send us a message. There's a place for you at the Griffins.</span><span data-lang-el>Έλα σε μια προπόνηση στο Lido Soccer ή στείλε μας μήνυμα. Υπάρχει θέση για σένα στους Griffins.</span></p>
         <div class="cta-actions">
-          <a class="btn btn-ghost btn-lg" href="contact.html">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            <span data-lang-en>Support Us</span><span data-lang-el>Στήριξε μας</span>
-          </a>
+          <a class="btn btn-ghost btn-lg" href="contact.html"><span data-lang-en>Contact us</span><span data-lang-el>Επικοινώνησε μαζί μας</span></a>
+          <a class="btn btn-outline btn-lg" href="https://www.instagram.com/griffins_heraklion_rugby/" target="_blank" rel="noopener noreferrer"><span data-lang-en>Follow on Instagram</span><span data-lang-el>Ακολούθησε στο Instagram</span></a>
         </div>
       </div>
     </section>

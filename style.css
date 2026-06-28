@@ -327,6 +327,16 @@ ul { margin: 0; padding: 0; }
   letter-spacing: .03em;
 }
 .training-pill strong { color: var(--accent); }
+.training-directions { margin-top: 1rem; }
+.map-link {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: var(--ff-head); font-weight: 700; font-size: .9rem;
+  text-transform: uppercase; letter-spacing: .04em;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.map-link:hover { color: #fff; border-bottom-color: var(--accent); }
 
 /* ---------- News grid ---------- */
 .card-grid {

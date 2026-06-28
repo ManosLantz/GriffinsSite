@@ -12,8 +12,10 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - **Never delete** `CNAME` or `googledf4229166551c411.html` (Google Search Console verification).
 
 ## Pages & files
-- `index.html` (home: hero, training schedule, single featured news item, photo gallery, CTA)
-- `roster.html` (players), `history.html`, `rules.html`, `supporters.html`
+- `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, photo gallery, CTA)
+- `roster.html` (players), `supporters.html`
+- `rugby.html` (merged: short history of rugby + basic rules of Union vs League. Replaced the old `history.html` + `rules.html`, which were deleted.)
+- `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
 - `contact.html` (info + social buttons + embedded Google join form)
 - `404.html` (uses **relative** asset paths so it works at the domain root)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle)
@@ -30,8 +32,8 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   "AI-looking"). Use commas/colons. Time ranges use a plain hyphen: `17:00-19:00`.
 - **Player positions stay in English** in both languages (Lock, Winger, Scrum Half, etc.) — do NOT translate.
 - **Footer credit lines** (`© 2026 …` and `Built for the love of the game.`) stay **English** in both languages.
-- Nav order: Home · Roster · History · Rules · Supporters · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
-  Greek nav labels: Αρχική · Ομάδα · Ιστορία · Κανόνες · Υποστηρικτές · Επικοινωνία.
+- Nav order: Home · Roster · Rugby · News · Supporters · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
+  Greek nav labels: Αρχική · Ομάδα · Το Ράγκμπι · Νέα · Υποστηρικτές · Επικοινωνία.
 - All canonical / Open Graph / sitemap URLs use `https://griffinsrugby.gr/`.
 - Theme "Black & Crimson": CSS vars in `:root` (`--bg #0D0D0D`, `--primary #C8102E`, `--accent #D4AF37` gold).
   Fonts: Montserrat (headings) + Roboto (body).
@@ -77,6 +79,6 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   **Google Business Profile**, and link the site from IG/FB bios.
 
 ## Possible next steps
-- Keyword-polish titles/descriptions on non-home pages.
-- Dedicated **News** page once there are several updates (home currently shows one featured item).
+- Add more real news items to `news.html` (currently 3: field change, recruitment, site launch).
 - Swap crest placeholders for real photos as they arrive.
+- Add the embedded Google Map of Lido Soccer on `contact.html` (currently text + a directions link on the home training card; map URL: https://maps.app.goo.gl/PoLZoSypu89XtTer9).
