@@ -10,7 +10,7 @@ backend:
   name: github
   repo: ManosLantz/GriffinsSite      # owner/repo on GitHub
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.manosmanos256.workers.dev
 
 # Where uploaded images are stored in the repo (overridden per-field where needed).
 media_folder: "images"
