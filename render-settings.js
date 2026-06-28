@@ -35,6 +35,32 @@
     }
     row.style.display = '';
   }
+  function applyPhones(phones) {
+    var row = document.querySelector('.js-phones-row');
+    if (!row) return;
+    var list = Array.isArray(phones) ? phones.filter(function (p) { return p && p.number; }) : [];
+    var box = row.querySelector('.js-phones');
+    if (!list.length || !box) { row.style.display = 'none'; return; }
+    box.textContent = '';
+    list.forEach(function (p) {
+      var clean = String(p.number).replace(/[^\d+]/g, '');
+      var line = document.createElement('p');
+      line.className = 'phone-line';
+      var tel = document.createElement('a');
+      tel.href = 'tel:' + clean;
+      tel.textContent = p.number;
+      line.appendChild(tel);
+      if (p.viber) {
+        var v = document.createElement('a');
+        v.className = 'viber-link';
+        v.href = 'viber://chat?number=' + encodeURIComponent(clean);
+        v.textContent = 'Viber';
+        line.appendChild(v);
+      }
+      box.appendChild(line);
+    });
+    row.style.display = '';
+  }
 
   fetch('data/settings.json', { cache: 'no-cache' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -50,7 +76,7 @@
       setHref('a[href*="facebook.com/heraklion"]', s.facebookUrl);
 
       applyContact('email', s.email, 'mailto:');
-      applyContact('phone', s.phone, 'tel:');
+      applyPhones(s.phones);
     })
     .catch(function (e) { console.error('Could not load settings:', e); });
 })();

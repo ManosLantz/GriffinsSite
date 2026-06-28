@@ -185,4 +185,13 @@ collections:
           - { name: instagramUrl, label: "Instagram σύνδεσμος / link", widget: string, required: false }
           - { name: facebookUrl, label: "Facebook σύνδεσμος / link", widget: string, required: false }
           - { name: email, label: "Email", widget: string, required: false, hint: "Άφησέ το κενό αν δεν υπάρχει. Εμφανίζεται στη σελίδα Επικοινωνία μόνο αν το συμπληρώσεις." }
-          - { name: phone, label: "Τηλέφωνο / Phone", widget: string, required: false, hint: "Άφησέ το κενό αν δεν υπάρχει." }
+          - name: phones
+            label: "Τηλέφωνα / Phones"
+            label_singular: "Τηλέφωνο / Phone"
+            widget: list
+            required: false
+            summary: "{{fields.number}}"
+            hint: "Πρόσθεσε όσα τηλέφωνα θες. Εμφανίζονται στη σελίδα Επικοινωνία."
+            fields:
+              - { name: number, label: "Αριθμός / Number", widget: string, hint: "Βάλε τον κωδικό χώρας για να δουλεύει το Viber. Π.χ. +30 691 234 5678" }
+              - { name: viber, label: "Έχει Viber; / On Viber?", widget: boolean, default: false, hint: "Δείχνει ένα κουμπί Viber δίπλα στον αριθμό." }

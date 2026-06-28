@@ -42,7 +42,7 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   - `fixtures.json` (`{fixtures:[...]}`): each `{opponent,dateText,homeAway,competition,played,scoreUs,scoreThem}`.
     Rendered into the home "Fixtures & Results" section; empty list shows a "coming soon" note.
   - `settings.json`: single object of site-wide facts (venue, area En/El, days short/long En/El, time,
-    mapsUrl, social URLs, email, phone). `render-settings.js` fills **language-aware placeholders**
+    mapsUrl, social URLs, email, `phones` list (each `{number,viber}`; Viber shows a deep-link button)). `render-settings.js` fills **language-aware placeholders**
     (`.js-venue` neutral, `.js-area`/`.js-daysShort`/`.js-daysLong` by EN/EL context, `.js-time` neutral)
     in the footer (every page), home training card, and contact page, plus social hrefs (matched by URL)
     and `.js-maps`. HTML keeps current values as static fallback. So training venue/time changes in ONE place.
