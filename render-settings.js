@@ -19,10 +19,19 @@
       if (v != null) nodes[i].textContent = v;
     }
   }
+  // Allow only safe link schemes (block javascript:, data:, etc.).
+  function safeUrl(u) {
+    if (!u) return null;
+    try {
+      var p = new URL(u, location.origin);
+      return ['http:', 'https:', 'mailto:', 'tel:'].indexOf(p.protocol) !== -1 ? u : null;
+    } catch (e) { return null; }
+  }
   function setHref(selector, url) {
-    if (!url) return;
+    var safe = safeUrl(url);
+    if (!safe) return;
     var nodes = document.querySelectorAll(selector);
-    for (var i = 0; i < nodes.length; i++) nodes[i].setAttribute('href', url);
+    for (var i = 0; i < nodes.length; i++) nodes[i].setAttribute('href', safe);
   }
   function applyContact(kind, value, scheme) {
     var row = document.querySelector('.js-' + kind + '-row');

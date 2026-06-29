@@ -27,15 +27,22 @@
     return h3;
   }
 
+  // Build a CSS url() value, rejecting characters that could break out of url('...').
+  function cssUrl(path) {
+    if (!path || /["'()\\]/.test(path) || /^\s*(javascript|data):/i.test(path)) return '';
+    return "url('" + encodeURI(path) + "')";
+  }
+
   function buildCard(p) {
     var card = document.createElement('article');
     card.className = 'player-card';
     if (p.gender) card.setAttribute('data-gender', p.gender);
 
     var photo = document.createElement('div');
-    if (p.photo) {
+    var photoUrl = cssUrl(p.photo);
+    if (photoUrl) {
       photo.className = 'player-photo';
-      photo.style.backgroundImage = "url('" + p.photo + "')";
+      photo.style.backgroundImage = photoUrl;
       photo.style.backgroundSize = 'cover';
       photo.style.backgroundPosition = 'center top';
     } else {

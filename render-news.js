@@ -32,14 +32,29 @@
     return node;
   }
 
+  // Allow only safe link schemes (block javascript:, data:, etc.).
+  function safeUrl(u) {
+    if (!u) return null;
+    try {
+      var p = new URL(u, location.origin);
+      return ['http:', 'https:', 'mailto:', 'tel:'].indexOf(p.protocol) !== -1 ? u : null;
+    } catch (e) { return null; }
+  }
+  // Build a CSS url() value, rejecting characters that could break out of url('...').
+  function cssUrl(path) {
+    if (!path || /["'()\\]/.test(path) || /^\s*(javascript|data):/i.test(path)) return '';
+    return "url('" + encodeURI(path) + "')";
+  }
+
   function buildCard(item, featured) {
     var card = document.createElement('article');
     card.className = 'news-card' + (featured ? ' news-feature' : '');
 
     var thumb = document.createElement('div');
     thumb.className = 'news-thumb';
-    if (item.image) {
-      thumb.style.backgroundImage = "url('" + item.image + "')";
+    var thumbUrl = cssUrl(item.image);
+    if (thumbUrl) {
+      thumb.style.backgroundImage = thumbUrl;
       thumb.style.backgroundSize = 'cover';
       thumb.style.backgroundPosition = 'center';
     }
@@ -58,10 +73,11 @@
     body.appendChild(makeBilingual('h3', item.titleEn, item.titleEl));
     body.appendChild(makeBilingual('p', item.bodyEn, item.bodyEl));
 
-    if (item.linkHref) {
+    var linkHref = safeUrl(item.linkHref);
+    if (linkHref) {
       var link = document.createElement('a');
       link.className = 'read-more';
-      link.href = item.linkHref;
+      link.href = linkHref;
       fillBilingual(link, item.linkEn, item.linkEl);
       body.appendChild(link);
     }
