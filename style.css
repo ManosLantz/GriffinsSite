@@ -1,31 +1,35 @@
 /* =====================================================================
    GRIFFINS RUGBY — Heraklion
    Unified stylesheet for the whole site.
-   Theme: Black & Crimson (with gold accents)
-   Fonts: Montserrat (headings) + Roboto (body) via Google Fonts
+   Theme: "The Pitch" — floodlit black & crimson, chalk-white lines (raw/athletic)
+   Fonts: Anton (display) + Saira Condensed (utility) + IBM Plex Sans (body)
    ===================================================================== */
 
 /* ---------- Design tokens ---------- */
 :root {
-  --bg:          #0D0D0D;  /* page background (near-black) */
-  --bg-elev:     #161616;  /* cards / elevated panels      */
-  --bg-elev-2:   #1E1E1E;  /* hover / nested panels        */
-  --primary:     #C8102E;  /* crimson                      */
-  --primary-dark:#9E0C24;  /* crimson hover                */
-  --accent:      #D4AF37;  /* gold                         */
-  --text:        #F5F5F5;  /* main text                    */
-  --muted:       #B5B5B5;  /* secondary text               */
-  --border:      #2A2A2A;  /* hairline borders             */
+  --bg:          #080A09;  /* page ground (floodlit pitch at night) */
+  --bg-elev:     #10130F;  /* cards / elevated panels      */
+  --bg-elev-2:   #181C16;  /* hover / nested panels        */
+  --primary:     #C8102E;  /* crimson (sacred team mark)   */
+  --primary-dark:#8E0B20;  /* crimson pressed              */
+  --accent:      #F2F4EF;  /* chalk (the new line accent, replaces gold) */
+  --grass:       #1C2A1E;  /* faint pitch-marking green     */
+  --text:        #F4F5F1;  /* main text                    */
+  --muted:       #99A197;  /* secondary text (cold grey)   */
+  --border:      #23291F;  /* hairline borders (cold)      */
 
   --maxw: 1180px;
-  --radius: 4px;
+  --radius: 2px;
   --gap: clamp(1rem, 2.5vw, 1.75rem);
   --header-h: 72px;
 
-  --ff-head: "Montserrat", system-ui, sans-serif;
-  --ff-body: "Roboto", system-ui, sans-serif;
+  /* Anton = brutal condensed display, used with restraint on the biggest hits.
+     Saira Condensed = scoreboard/teamsheet utility. IBM Plex Sans = body. */
+  --ff-display: "Anton", "Saira Condensed", system-ui, sans-serif;
+  --ff-head:    "Saira Condensed", system-ui, sans-serif;
+  --ff-body:    "IBM Plex Sans", system-ui, sans-serif;
 
-  --shadow: 0 14px 36px rgba(0,0,0,.45);
+  --shadow: 0 18px 40px rgba(0,0,0,.55);
   --ease: cubic-bezier(.2,.7,.3,1);
 }
 
@@ -50,14 +54,15 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--ff-head);
-  line-height: 1.08;
+  font-weight: 700;
+  line-height: 1.04;
   margin: 0 0 .6rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 p { margin: 0 0 1rem; }
-a { color: var(--accent); text-decoration: none; transition: color .2s var(--ease); }
-a:hover { color: var(--primary); }
+a { color: var(--primary); text-decoration: none; transition: color .2s var(--ease); }
+a:hover { color: var(--accent); }
 img { max-width: 100%; display: block; }
 ul { margin: 0; padding: 0; }
 
@@ -85,35 +90,54 @@ ul { margin: 0; padding: 0; }
 .section-head--center { margin-inline: auto; text-align: center; }
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
   font-family: var(--ff-head);
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: .78rem;
+  letter-spacing: 0.28em;
+  font-size: .8rem;
   color: var(--primary);
-  margin-bottom: .65rem;
+  margin-bottom: .75rem;
 }
+.eyebrow::before {
+  content: "";
+  width: 26px; height: 2px;
+  background: var(--primary);
+  flex: 0 0 auto;
+}
+.section-head--center .eyebrow { justify-content: center; }
 
 .section-title {
-  font-weight: 900;
+  font-family: var(--ff-display);
+  font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(1.9rem, 4.6vw, 3rem);
+  letter-spacing: 0.005em;
+  font-size: clamp(2.1rem, 5.4vw, 3.6rem);
 }
 
 .section-head p { color: var(--muted); margin-bottom: 0; }
 .section-head--center .title-rule { margin-inline: auto; }
 
+/* Pitch line: a chalk rule led by a crimson segment (no skew gimmick) */
 .title-rule {
-  width: 70px;
-  height: 5px;
+  position: relative;
+  width: 132px;
+  height: 2px;
+  background: rgba(242,244,239,.22);
+  margin-top: 1.25rem;
+}
+.title-rule::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 48px; height: 2px;
   background: var(--primary);
-  margin-top: 1.1rem;
-  transform: skewX(-20deg);
 }
 
 .lead { font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem); color: #e9e9e9; }
-.text-accent { color: var(--accent); }
+.text-accent { color: var(--primary); font-weight: 700; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -122,25 +146,25 @@ ul { margin: 0; padding: 0; }
   align-items: center;
   gap: .55rem;
   font-family: var(--ff-head);
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: .9rem;
+  letter-spacing: 0.1em;
+  font-size: .95rem;
   line-height: 1;
-  padding: 1rem 1.75rem;
+  padding: 1.05rem 1.85rem;
   border: 2px solid transparent;
-  border-radius: var(--radius);
+  border-radius: 0;
   cursor: pointer;
-  transition: transform .2s var(--ease), background .2s var(--ease),
+  transition: transform .18s var(--ease), background .2s var(--ease),
               color .2s var(--ease), box-shadow .2s var(--ease);
 }
 .btn:hover { transform: translateY(-2px); }
 
 .btn-primary { background: var(--primary); color: #fff; }
-.btn-primary:hover { background: var(--primary-dark); color: #fff; box-shadow: 0 12px 26px rgba(200,16,46,.35); }
+.btn-primary:hover { background: var(--primary-dark); color: #fff; box-shadow: 0 0 0 2px var(--primary), 0 14px 28px rgba(200,16,46,.4); }
 
 .btn-outline { background: transparent; border-color: var(--accent); color: var(--accent); }
-.btn-outline:hover { background: var(--accent); color: #0d0d0d; }
+.btn-outline:hover { background: var(--accent); color: var(--bg); }
 
 .btn-ghost { background: rgba(255,255,255,.06); border-color: var(--border); color: var(--text); }
 .btn-ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
@@ -237,49 +261,92 @@ ul { margin: 0; padding: 0; }
 .nav-toggle-label span:nth-child(2) { top: 9px; }
 .nav-toggle-label span:nth-child(3) { top: 18px; }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (the signature: a floodlit pitch) ---------- */
 .hero {
   position: relative;
-  /* Hero background photo with dark overlay for text legibility.
+  /* Darkened action shot reads as a floodlit ground at night.
      Swap 'images/img_8894.jpg' for any landscape action shot. */
-  background-color: #0a0a0a;
+  background-color: #060806;
   background-image:
-    linear-gradient(100deg, rgba(13,13,13,.94) 0%, rgba(13,13,13,.74) 48%, rgba(13,13,13,.55) 100%),
-    linear-gradient(0deg, rgba(13,13,13,.9), rgba(13,13,13,.15) 60%),
+    linear-gradient(96deg, rgba(6,8,6,.94) 0%, rgba(6,8,6,.74) 44%, rgba(6,8,6,.42) 100%),
+    linear-gradient(0deg, rgba(6,8,6,.95), rgba(6,8,6,.08) 64%),
     url('images/img_8894.jpg');
   background-size: cover;
   background-position: center 28%;
   background-repeat: no-repeat;
-  border-bottom: 4px solid var(--primary);
+  border-bottom: 4px solid var(--primary); /* try line */
   overflow: hidden;
 }
+/* Crimson touchline down the left edge, drawn on at load */
+.hero::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: var(--primary);
+  z-index: 2;
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawY .7s var(--ease) .05s both;
+}
+/* Faint chalk pitch lines */
+.hero-pitch { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero-pitch .pitch-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: rgba(242,244,239,.14);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawY .9s var(--ease) both;
+}
+.hero-pitch .pitch-line i {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  left: 8px;
+  font-family: var(--ff-head);
+  font-weight: 600;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  color: rgba(242,244,239,.42);
+}
+/* Symmetric pitch: 22 · halfway · 22 */
+.pitch-line--halfway { left: 50%; background: rgba(242,244,239,.2); animation-delay: .28s; }
+.pitch-line--22.is-left  { left: 24%; animation-delay: .42s; }
+.pitch-line--22.is-right { left: 76%; animation-delay: .54s; }
+/* On narrow screens keep just the halfway line so the hero stays clean */
+@media (max-width: 720px) { .pitch-line--22 { display: none; } }
+
 .hero-inner {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: clamp(440px, 78vh, 760px);
+  min-height: clamp(460px, 80vh, 780px);
   padding-block: clamp(3rem, 8vw, 6rem);
-  max-width: 50ch;
+  max-width: 52ch;
 }
+.hero-inner > * { animation: riseIn .6s var(--ease) both; }
+.hero-inner > *:nth-child(1) { animation-delay: .18s; }
+.hero-inner > *:nth-child(2) { animation-delay: .28s; }
+.hero-inner > *:nth-child(3) { animation-delay: .38s; }
+.hero-inner > *:nth-child(4) { animation-delay: .48s; }
+
 .hero h1 {
-  font-weight: 900;
+  font-family: var(--ff-display);
+  font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(2.6rem, 8vw, 5.5rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 9.5vw, 6.5rem);
+  letter-spacing: 0;
+  line-height: .92;
 }
 .hero h1 .stroke { color: var(--primary); }
-.hero .lead { margin-bottom: 2rem; max-width: 46ch; }
+.hero .lead { margin-top: .4rem; margin-bottom: 2rem; max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 
-/* Decorative crimson slash in hero corner */
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -120px; bottom: -80px;
-  width: 460px; height: 460px;
-  background: radial-gradient(circle at center, rgba(200,16,46,.20), transparent 62%);
-  pointer-events: none;
-}
+@keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Training schedule ---------- */
 .training-card {
@@ -358,12 +425,11 @@ ul { margin: 0; padding: 0; }
 }
 .news-thumb {
   aspect-ratio: 16 / 9;
-  background:
-    linear-gradient(135deg, rgba(200,16,46,.35), rgba(13,13,13,.9)),
-    repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 16px);
+  background: linear-gradient(150deg, var(--grass), #0a0d0a 70%);
+  border-bottom: 2px solid var(--primary);
   display: grid;
   place-items: center;
-  color: rgba(255,255,255,.55);
+  color: rgba(242,244,239,.4);
 }
 .news-thumb svg { width: 46px; height: 46px; opacity: .8; }
 .news-body { padding: 1.4rem 1.4rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
@@ -416,16 +482,16 @@ ul { margin: 0; padding: 0; }
 
 /* ---------- CTA band ---------- */
 .cta-band {
-  background:
-    linear-gradient(135deg, rgba(200,16,46,.92), rgba(120,8,26,.92)),
-    repeating-linear-gradient(135deg, rgba(0,0,0,.12) 0 2px, transparent 2px 22px);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-block: 4px solid var(--accent); /* chalk try-line bands */
   text-align: center;
 }
 .cta-band h2 {
   color: #fff;
-  font-weight: 900;
+  font-family: var(--ff-display);
+  font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5.6vw, 3.4rem);
 }
 .cta-band p { color: rgba(255,255,255,.9); max-width: 52ch; margin-inline: auto; margin-bottom: 2rem; }
 .cta-band .btn-outline { border-color: #fff; color: #fff; }
@@ -435,19 +501,29 @@ ul { margin: 0; padding: 0; }
 
 /* ---------- Page header (interior pages) ---------- */
 .page-header {
+  position: relative;
   background:
-    linear-gradient(180deg, rgba(13,13,13,.86), rgba(13,13,13,.95)),
-    radial-gradient(120% 140% at 85% 0%, rgba(200,16,46,.30), transparent 55%),
+    linear-gradient(180deg, rgba(6,8,6,.82), rgba(6,8,6,.95)),
+    radial-gradient(120% 140% at 85% 0%, rgba(200,16,46,.28), transparent 55%),
     url('images/img_9072.jpg');
   background-size: cover;
   background-position: center 38%;
   background-repeat: no-repeat;
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 4px solid var(--primary); /* try line */
   padding-block: clamp(2.75rem, 7vw, 4.75rem);
 }
+.page-header::before { /* crimson touchline, echoes the hero */
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: var(--primary);
+}
 .page-header h1 {
-  font-weight: 900; text-transform: uppercase;
-  font-size: clamp(2.2rem, 6vw, 3.75rem);
+  font-family: var(--ff-display);
+  font-weight: 400; text-transform: uppercase;
+  letter-spacing: 0.005em;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
 }
 .page-header p { color: var(--muted); max-width: 60ch; margin-bottom: 0; }
 
@@ -483,11 +559,11 @@ ul { margin: 0; padding: 0; }
 }
 .player-number {
   position: absolute;
-  top: .75rem; left: .75rem;
-  font-family: var(--ff-head); font-weight: 900; font-size: 1rem;
+  top: 0; left: 0;
+  font-family: var(--ff-display); font-weight: 400; font-size: 1.4rem;
+  line-height: 1;
   color: #fff; background: var(--primary);
-  padding: .2rem .55rem; border-radius: 3px;
-  transform: skewX(-12deg);
+  padding: .35rem .6rem .25rem;
 }
 .player-info { padding: 1.1rem 1.2rem 1.35rem; border-top: 3px solid var(--primary); }
 .player-name { font-size: 1.25rem; font-weight: 800; text-transform: uppercase; }
@@ -605,11 +681,11 @@ ul { margin: 0; padding: 0; }
 .rule-panel h3 { font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 4vw, 2.1rem); }
 .rule-panel .badge {
   display: inline-block;
-  font-family: var(--ff-head); font-weight: 800; font-size: .76rem;
+  font-family: var(--ff-head); font-weight: 700; font-size: .76rem;
   text-transform: uppercase; letter-spacing: .12em;
   color: var(--accent);
-  background: rgba(212,175,55,.1);
-  border: 1px solid rgba(212,175,55,.35);
+  background: rgba(242,244,239,.08);
+  border: 1px solid rgba(242,244,239,.28);
   padding: .25rem .7rem; border-radius: 999px;
   margin-bottom: .9rem;
 }
@@ -625,9 +701,8 @@ ul { margin: 0; padding: 0; }
 .fact-list li::before {
   content: "";
   flex: 0 0 auto;
-  width: 9px; height: 9px; margin-top: .55rem;
+  width: 10px; height: 2px; margin-top: .7rem;
   background: var(--primary);
-  transform: skewX(-15deg);
 }
 .scoring-table { width: 100%; border-collapse: collapse; margin-top: .75rem; }
 .scoring-table th, .scoring-table td {
@@ -825,6 +900,23 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 [data-lang-el] { display: none; }
 html[data-lang="el"] [data-lang-en] { display: none; }
 html[data-lang="el"] [data-lang-el] { display: inline; }
+
+/* Greek glyph coverage: Anton and Saira Condensed have NO Greek subset, so Greek
+   headings would fall back to the system font. Roboto Condensed covers Greek and
+   keeps the condensed/athletic feel. Scoped to Greek only; English keeps Anton.
+   (unicode-range means English visitors download none of this.) */
+html[data-lang="el"] {
+  --ff-display: "Roboto Condensed", system-ui, sans-serif;
+  --ff-head:    "Roboto Condensed", system-ui, sans-serif;
+}
+/* Anton is a single ultra-black weight; match its heft with Roboto Condensed 900 */
+html[data-lang="el"] .hero h1,
+html[data-lang="el"] .section-title,
+html[data-lang="el"] .page-header h1,
+html[data-lang="el"] .cta-band h2,
+html[data-lang="el"] .stat-num,
+html[data-lang="el"] .fixture-score,
+html[data-lang="el"] .player-number { font-weight: 900; }
 
 /* ============================================================
    POLISH: small UX + aesthetic niceties (added later)
@@ -1033,7 +1125,7 @@ html[data-lang="el"] [data-lang-el] { display: inline; }
 }
 .fixture-team:last-child { text-align: right; }
 .fixture-team.is-griffins { color: #fff; }
-.fixture-score { font-family: var(--ff-head); font-weight: 900; font-size: 1.4rem; color: var(--accent); white-space: nowrap; }
+.fixture-score { font-family: var(--ff-display); font-weight: 400; font-size: 1.75rem; color: var(--accent); white-space: nowrap; letter-spacing: .02em; }
 .fixture-vs { font-family: var(--ff-head); font-weight: 700; font-size: .8rem; color: var(--muted); }
 .fixture-tag {
   align-self: flex-start;
@@ -1043,7 +1135,7 @@ html[data-lang="el"] [data-lang-el] { display: inline; }
   border: 1px solid var(--border); color: var(--muted);
 }
 .fixture-card--upcoming .fixture-tag { color: var(--primary); border-color: rgba(200,16,46,.4); background: rgba(200,16,46,.08); }
-.fixture-card--win .fixture-tag { color: var(--accent); border-color: rgba(212,175,55,.4); background: rgba(212,175,55,.08); }
+.fixture-card--win .fixture-tag { color: var(--accent); border-color: rgba(242,244,239,.4); background: rgba(242,244,239,.08); }
 
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
@@ -1092,8 +1184,8 @@ html[data-lang="el"] [data-lang-el] { display: inline; }
 }
 .stat-num {
   display: block;
-  font-family: var(--ff-head); font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--ff-display); font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
   color: var(--accent); line-height: 1;
 }
 .stat-label {
@@ -1105,8 +1197,7 @@ html[data-lang="el"] [data-lang-el] { display: inline; }
 }
 @media (max-width: 680px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
 
-/* ---------- Dynamic slanted edge on the CTA band ---------- */
-.cta-band { clip-path: polygon(0 1.8vw, 100% 0, 100% 100%, 0 100%); }
+/* (the old slanted CTA clip-path was removed: decoration that meant nothing) */
 
 /* ---------- Scroll reveal (added by enhance.js, opt-in per element) ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
