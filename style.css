@@ -295,7 +295,7 @@ ul { margin: 0; padding: 0; }
   position: absolute;
   top: 0; bottom: 0;
   width: 2px;
-  background: rgba(242,244,239,.14);
+  background: rgba(242,244,239,.34);
   transform: scaleY(0);
   transform-origin: top;
   animation: drawY .9s var(--ease) both;
@@ -303,15 +303,16 @@ ul { margin: 0; padding: 0; }
 .hero-pitch .pitch-line i {
   position: absolute;
   top: clamp(1rem, 3vw, 2rem);
-  left: 8px;
+  left: 10px;
   font-family: var(--ff-head);
+  font-style: normal;
   font-weight: 600;
-  font-size: .7rem;
+  font-size: .72rem;
   letter-spacing: .22em;
-  color: rgba(242,244,239,.42);
+  color: rgba(242,244,239,.6);
 }
 /* Symmetric pitch: 22 · halfway · 22 */
-.pitch-line--halfway { left: 50%; background: rgba(242,244,239,.2); animation-delay: .28s; }
+.pitch-line--halfway { left: 50%; background: rgba(242,244,239,.45); animation-delay: .28s; }
 .pitch-line--22.is-left  { left: 24%; animation-delay: .42s; }
 .pitch-line--22.is-right { left: 76%; animation-delay: .54s; }
 /* On narrow screens keep just the halfway line so the hero stays clean */
