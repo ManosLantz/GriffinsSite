@@ -105,6 +105,17 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - Instagram: https://www.instagram.com/griffins_heraklion_rugby/
 - Facebook: https://www.facebook.com/heraklion.rugby/
 
+## Design Context (read these before any UI work)
+- **`PRODUCT.md`** (root): strategy. Register = **brand**. Primary job = **recruit new players**
+  (identity & sponsor-legitimacy are valued but secondary). Personality: **intense, grounded,
+  proud**. Anti-reference: **corporate SaaS / startup look**. Accessibility target **WCAG 2.1 AA**.
+- **`DESIGN.md`** (root): the locked **"The Pitch"** visual system, documenting the real
+  `style.css` tokens. Crimson `#C8102E` **sacred**, near-black ground, **chalk-white `#F2F4EF`**
+  lines (gold dropped), **Anton + Saira Condensed + IBM Plex Sans** type axis, square corners
+  (`--radius: 2px`), signature motifs (crimson touchline, chalk pitch lines, `.title-rule`).
+- Both files were generated via the Impeccable skill's `init`. Future design work (critique,
+  audit, polish, craft) should read them first. Live-mode config lives in `.impeccable/live/`.
+
 ## SEO status
 - Every page has `<title>` + `<meta name="description">`. Homepage also has SportsClub **JSON-LD**,
   `<link rel="canonical">`, and a `keywords` meta (note: Google ignores `keywords`).

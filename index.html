@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260629b">
+  <link rel="stylesheet" href="style.css?v=20260629c">
 
   <!-- Bilingual locale hints + preload the hero image (LCP) -->
   <meta property="og:locale" content="el_GR">
@@ -96,6 +96,8 @@
   <main class="page-main" id="main">
 
     <!-- ===================== HERO ===================== -->
+    <!-- Asymmetric "teamsheet" hero: lead column + chalk stat rail (recruitment proof in
+         the first viewport). Quick facts were merged in here from the old strip below. -->
     <section class="hero">
       <div class="hero-pitch" aria-hidden="true">
         <span class="pitch-line pitch-line--22 is-left"><i>22</i></span>
@@ -103,30 +105,26 @@
         <span class="pitch-line pitch-line--22 is-right"><i>22</i></span>
       </div>
       <div class="container hero-inner">
-        <p class="eyebrow"><span data-lang-en>Heraklion · Crete</span><span data-lang-el>Ηράκλειο · Κρήτη</span></p>
-        <h1>
-          <span data-lang-en>Welcome to<br><span class="stroke">Griffins</span> Rugby</span>
-          <span data-lang-el>Καλώς ήρθατε στους<br><span class="stroke">Griffins</span> Rugby</span>
-        </h1>
-        <p class="lead">
-          <span data-lang-en>We tackle hard, we play fair, and we never back down. Join Heraklion's home of rugby, no experience needed.</span>
-          <span data-lang-el>Παίζουμε σκληρά, παίζουμε δίκαια και δεν το βάζουμε ποτέ κάτω. Έλα στο σπίτι του ράγκμπι στο Ηράκλειο, δεν χρειάζεται εμπειρία.</span>
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="https://docs.google.com/forms/d/e/1FAIpQLScpyUcZMkD7INLIcd80IRTE0Co-L3POAtTiTUV5bxaY_0U0DQ/viewform?usp=send_form" target="_blank" rel="noopener noreferrer"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></a>
-          <a class="btn btn-outline btn-lg" href="#training"><span data-lang-en>Training times</span><span data-lang-el>Ώρες προπόνησης</span></a>
+        <div class="hero-lead-col">
+          <p class="eyebrow eyebrow--hero"><span data-lang-en>Heraklion · Crete</span><span data-lang-el>Ηράκλειο · Κρήτη</span></p>
+          <h1>
+            <span data-lang-en>Welcome to<br><span class="stroke">Griffins</span> Rugby</span>
+            <span data-lang-el>Καλώς ήρθατε στους<br><span class="stroke">Griffins</span> Rugby</span>
+          </h1>
+          <p class="lead">
+            <span data-lang-en>We tackle hard, we play fair, and we never back down. Join Heraklion's home of rugby, no experience needed.</span>
+            <span data-lang-el>Παίζουμε σκληρά, παίζουμε δίκαια και δεν το βάζουμε ποτέ κάτω. Έλα στο σπίτι του ράγκμπι στο Ηράκλειο, δεν χρειάζεται εμπειρία.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="https://docs.google.com/forms/d/e/1FAIpQLScpyUcZMkD7INLIcd80IRTE0Co-L3POAtTiTUV5bxaY_0U0DQ/viewform?usp=send_form" target="_blank" rel="noopener noreferrer"><span data-lang-en>Join the squad</span><span data-lang-el>Έλα στην ομάδα</span></a>
+            <a class="btn btn-outline btn-lg" href="#training"><span data-lang-en>Training times</span><span data-lang-el>Ώρες προπόνησης</span></a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===================== QUICK FACTS ===================== -->
-    <section class="section section--tight">
-      <div class="container">
-        <ul class="stats-grid">
-          <li class="stat"><span class="stat-num">0</span><span class="stat-label"><span data-lang-en>Experience needed</span><span data-lang-el>εμπειρία απαραίτητη</span></span></li>
-          <li class="stat"><span class="stat-num">2</span><span class="stat-label"><span data-lang-en>Sessions a week</span><span data-lang-el>Προπονήσεις τη βδομάδα</span></span></li>
-          <li class="stat"><span class="stat-num"><span data-lang-en>All</span><span data-lang-el>ΟΛΑ</span></span><span class="stat-label"><span data-lang-en>Levels welcome</span><span data-lang-el>τα επίπεδα ευπρόσδεκτα</span></span></li>
-          <li class="stat"><span class="stat-num">M/F</span><span class="stat-label"><span data-lang-en>Men &amp; women, one club</span><span data-lang-el>Άντρες &amp; γυναίκες, μία ομάδα</span></span></li>
+        <ul class="hero-teamsheet" aria-label="Quick facts">
+          <li class="ts-stat"><span class="ts-num">0</span><span class="ts-label"><span data-lang-en>Experience needed</span><span data-lang-el>Εμπειρία απαραίτητη</span></span></li>
+          <li class="ts-stat"><span class="ts-num">2</span><span class="ts-label"><span data-lang-en>Sessions a week</span><span data-lang-el>Προπονήσεις τη βδομάδα</span></span></li>
+          <li class="ts-stat"><span class="ts-num"><span data-lang-en>All</span><span data-lang-el>ΟΛΑ</span></span><span class="ts-label"><span data-lang-en>Levels welcome</span><span data-lang-el>Τα επίπεδα ευπρόσδεκτα</span></span></li>
+          <li class="ts-stat"><span class="ts-num">M/F</span><span class="ts-label"><span data-lang-en>Men &amp; women, one club</span><span data-lang-el>Άντρες &amp; γυναίκες, μία ομάδα</span></span></li>
         </ul>
       </div>
     </section>

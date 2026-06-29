@@ -31,6 +31,7 @@
 
   --shadow: 0 18px 40px rgba(0,0,0,.55);
   --ease: cubic-bezier(.2,.7,.3,1);
+  --ease-out: cubic-bezier(.23,1,.32,1); /* strong ease-out for snappy UI feedback */
 }
 
 /* ---------- Reset & base ---------- */
@@ -155,10 +156,15 @@ ul { margin: 0; padding: 0; }
   border: 2px solid transparent;
   border-radius: 0;
   cursor: pointer;
-  transition: transform .18s var(--ease), background .2s var(--ease),
+  transition: transform .16s var(--ease-out), background .2s var(--ease),
               color .2s var(--ease), box-shadow .2s var(--ease);
 }
-.btn:hover { transform: translateY(-2px); }
+/* Hover lift only on real pointers (no false-fire on touch tap) */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translateY(-2px); }
+}
+/* Press feedback: nothing in the real world reacts without acknowledgement */
+.btn:active { transform: scale(.97); }
 
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-primary:hover { background: var(--primary-dark); color: #fff; box-shadow: 0 0 0 2px var(--primary), 0 14px 28px rgba(200,16,46,.4); }
@@ -321,30 +327,74 @@ ul { margin: 0; padding: 0; }
 .hero-inner {
   position: relative;
   z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: clamp(460px, 80vh, 780px);
-  padding-block: clamp(3rem, 8vw, 6rem);
-  max-width: 52ch;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+  min-height: clamp(480px, 82vh, 760px);
+  padding-block: clamp(3rem, 8vw, 5.5rem);
 }
-.hero-inner > * { animation: riseIn .6s var(--ease) both; }
-.hero-inner > *:nth-child(1) { animation-delay: .18s; }
-.hero-inner > *:nth-child(2) { animation-delay: .28s; }
-.hero-inner > *:nth-child(3) { animation-delay: .38s; }
-.hero-inner > *:nth-child(4) { animation-delay: .48s; }
+/* Asymmetric split (DESIGN_VARIANCE 8): lead column + chalk stat rail */
+@media (min-width: 920px) {
+  .hero-inner { grid-template-columns: minmax(0, 1.5fr) minmax(230px, .82fr); }
+}
+.hero-lead-col { max-width: 52ch; }
+
+.hero-lead-col > *, .hero-teamsheet { animation: riseIn .6s var(--ease) both; }
+.hero-lead-col > *:nth-child(1) { animation-delay: .16s; }
+.hero-lead-col > *:nth-child(2) { animation-delay: .26s; }
+.hero-lead-col > *:nth-child(3) { animation-delay: .36s; }
+.hero-lead-col > *:nth-child(4) { animation-delay: .46s; }
+.hero-teamsheet { animation-delay: .52s; }
 
 .hero h1 {
   font-family: var(--ff-display);
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(3rem, 9.5vw, 6.5rem);
+  font-size: clamp(3rem, 8.5vw, 6rem); /* 6rem ceiling: loud, not shouting */
   letter-spacing: 0;
-  line-height: .92;
+  line-height: .9;
 }
 .hero h1 .stroke { color: var(--primary); }
 .hero .lead { margin-top: .4rem; margin-bottom: 2rem; max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+/* Hero eyebrow bumped to >=14px so crimson clears AA large-text 3:1 on near-black */
+.eyebrow--hero { font-size: .9rem; }
+
+/* Chalk "teamsheet" stat rail: raw hairline rows, no cards, no soft shadow */
+.hero-teamsheet { list-style: none; display: grid; gap: 0; }
+@media (min-width: 920px) {
+  .hero-teamsheet {
+    padding-left: clamp(1.25rem, 2vw, 2rem);
+    border-left: 1px solid rgba(242,244,239,.30); /* hairline column rule between the two hero columns */
+  }
+}
+.ts-stat {
+  display: flex;
+  align-items: baseline;
+  gap: .9rem;
+  padding: clamp(.7rem, 1.6vw, 1rem) 0;
+  border-bottom: 1px solid rgba(242,244,239,.13);
+}
+.ts-stat:last-child { border-bottom: none; }
+.ts-num {
+  flex: 0 0 auto;
+  min-width: 2.2ch;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 2.6vw, 2.7rem);
+  line-height: 1;
+  color: var(--accent);
+}
+.ts-label {
+  font-family: var(--ff-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .8rem;
+  line-height: 1.18;
+  color: var(--text); /* chalk-bright, not muted: AA over the photo */
+}
 
 @keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 @keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
@@ -358,7 +408,7 @@ ul { margin: 0; padding: 0; }
   gap: clamp(1.25rem, 4vw, 2.5rem);
   background: linear-gradient(135deg, var(--bg-elev), #101010);
   border: 1px solid var(--border);
-  border-left: 6px solid var(--primary);
+  border-top: 4px solid var(--primary); /* crimson touchline (was a side-stripe) */
   border-radius: var(--radius);
   padding: clamp(1.5rem, 4vw, 2.5rem);
   box-shadow: var(--shadow);
@@ -643,18 +693,34 @@ ul { margin: 0; padding: 0; }
   font-weight: 800; text-transform: uppercase;
   font-size: clamp(1.4rem, 3.4vw, 2rem);
   margin-top: 2.5rem;
-  padding-left: 1rem;
-  border-left: 5px solid var(--primary);
+}
+/* crimson under-rule, echoing .title-rule (was a side-stripe) */
+.article h2::after {
+  content: "";
+  display: block;
+  width: 56px; height: 3px;
+  margin-top: .55rem;
+  background: var(--primary);
 }
 .article .lead { color: #fff; }
 .article blockquote {
   margin: 2rem 0;
-  padding: 1.25rem 1.5rem;
+  padding: 1.4rem 1.75rem;
   background: var(--bg-elev);
-  border-left: 5px solid var(--accent);
+  border: 1px solid var(--border); /* full hairline (was a side-stripe) */
   border-radius: var(--radius);
   font-style: italic;
   color: #f0f0f0;
+}
+/* leading crimson quote mark carries the accent instead of a left bar */
+.article blockquote::before {
+  content: "\201C";
+  display: block;
+  font-family: var(--ff-display);
+  color: var(--primary);
+  font-size: 2.6rem;
+  line-height: .5;
+  margin-bottom: .3rem;
 }
 .note {
   margin-top: 3rem;
@@ -915,7 +981,7 @@ html[data-lang="el"] .hero h1,
 html[data-lang="el"] .section-title,
 html[data-lang="el"] .page-header h1,
 html[data-lang="el"] .cta-band h2,
-html[data-lang="el"] .stat-num,
+html[data-lang="el"] .ts-num,
 html[data-lang="el"] .fixture-score,
 html[data-lang="el"] .player-number { font-weight: 900; }
 
@@ -1168,35 +1234,7 @@ html[data-lang="el"] .player-number { font-weight: 900; }
 }
 .skip-link:focus { left: 0; }
 
-/* ---------- Quick facts strip (home) ---------- */
-.stats-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--gap);
-  text-align: center;
-}
-.stat {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--primary);
-  border-radius: var(--radius);
-  padding: 1.5rem 1rem;
-}
-.stat-num {
-  display: block;
-  font-family: var(--ff-display); font-weight: 400;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
-  color: var(--accent); line-height: 1;
-}
-.stat-label {
-  display: block;
-  margin-top: .5rem;
-  font-family: var(--ff-head); font-weight: 700;
-  text-transform: uppercase; letter-spacing: .06em;
-  font-size: .78rem; color: var(--muted);
-}
-@media (max-width: 680px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+/* (Quick-facts strip removed: merged into the hero as the chalk .hero-teamsheet rail.) */
 
 /* (the old slanted CTA clip-path was removed: decoration that meant nothing) */
 
