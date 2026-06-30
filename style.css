@@ -321,8 +321,8 @@ ul { margin: 0; padding: 0; }
 .pitch-line--halfway { left: 50%; background: rgba(242,244,239,.45); animation-delay: .28s; }
 .pitch-line--22.is-left  { left: 24%; animation-delay: .42s; }
 .pitch-line--22.is-right { left: 76%; animation-delay: .54s; }
-/* On narrow screens keep just the halfway line so the hero stays clean */
-@media (max-width: 720px) { .pitch-line--22 { display: none; } }
+/* On phones the chalk lines crowd the hero, so drop them entirely */
+@media (max-width: 720px) { .hero-pitch { display: none; } }
 
 .hero-inner {
   position: relative;
