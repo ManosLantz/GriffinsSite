@@ -10,7 +10,7 @@
   var header =
     '<header class="site-header">' +
       '<nav class="nav container" aria-label="Primary">' +
-        '<a class="brand" href="index.html">' +
+        '<a class="brand" href="/">' +
           '<img class="brand-logo" src="images/logo.png" alt="Griffins Rugby Heraklion crest" width="42" height="50">' +
           '<span class="brand-text">Griffins<strong>Rugby</strong></span>' +
         '</a>' +
@@ -19,13 +19,13 @@
           '<span></span><span></span><span></span>' +
         '</label>' +
         '<ul class="nav-menu">' +
-          '<li><a href="index.html"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>' +
-          '<li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>' +
-          '<li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>' +
-          '<li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
-          '<li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
-          '<li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
-          '<li><a href="contact.html" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
+          '<li><a href="/"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>' +
+          '<li><a href="/roster"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>' +
+          '<li><a href="/rugby"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>' +
+          '<li><a href="/news"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
+          '<li><a href="/gallery"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
+          '<li><a href="/supporters"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
+          '<li><a href="/contact" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
         '</ul>' +
         '<button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language / Αλλαγή γλώσσας">' +
           '<span class="lang-opt" data-lang-opt="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-lang-opt="el">ΕΛ</span>' +
@@ -40,13 +40,13 @@
 
   function navList() {
     return '<ul>' +
-      '<li><a href="index.html"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>' +
-      '<li><a href="roster.html"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>' +
-      '<li><a href="rugby.html"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>' +
-      '<li><a href="news.html"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
-      '<li><a href="gallery.html"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
-      '<li><a href="supporters.html"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
-      '<li><a href="contact.html"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
+      '<li><a href="/"><span data-lang-en>Home</span><span data-lang-el>Αρχική</span></a></li>' +
+      '<li><a href="/roster"><span data-lang-en>Roster</span><span data-lang-el>Ομάδα</span></a></li>' +
+      '<li><a href="/rugby"><span data-lang-en>Rugby</span><span data-lang-el>Το Ράγκμπι</span></a></li>' +
+      '<li><a href="/news"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
+      '<li><a href="/gallery"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
+      '<li><a href="/supporters"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
+      '<li><a href="/contact"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
     '</ul>';
   }
 
