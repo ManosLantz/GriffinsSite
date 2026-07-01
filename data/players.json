@@ -50,11 +50,12 @@
       "photo": "/images/players/973a48f5-acd4-4311-962c-520dfcc8046b.jpg"
     },
     {
-      "nameEn": "Ioulia P.",
-      "nameEl": "Ιουλία Π.",
+      "nameEn": "Ioulia Panou",
+      "nameEl": "Ιουλία Πάνου",
       "position": "Back",
       "gender": "F",
-      "photo": ""
+      "photo": "/images/players/1000023922.jpg",
+      "descriptionEn": ""
     },
     {
       "nameEn": "Kostas Xristakis",
