@@ -43,13 +43,6 @@
       "photo": ""
     },
     {
-      "nameEn": "Gonzalo Otero Seminario",
-      "nameEl": "",
-      "position": "Fly Half",
-      "gender": "M",
-      "photo": "/images/players/973a48f5-acd4-4311-962c-520dfcc8046b.jpg"
-    },
-    {
       "nameEn": "Ioulia Panou",
       "nameEl": "Ιουλία Πάνου",
       "position": "Back",
@@ -57,6 +50,13 @@
       "photo": "/images/players/1000023922.jpg",
       "descriptionEn": "",
       "descriptionEl": ""
+    },
+    {
+      "nameEn": "Gonzalo Otero Seminario",
+      "nameEl": "",
+      "position": "Fly Half",
+      "gender": "M",
+      "photo": "/images/players/973a48f5-acd4-4311-962c-520dfcc8046b.jpg"
     },
     {
       "nameEn": "Kostas Xristakis",
