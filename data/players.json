@@ -131,6 +131,15 @@
       "position": "Scrum Half",
       "gender": "M",
       "photo": "images/players/vaggelis-tsakalides.jpg"
+    },
+    {
+      "nameEn": "Theo Krassanakis",
+      "nameEl": "Τέο Κρασσανάκης",
+      "position": "Centre",
+      "gender": "M",
+      "photo": "",
+      "descriptionEn": "",
+      "descriptionEl": ""
     }
   ]
 }
