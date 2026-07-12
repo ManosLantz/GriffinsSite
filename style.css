@@ -331,21 +331,16 @@ ul { margin: 0; padding: 0; }
   grid-template-columns: 1fr;
   gap: clamp(2rem, 5vw, 3.5rem);
   align-items: center;
-  min-height: clamp(480px, 82vh, 760px);
+  min-height: clamp(460px, 74vh, 680px);
   padding-block: clamp(3rem, 8vw, 5.5rem);
-}
-/* Asymmetric split (DESIGN_VARIANCE 8): lead column + chalk stat rail */
-@media (min-width: 920px) {
-  .hero-inner { grid-template-columns: minmax(0, 1.5fr) minmax(230px, .82fr); }
 }
 .hero-lead-col { max-width: 52ch; }
 
-.hero-lead-col > *, .hero-teamsheet { animation: riseIn .6s var(--ease) both; }
+.hero-lead-col > * { animation: riseIn .6s var(--ease) both; }
 .hero-lead-col > *:nth-child(1) { animation-delay: .16s; }
 .hero-lead-col > *:nth-child(2) { animation-delay: .26s; }
 .hero-lead-col > *:nth-child(3) { animation-delay: .36s; }
 .hero-lead-col > *:nth-child(4) { animation-delay: .46s; }
-.hero-teamsheet { animation-delay: .52s; }
 
 .hero h1 {
   font-family: var(--ff-display);
@@ -360,41 +355,6 @@ ul { margin: 0; padding: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 /* Hero eyebrow bumped to >=14px so crimson clears AA large-text 3:1 on near-black */
 .eyebrow--hero { font-size: .9rem; }
-
-/* Chalk "teamsheet" stat rail: raw hairline rows, no cards, no soft shadow */
-.hero-teamsheet { list-style: none; display: grid; gap: 0; }
-@media (min-width: 920px) {
-  .hero-teamsheet {
-    padding-left: clamp(1.25rem, 2vw, 2rem);
-    border-left: 1px solid rgba(242,244,239,.30); /* hairline column rule between the two hero columns */
-  }
-}
-.ts-stat {
-  display: flex;
-  align-items: baseline;
-  gap: .9rem;
-  padding: clamp(.7rem, 1.6vw, 1rem) 0;
-  border-bottom: 1px solid rgba(242,244,239,.13);
-}
-.ts-stat:last-child { border-bottom: none; }
-.ts-num {
-  flex: 0 0 auto;
-  min-width: 2.2ch;
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(2.1rem, 2.6vw, 2.7rem);
-  line-height: 1;
-  color: var(--accent);
-}
-.ts-label {
-  font-family: var(--ff-head);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-  font-size: .8rem;
-  line-height: 1.18;
-  color: var(--text); /* chalk-bright, not muted: AA over the photo */
-}
 
 @keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 @keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
@@ -417,8 +377,9 @@ ul { margin: 0; padding: 0; }
   display: grid;
   place-items: center;
   width: 74px; height: 74px;
-  border-radius: 50%;
+  border-radius: var(--radius);
   background: rgba(200,16,46,.14);
+  border: 1px solid rgba(200,16,46,.45);
   color: var(--primary);
 }
 .training-icon svg { width: 38px; height: 38px; }
@@ -434,7 +395,7 @@ ul { margin: 0; padding: 0; }
   gap: .45rem;
   background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius);
   padding: .45rem .95rem;
   font-family: var(--ff-head);
   font-weight: 700;
@@ -584,6 +545,10 @@ ul { margin: 0; padding: 0; }
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--gap);
 }
+/* Phones: 2-up squad sheet instead of one long single-file scroll */
+@media (max-width: 560px) {
+  .roster-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+}
 .player-card {
   position: relative;
   background: var(--bg-elev);
@@ -687,7 +652,7 @@ ul { margin: 0; padding: 0; }
 .btn svg { flex: 0 0 auto; }
 
 /* ---------- Article (history) ---------- */
-.article { max-width: 74ch; margin-inline: auto; }
+.article { max-width: 74ch; margin-inline: 0; }
 .article p { color: #e3e3e3; }
 .article h2 {
   font-weight: 800; text-transform: uppercase;
@@ -981,7 +946,6 @@ html[data-lang="el"] .hero h1,
 html[data-lang="el"] .section-title,
 html[data-lang="el"] .page-header h1,
 html[data-lang="el"] .cta-band h2,
-html[data-lang="el"] .ts-num,
 html[data-lang="el"] .fixture-score,
 html[data-lang="el"] .player-number { font-weight: 900; }
 
@@ -1233,8 +1197,6 @@ html[data-lang="el"] .player-number { font-weight: 900; }
   border-radius: 0 0 var(--radius) 0;
 }
 .skip-link:focus { left: 0; }
-
-/* (Quick-facts strip removed: merged into the hero as the chalk .hero-teamsheet rail.) */
 
 /* (the old slanted CTA clip-path was removed: decoration that meant nothing) */
 

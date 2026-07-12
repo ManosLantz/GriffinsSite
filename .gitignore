@@ -14,3 +14,7 @@ _*.py
 # OS / editor junk
 Thumbs.db
 .DS_Store
+
+# Local screenshots (design iteration, never committed)
+.screenshots/
+.playwright-mcp/
