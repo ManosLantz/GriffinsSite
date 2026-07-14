@@ -130,13 +130,33 @@
       "nameEl": "Βαγγέλης Τσακαλίδης",
       "position": "Scrum Half",
       "gender": "M",
-      "photo": "images/players/vaggelis-tsakalides.jpg"
+      "photo": "images/players/vaggelis-tsakalides.jpg",
+      "descriptionEn": "",
+      "descriptionEl": ""
     },
     {
       "nameEn": "Theo Krassanakis",
       "nameEl": "Τέο Κρασσανάκης",
       "position": "Centre",
       "gender": "M",
+      "photo": "",
+      "descriptionEn": "",
+      "descriptionEl": ""
+    },
+    {
+      "nameEn": "Alexandra Tamiolaki",
+      "nameEl": "Αλεξάνδρα Ταμιωλάκη",
+      "position": "Prop",
+      "gender": "F",
+      "photo": "",
+      "descriptionEn": "",
+      "descriptionEl": ""
+    },
+    {
+      "nameEn": "Zoi Metochianaki",
+      "nameEl": "Ζωή Μετοχιανάκη",
+      "position": "Winger",
+      "gender": "F",
       "photo": "",
       "descriptionEn": "",
       "descriptionEl": ""
