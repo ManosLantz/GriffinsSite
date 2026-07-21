@@ -1,7 +1,8 @@
 /* Griffins Rugby - render supporters from data/supporters.json.
-   Rebuilds the same .supporter-card markup (heart icon + name + bilingual role
-   and thank-you text) so CSS and the EN/EL toggle keep working. Edited via the
-   CMS. */
+   Rebuilds the same .supporter-card markup (photo or heart icon + name + bilingual
+   role and thank-you text) so CSS and the EN/EL toggle keep working. Edited via the
+   CMS. photo and link are both optional: no photo => heart icon (unchanged old
+   behaviour); a link makes the name clickable (safe schemes only). */
 (function () {
   var grid = document.getElementById('supporter-grid');
   if (!grid) return;
@@ -10,6 +11,20 @@
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+
+  // Allow only safe link schemes (block javascript:, data:, etc.).
+  function safeUrl(u) {
+    if (!u) return null;
+    try {
+      var p = new URL(u, location.origin);
+      return ['http:', 'https:', 'mailto:', 'tel:'].indexOf(p.protocol) !== -1 ? u : null;
+    } catch (e) { return null; }
+  }
+  // Build a CSS url() value, rejecting characters that could break out of url('...').
+  function cssUrl(path) {
+    if (!path || /["'()\\]/.test(path) || /^\s*(javascript|data):/i.test(path)) return '';
+    return "url('" + encodeURI(path) + "')";
+  }
 
   function fillBilingual(node, en, el) {
     if (en && el && el !== en) {
@@ -30,13 +45,32 @@
     var card = document.createElement('article');
     card.className = 'supporter-card';
 
-    var icon = document.createElement('div');
-    icon.className = 'supporter-icon';
-    icon.innerHTML = HEART_SVG;
-    card.appendChild(icon);
+    var photoUrl = cssUrl(s.photo);
+    if (photoUrl) {
+      var photo = document.createElement('div');
+      photo.className = 'supporter-photo';
+      photo.style.backgroundImage = photoUrl;
+      card.appendChild(photo);
+    } else {
+      var icon = document.createElement('div');
+      icon.className = 'supporter-icon';
+      icon.innerHTML = HEART_SVG;
+      card.appendChild(icon);
+    }
 
     var name = document.createElement('h3');
-    name.textContent = s.name || '';
+    var link = safeUrl(s.link);
+    if (link) {
+      var a = document.createElement('a');
+      a.className = 'supporter-name';
+      a.href = link;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = s.name || '';
+      name.appendChild(a);
+    } else {
+      name.textContent = s.name || '';
+    }
     card.appendChild(name);
 
     var role = document.createElement('p');

@@ -17,13 +17,18 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - `rugby.html` (merged: short history of rugby + basic rules of Union vs League, an interactive positions pitch map, and a myth-busting FAQ. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
 - `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
 - `gallery.html` (all photos; home shows the first 4 + a "See all photos" link here)
+- `merch.html` (club merchandise catalog: photo, title, price, description per item; catalog only,
+  no checkout, no order button by design, since this is a static site with no payment processing.
+  Empty `data/merch.json` shows a "coming soon" note instead of fabricated products.)
 - `contact.html` (info + social buttons + embedded Google join form)
-- `404.html` (uses **relative** asset paths so it works at the domain root)
+- `404.html` (uses **relative** asset paths so it works at the domain root; nav/footer are inline
+  here, not from `partials.js`, so update both when the nav changes)
 - `style.css` (one stylesheet), `lang.js` (EN/EL toggle), `enhance.js` (optional UX: gallery lightbox + back-to-top, isolated/non-critical)
 - `pitch.js` (Rugby page: interactive positions pitch map; clicking a numbered marker shows that position's detail block, content is static HTML for SEO/no-JS)
-- `data/*.json` content/config: `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
-- `render-*.js` (build from the JSON at load): `players`, `news`, `gallery`, `supporters`, `fixtures`, `settings`
-- `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters, Fixtures, Settings), `.github/` (image-optimizer Action)
+- `analytics.js` (Google Analytics, gated behind a cookie consent banner; see "Analytics" section below)
+- `data/*.json` content/config: `players`, `news`, `gallery`, `supporters`, `merch`, `fixtures`, `settings`
+- `render-*.js` (build from the JSON at load): `players`, `news`, `gallery`, `supporters`, `merch`, `fixtures`, `settings`
+- `admin/` (Sveltia CMS at /admin: Players, News, Gallery, Supporters, Merch, Fixtures, Settings), `.github/` (image-optimizer Action)
 - `sitemap.xml`, `robots.txt`
 
 ## Content data (rendered client-side, edited via the CMS)
@@ -39,17 +44,24 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
     Each `{categoryEn/El,titleEn/El,bodyEn/El,image,linkHref,linkEn/El}` (link optional).
   - `gallery.json` (`{photos:[...]}`): each `{image,alt,width,height}`. The home `#gallery-grid` has
     `data-limit="4"` (shows first 4 + "See all photos"); `gallery.html` shows all.
-  - `supporters.json` (`{supporters:[...]}`): each `{name,roleEn/El,textEn/El}` (heart icon is fixed in JS).
+  - `supporters.json` (`{supporters:[...]}`): each `{name,roleEn/El,textEn/El,photo,link}`. `photo` and
+    `link` are both optional: no photo => heart icon (default look); a `link` makes the supporter's
+    *name* clickable, opening in a new tab (e.g. their business site or Instagram).
+  - `merch.json` (`{items:[...]}`): each `{titleEn/El,price,descriptionEn/El,image}`. `price` is a plain
+    string (e.g. `€25`), same in both languages, not a bilingual span. No photo => crest placeholder.
+    Empty `items` => the page shows a "coming soon" note rather than an empty grid.
   - `fixtures.json` (`{fixtures:[...]}`): each `{opponent,dateText,homeAway,competition,played,scoreUs,scoreThem}`.
     Rendered into the home "Fixtures & Results" section; empty list shows a "coming soon" note.
   - `settings.json`: single object of site-wide facts (venue, area En/El, days short/long En/El, time,
-    mapsUrl, social URLs, email, `phones` list (each `{number,viber}`; Viber shows a deep-link button)). `render-settings.js` fills **language-aware placeholders**
+    mapsUrl, social URLs, email, `phones` list (each `{number,viber}`; Viber shows a deep-link button),
+    `gaId` (Google Analytics 4 Measurement ID, empty string = analytics off)). `render-settings.js` fills
+    **language-aware placeholders**
     (`.js-venue` neutral, `.js-area`/`.js-daysShort`/`.js-daysLong` by EN/EL context, `.js-time` neutral)
     in the footer (every page), home training card, and contact page, plus social hrefs (matched by URL)
     and `.js-maps`. HTML keeps current values as static fallback. So training venue/time changes in ONE place.
 - Editing: the **Sveltia CMS** at `/admin` (GitHub login via a Cloudflare auth Worker) gives the captain
-  forms for Players / News / Gallery / Supporters with photo upload. Config: `admin/config.yml` (bilingual
-  labels + per-field hints). See memory `cms-plan`. To edit by hand instead, change the JSON directly.
+  forms for Players / News / Gallery / Supporters / Merch with photo upload. Config: `admin/config.yml`
+  (bilingual labels + per-field hints). See memory `cms-plan`. To edit by hand instead, change the JSON directly.
 - **Local preview needs a server** (`python -m http.server`), not double-clicking the file:
   `fetch()` of the JSON is blocked under `file://`. On GitHub Pages (https) it works normally.
 - Uploaded JPEGs are auto-downscaled/recompressed by the `.github` image-optimizer Action on push.
@@ -65,8 +77,9 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   "AI-looking"). Use commas/colons. Time ranges use a plain hyphen: `17:00-19:00`.
 - **Player positions stay in English** in both languages (Lock, Winger, Scrum Half, etc.) — do NOT translate.
 - **Footer credit lines** (`© 2026 …` and `Built for the love of the game.`) stay **English** in both languages.
-- Nav order: Home · Roster · Rugby · News · Gallery · Supporters · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
-  Greek nav labels: Αρχική · Ομάδα · Το Ράγκμπι · Νέα · Φωτογραφίες · Υποστηρικτές · Επικοινωνία.
+- Nav order: Home · Roster · Rugby · News · Gallery · Supporters · Merch · Contact (+ EN/ΕΛ toggle). Footer "Explore" mirrors it.
+  Greek nav labels: Αρχική · Ομάδα · Το Ράγκμπι · Νέα · Φωτογραφίες · Υποστηρικτές · Merchandise · Επικοινωνία.
+  Nav/footer are single-sourced in `partials.js`; `404.html` keeps its own inline copy (see `partials-architecture` memory).
 - All canonical / Open Graph / sitemap URLs use `https://griffinsrugby.gr/`.
 - Theme "Black & Crimson": CSS vars in `:root` (`--bg #0D0D0D`, `--primary #C8102E`, `--accent #D4AF37` gold).
   Fonts: Montserrat (headings) + Roboto (body).
@@ -105,6 +118,24 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - Instagram: https://www.instagram.com/griffins_heraklion_rugby/
 - Facebook: https://www.facebook.com/heraklion.rugby/
 
+## Analytics (Google Analytics 4, consent-gated)
+- `analytics.js` (loaded on every real page, including `404.html`) reads `gaId` from
+  `data/settings.json`. If `gaId` is empty, the script does **nothing**: no banner, no cookie, no
+  request to Google. This is the state until the owner creates a GA4 property and pastes the
+  Measurement ID (`G-XXXXXXX`) into Settings via `/admin`.
+- Once `gaId` is set: a visitor with no stored choice sees a bottom cookie-consent banner
+  (`.cookie-consent`, styled in `style.css`). "Accept" loads `gtag.js` and starts tracking
+  (`anonymize_ip: true`); "Decline" stores the choice and loads nothing. Either way the choice is
+  remembered in `localStorage` (`griffins-consent`) so the banner doesn't reappear. A "Cookie
+  settings" link in the footer (hidden until `gaId` is set) lets a visitor reopen the banner and
+  change their mind later.
+- This is a deliberate no-tag-without-consent approach (simpler than Google's Consent Mode v2, and
+  compliant since GA cookies are not "strictly necessary" under GDPR/Greek DPA rules for an EU-based
+  club). CSP (`script-src`/`connect-src` on every page) already allowlists
+  `googletagmanager.com` / `google-analytics.com`.
+- No privacy policy page exists yet; consider adding one as a follow-up (the consent banner text is a
+  short inline explanation, not a substitute).
+
 ## Design Context (read these before any UI work)
 - **`PRODUCT.md`** (root): strategy. Register = **brand**. Primary job = **recruit new players**
   (identity & sponsor-legitimacy are valued but secondary). Personality: **intense, grounded,
@@ -127,3 +158,6 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - Add more real news items to `news.html` (currently 3: field change, recruitment, site launch).
 - Swap crest placeholders for real photos as they arrive.
 - Add the embedded Google Map of Lido Soccer on `contact.html` (currently text + a directions link on the home training card; map URL: https://maps.app.goo.gl/PoLZoSypu89XtTer9).
+- Add real merch items via `/admin` (`data/merch.json` ships empty; the page shows a "coming soon" note until items are added).
+- Create the GA4 property and paste the Measurement ID into Settings in `/admin` to switch on analytics (see "Analytics" section above).
+- Consider a short privacy policy page once analytics is live (referenced by, but not yet written for, the cookie consent banner).

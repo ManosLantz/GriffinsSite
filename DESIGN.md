@@ -119,11 +119,15 @@ Established vocabulary in `style.css` — extend these, match their idiom, don't
   (`.player-card` with `.player-number` jersey badge, crimson top-border on info, crest
   placeholder `--player-photo--logo`, and the terminal **"You / Εσύ" join card**
   `.player-card--join`).
-- **Supporters** (`.supporter-card` + heart icon), **rugby page** (`.rules-grid`,
-  `.scoring-table`, interactive `.pitch-svg` / `.pos-marker` / `.pos-panel` driven by
-  `pitch.js`), **contact** (`.info-list`, `.social-btn`, embedded form `.form-embed`).
+- **Supporters** (`.supporter-card` + heart icon, or `.supporter-photo` circle + clickable
+  `.supporter-name` when a link is set), **merch** (`.merch-card`, same news-card idiom: photo with
+  crimson border, crest placeholder `.merch-photo--logo`, crimson `.merch-price` badge), **rugby
+  page** (`.rules-grid`, `.scoring-table`, interactive `.pitch-svg` / `.pos-marker` / `.pos-panel`
+  driven by `pitch.js`), **contact** (`.info-list`, `.social-btn`, embedded form `.form-embed`).
 - **Footer** (`.site-footer`): four-column grid, crest, mirrored "Explore" nav, social,
-  English-only credit lines.
+  English-only credit lines, hidden-until-active "Cookie settings" link.
+- **Cookie consent** (`.cookie-consent`): fixed bottom bar, crimson top border, only ever shown once
+  analytics is configured (see CLAUDE.md "Analytics"). Uses standard `.btn-outline`/`.btn-primary`.
 
 **Cards caveat:** cards are used where they're the right affordance (roster, news, supporters).
 Don't reach for a card grid as the default layout, and never nest cards.

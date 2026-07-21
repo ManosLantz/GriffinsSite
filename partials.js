@@ -25,6 +25,7 @@
           '<li><a href="/news"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
           '<li><a href="/gallery"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
           '<li><a href="/supporters"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
+          '<li><a href="/merch"><span data-lang-en>Merch</span><span data-lang-el>Merchandise</span></a></li>' +
           '<li><a href="/contact" class="nav-cta"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
         '</ul>' +
         '<button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language / Αλλαγή γλώσσας">' +
@@ -46,6 +47,7 @@
       '<li><a href="/news"><span data-lang-en>News</span><span data-lang-el>Νέα</span></a></li>' +
       '<li><a href="/gallery"><span data-lang-en>Gallery</span><span data-lang-el>Φωτογραφίες</span></a></li>' +
       '<li><a href="/supporters"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></a></li>' +
+      '<li><a href="/merch"><span data-lang-en>Merch</span><span data-lang-el>Merchandise</span></a></li>' +
       '<li><a href="/contact"><span data-lang-en>Contact</span><span data-lang-el>Επικοινωνία</span></a></li>' +
     '</ul>';
   }
@@ -76,6 +78,7 @@
       '<div class="footer-bottom container">' +
         '<p>&copy; 2026 Griffins Rugby Heraklion. All rights reserved.</p>' +
         '<p>Grassroots rugby in Heraklion.</p>' +
+        '<button type="button" class="cookie-settings-link js-cookie-settings" data-cookie-settings style="display:none"><span data-lang-en>Cookie settings</span><span data-lang-el>Ρυθμίσεις cookies</span></button>' +
       '</div>' +
     '</footer>';
 

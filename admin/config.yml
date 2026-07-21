@@ -131,6 +131,44 @@ collections:
               - { name: roleEl, label: "Ρόλος στα Ελληνικά / Role (Greek)", widget: string, required: false, hint: "Π.χ. Φωτογράφος, Χορηγός, Φίλος του συλλόγου" }
               - { name: textEn, label: "Ευχαριστίες στα Αγγλικά / Thank-you (English)", widget: text, required: false, hint: "Μια σύντομη ευχαριστία στα Αγγλικά." }
               - { name: textEl, label: "Ευχαριστίες στα Ελληνικά / Thank-you (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }
+              - name: photo
+                label: "Φωτογραφία / Photo"
+                widget: image
+                required: false
+                media_folder: "/images/supporters"
+                public_folder: "images/supporters"
+                hint: "Προαιρετικό. Λογότυπο επιχείρησης ή φωτογραφία προσώπου, τετράγωνη. Αν δεν βάλεις, δείχνει το εικονίδιο καρδιάς."
+              - { name: link, label: "Σύνδεσμος / Link", widget: string, required: false, hint: "Προαιρετικό. Το όνομα γίνεται κλικαμπλ και ανοίγει αυτόν τον σύνδεσμο σε νέα καρτέλα. Π.χ. η ιστοσελίδα ή το Instagram της επιχείρησης." }
+
+  # ---------------- MERCH ----------------
+  - name: merch
+    label: "🛍️ Merch"
+    delete: false
+    files:
+      - name: items
+        label: "Προϊόντα / Products"
+        file: "data/merch.json"
+        description: "Επίσημα προϊόντα του συλλόγου. Δεν υπάρχει online αγορά, η σελίδα δείχνει μόνο τι υπάρχει διαθέσιμο. / Official club merchandise. There's no online checkout, the page just shows what's available."
+        fields:
+          - name: items
+            label: "Προϊόντα / Products"
+            label_singular: "Προϊόν / Product"
+            widget: list
+            collapsed: true
+            summary: "{{fields.titleEn}} ({{fields.price}})"
+            fields:
+              - { name: titleEn, label: "Τίτλος στα Αγγλικά / Title (English)", widget: string, hint: "Π.χ. Home Jersey" }
+              - { name: titleEl, label: "Τίτλος στα Ελληνικά / Title (Greek)", widget: string, required: false, hint: "Ο ίδιος τίτλος στα Ελληνικά. Π.χ. Επίσημη Φανέλα" }
+              - { name: price, label: "Τιμή / Price", widget: string, required: false, hint: "Π.χ. €25 (ίδιο και στις δύο γλώσσες)" }
+              - { name: descriptionEn, label: "Περιγραφή στα Αγγλικά / Description (English)", widget: text, required: false, hint: "Λίγες λέξεις: υλικό, μεγέθη που υπάρχουν, κτλ." }
+              - { name: descriptionEl, label: "Περιγραφή στα Ελληνικά / Description (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }
+              - name: image
+                label: "Φωτογραφία / Photo"
+                widget: image
+                required: false
+                media_folder: "/images/merch"
+                public_folder: "images/merch"
+                hint: "Καθαρή φωτογραφία του προϊόντος. Αν δεν βάλεις, δείχνει το σήμα της ομάδας."
 
   # ---------------- FIXTURES & RESULTS ----------------
   - name: fixtures
@@ -184,6 +222,7 @@ collections:
           - { name: mapsUrl, label: "Google Maps σύνδεσμος / link", widget: string, required: false, hint: "Ο σύνδεσμος του γηπέδου στο Google Maps." }
           - { name: instagramUrl, label: "Instagram σύνδεσμος / link", widget: string, required: false }
           - { name: facebookUrl, label: "Facebook σύνδεσμος / link", widget: string, required: false }
+          - { name: gaId, label: "Google Analytics ID", widget: string, required: false, hint: "Προαιρετικό. Το Measurement ID από το Google Analytics (μοιάζει με G-XXXXXXX). Άφησέ το κενό αν δεν έχεις ακόμα. Μόλις το βάλεις, εμφανίζεται αυτόματα το μήνυμα συγκατάθεσης cookies στους επισκέπτες. / Optional. The GA4 Measurement ID (looks like G-XXXXXXX). Leave blank if you don't have one yet; once set, the cookie consent banner appears automatically." }
           - { name: email, label: "Email", widget: string, required: false, hint: "Άφησέ το κενό αν δεν υπάρχει. Εμφανίζεται στη σελίδα Επικοινωνία μόνο αν το συμπληρώσεις." }
           - name: phones
             label: "Τηλέφωνα / Phones"

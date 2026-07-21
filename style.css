@@ -648,8 +648,70 @@ ul { margin: 0; padding: 0; }
 }
 .supporter-card p { color: #d6d6d6; margin: 0; font-style: italic; }
 
+/* Optional supporter photo/logo, replaces the heart icon when set */
+.supporter-photo {
+  width: 66px; height: 66px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  background-color: #161616;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--border);
+}
+.supporter-name { display: inline-block; }
+a.supporter-name { color: var(--text); border-bottom: 1px solid transparent; }
+a.supporter-name:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
 /* heart icon inside buttons */
 .btn svg { flex: 0 0 auto; }
+
+/* ---------- Merch ---------- */
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap);
+}
+.merch-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.merch-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+.merch-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background-color: #161616;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid var(--primary);
+}
+/* Crest placeholder for products without a photo yet, same idiom as player-photo--logo */
+.merch-photo--logo {
+  background-image: url('images/logo.png'), linear-gradient(160deg, #1f1f1f, #111);
+  background-size: 42%, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+.merch-price {
+  position: absolute;
+  top: .75rem; right: .75rem;
+  font-family: var(--ff-head); font-weight: 800; font-size: .95rem;
+  color: #fff; background: var(--primary);
+  padding: .3rem .65rem;
+  border-radius: var(--radius);
+}
+.merch-body { padding: 1.2rem 1.3rem 1.5rem; }
+.merch-body h3 { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
+.merch-body p { color: var(--muted); margin: 0; }
+.merch-empty-note { text-align: center; color: var(--muted); }
 
 /* ---------- Article (history) ---------- */
 .article { max-width: 74ch; margin-inline: 0; }
@@ -1205,4 +1267,41 @@ html[data-lang="el"] .player-number { font-weight: 900; }
 .reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ---------- Cookie consent banner (added by analytics.js, only when a GA id is set) ---------- */
+.cookie-consent {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 55; /* above content, below the mobile nav-toggle (60) and lightbox (90+) */
+  display: none;
+  background: #0c0c0c;
+  border-top: 2px solid var(--primary);
+  box-shadow: var(--shadow);
+}
+.cookie-consent.is-visible { display: block; }
+.cookie-consent-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 1.1rem clamp(1.1rem, 4vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+.cookie-consent-text { flex: 1 1 320px; color: var(--muted); font-size: .88rem; margin: 0; }
+.cookie-consent-text strong { color: var(--text); }
+.cookie-consent-actions { display: flex; gap: .7rem; flex: 0 0 auto; }
+.cookie-consent .btn { padding: .7rem 1.3rem; font-size: .82rem; }
+
+.cookie-settings-link {
+  background: none; border: 0; padding: 0;
+  font: inherit; color: var(--muted); cursor: pointer;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.cookie-settings-link:hover { color: #fff; }
+
+@media (max-width: 560px) {
+  .cookie-consent-actions { width: 100%; }
+  .cookie-consent .btn { flex: 1 1 0; justify-content: center; }
 }
