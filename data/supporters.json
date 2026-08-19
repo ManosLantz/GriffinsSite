@@ -1,6 +1,24 @@
 {
   "supporters": [
     {
+      "name": "Blue Greco",
+      "roleEn": "",
+      "roleEl": "",
+      "textEn": "",
+      "textEl": "",
+      "photo": "/images/supporters/e60c5bfa-3235-4823-aa66-67c9b9c3f854.jpg",
+      "link": "https://bluegreco.com/"
+    },
+    {
+      "name": "Space Pro",
+      "roleEn": "",
+      "roleEl": "",
+      "textEn": "",
+      "textEl": "",
+      "photo": "/images/supporters/9caa6a68-4d2a-42be-8d43-be5e54ba077f.jpg",
+      "link": "https://linktr.ee/Space.Pro"
+    },
+    {
       "name": "Nikos Kritsotakis",
       "roleEn": "Photographer",
       "roleEl": "Φωτογράφος",
