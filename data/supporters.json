@@ -10,6 +10,13 @@
       "link": "https://bluegreco.com/"
     },
     {
+      "name": "Nikos Kritsotakis",
+      "roleEn": "Photographer",
+      "roleEl": "Φωτογράφος",
+      "textEn": "Special thanks to Nikos Kritsotakis for his incredible photographs.",
+      "textEl": "Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του."
+    },
+    {
       "name": "Space Pro",
       "roleEn": "",
       "roleEl": "",
@@ -17,13 +24,6 @@
       "textEl": "",
       "photo": "/images/supporters/9caa6a68-4d2a-42be-8d43-be5e54ba077f.jpg",
       "link": "https://linktr.ee/Space.Pro"
-    },
-    {
-      "name": "Nikos Kritsotakis",
-      "roleEn": "Photographer",
-      "roleEl": "Φωτογράφος",
-      "textEn": "Special thanks to Nikos Kritsotakis for his incredible photographs.",
-      "textEl": "Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του."
     }
   ]
 }
