@@ -633,13 +633,13 @@ ul { margin: 0; padding: 0; }
 }
 .supporter-icon {
   display: grid; place-items: center;
-  width: 66px; height: 66px;
+  width: 108px; height: 108px;
   margin: 0 auto 1.1rem;
   border-radius: 50%;
   background: rgba(200,16,46,.14);
   color: var(--primary);
 }
-.supporter-icon svg { width: 32px; height: 32px; }
+.supporter-icon svg { width: 48px; height: 48px; }
 .supporter-card h3 { font-size: 1.4rem; text-transform: uppercase; margin-bottom: .15rem; }
 .supporter-role {
   font-family: var(--ff-head); font-weight: 800; text-transform: uppercase;
@@ -650,7 +650,7 @@ ul { margin: 0; padding: 0; }
 
 /* Optional supporter photo/logo, replaces the heart icon when set */
 .supporter-photo {
-  width: 66px; height: 66px;
+  width: 108px; height: 108px;
   margin: 0 auto 1.1rem;
   border-radius: 50%;
   background-color: #161616;
