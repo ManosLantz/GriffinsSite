@@ -13,7 +13,8 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 
 ## Pages & files
 - `index.html` (home: hero, training schedule + "Get directions" map link, featured news teaser, 4-photo gallery preview, CTA)
-- `roster.html` (players), `supporters.html` (both data-driven)
+- `roster.html` (players), `supporters.html` (both data-driven; supporters.html is titled
+  "Sponsors & Supporters" but keeps the `/supporters` URL and nav label)
 - `rugby.html` (merged: short history of rugby + basic rules of Union vs League, an interactive positions pitch map, and a myth-busting FAQ. Replaced the old `history.html` + `rules.html`, which are now tiny redirect stubs pointing here.)
 - `news.html` (club news/announcements; home shows the latest item + a "See all news" link here)
 - `gallery.html` (all photos; home shows the first 4 + a "See all photos" link here)
@@ -44,9 +45,19 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
     Each `{categoryEn/El,titleEn/El,bodyEn/El,image,linkHref,linkEn/El}` (link optional).
   - `gallery.json` (`{photos:[...]}`): each `{image,alt,width,height}`. The home `#gallery-grid` has
     `data-limit="4"` (shows first 4 + "See all photos"); `gallery.html` shows all.
-  - `supporters.json` (`{supporters:[...]}`): each `{name,roleEn/El,textEn/El,photo,link}`. `photo` and
-    `link` are both optional: no photo => heart icon (default look); a `link` makes the supporter's
-    *name* clickable, opening in a new tab (e.g. their business site or Instagram).
+  - `supporters.json` holds **two** lists in one file: `{sponsors:[...], supporters:[...]}`.
+    Sponsors are paying backers and render first; supporters render after. One CMS screen edits both,
+    so promoting a supporter to sponsor is a move within the same form. `render-supporters.js` renders
+    both from a single fetch and accepts a bare array as the legacy `supporters` shape.
+    - sponsors: each `{name,tierEn/El,blurbEn/El,logo,link}`. All but `name` optional. Empty tier
+      falls back to "Sponsor"/"Χορηγός". Rendered as wide `.sponsor-row` blocks (logo left, detail
+      right), logo as a real `<img>` with `object-fit:contain` so it keeps its aspect ratio and is
+      never cropped into a circle. No logo => the text spans the full row. Empty `sponsors` => the
+      whole sponsor section is removed, so no bare heading is left behind.
+    - supporters: each `{name,roleEn/El,textEn/El,photo,link}`. `photo` and `link` both optional:
+      no photo => heart icon (default look); a `link` makes the supporter's *name* clickable,
+      opening in a new tab (e.g. their business site or Instagram).
+    - Current sponsor: **Oxygen** (https://www.pelatologio.gr/), logo at `images/sponsors/oxygen.png`.
   - `merch.json` (`{items:[...]}`): each `{titleEn/El,price,descriptionEn/El,image}`. `price` is a plain
     string (e.g. `€25`), same in both languages, not a bilingual span. No photo => crest placeholder.
     Empty `items` => the page shows a "coming soon" note rather than an empty grid.
@@ -60,11 +71,30 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
     in the footer (every page), home training card, and contact page, plus social hrefs (matched by URL)
     and `.js-maps`. HTML keeps current values as static fallback. So training venue/time changes in ONE place.
 - Editing: the **Sveltia CMS** at `/admin` (GitHub login via a Cloudflare auth Worker) gives the captain
-  forms for Players / News / Gallery / Supporters / Merch with photo upload. Config: `admin/config.yml`
+  forms for Players / News / Gallery / Sponsors & Supporters / Merch / Fixtures / Settings with photo
+  upload. The sponsors and supporters lists live in one collection screen, sponsors first. Config: `admin/config.yml`
   (bilingual labels + per-field hints). See memory `cms-plan`. To edit by hand instead, change the JSON directly.
-- **Local preview needs a server** (`python -m http.server`), not double-clicking the file:
-  `fetch()` of the JSON is blocked under `file://`. On GitHub Pages (https) it works normally.
+- **Local preview needs a server, and it must be `python _serve.py`**, not `python -m http.server`:
+  the site uses clean URLs (`/roster`, not `/roster.html`) and only `_serve.py` resolves them the way
+  GitHub Pages does. Plain `http.server` 404s every page except the home page. Double-clicking the
+  file does not work either: `fetch()` of the JSON is blocked under `file://`.
 - Uploaded JPEGs are auto-downscaled/recompressed by the `.github` image-optimizer Action on push.
+
+## Footer credits strip (every page)
+- `partials.js` renders a credits strip above the footer's legal bar on all 8 real pages: the sponsor
+  **logo** first, then supporter **names**, each row under a small label with hairline rules between.
+  Modelled on the Berlin Rugby Club footer.
+- Supporters show names, not logos, because their images are opaque JPEGs on white or navy grounds
+  that read as stray rectangles on the dark footer. Sponsors show logos because a transparent PNG is
+  required of them (see Images).
+- **A supporter with no `link` is skipped in the footer**, since the strip is a row of links. That is
+  how Nikos Kritsotakis is kept off it while still appearing on the supporters page. The CMS hint on
+  the link field says so. Add a link and the name appears.
+- This is the **only `fetch` in `partials.js`**. The strip is `hidden` until data lands, so a failed
+  request or two empty lists leave the footer clean instead of putting bare headings on every page.
+- `404.html` does **not** get the strip: it keeps its own inline footer and never loads `partials.js`.
+- Changing `partials.js` means bumping `partials.js?v=` on all 8 pages, the same way a CSS change
+  means bumping `style.css?v=`. Missing the second one is how a stale footer ships.
 
 ## CONVENTIONS — follow these exactly
 - **Bilingual text:** every visible string is two spans:
@@ -86,7 +116,10 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 
 ## Images
 - Source folders `Roster/`, `Supporters/`, `photos/` are **gitignored** (kept local only).
-- Web images live in `images/` and `images/players/`.
+- Web images live in `images/`, `images/players/`, `images/supporters/` and `images/sponsors/`.
+- **Sponsor logos must be white-on-transparent PNGs**: the footer and the sponsor rows both sit on
+  the near-black ground, so an opaque JPEG reads as a white rectangle. The image-optimizer Action
+  only watches `images/**.jpg|jpeg`, so PNGs pass through untouched.
 - Add/crop a player photo with Python+Pillow to 4:5 (~640×800, quality ~82):
   `ImageOps.exif_transpose(im)` then `ImageOps.fit(im,(640,800),Image.LANCZOS,centering=(0.5,0.35))`,
   save to `images/players/<name>.jpg`.
@@ -121,8 +154,9 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 ## Analytics (Google Analytics 4, consent-gated)
 - `analytics.js` (loaded on every real page, including `404.html`) reads `gaId` from
   `data/settings.json`. If `gaId` is empty, the script does **nothing**: no banner, no cookie, no
-  request to Google. This is the state until the owner creates a GA4 property and pastes the
-  Measurement ID (`G-XXXXXXX`) into Settings via `/admin`.
+  request to Google.
+- **Analytics is now LIVE**: `gaId` is set to `G-289T990WLP`, so the consent banner shows and accepted
+  visitors are tracked.
 - Once `gaId` is set: a visitor with no stored choice sees a bottom cookie-consent banner
   (`.cookie-consent`, styled in `style.css`). "Accept" loads `gtag.js` and starts tracking
   (`anonymize_ip: true`); "Decline" stores the choice and loads nothing. Either way the choice is
@@ -159,5 +193,7 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - Swap crest placeholders for real photos as they arrive.
 - Add the embedded Google Map of Lido Soccer on `contact.html` (currently text + a directions link on the home training card; map URL: https://maps.app.goo.gl/PoLZoSypu89XtTer9).
 - Add real merch items via `/admin` (`data/merch.json` ships empty; the page shows a "coming soon" note until items are added).
-- Create the GA4 property and paste the Measurement ID into Settings in `/admin` to switch on analytics (see "Analytics" section above).
-- Consider a short privacy policy page once analytics is live (referenced by, but not yet written for, the cookie consent banner).
+- **Write the privacy policy page.** Analytics is live and the cookie banner references a policy that
+  does not exist yet. This is now a real gap, not a nicety.
+- Ask supporters for white-on-transparent PNG logos, which would let the footer strip show their logos
+  instead of names (see "Footer credits strip").
