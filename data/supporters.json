@@ -1,4 +1,15 @@
 {
+  "sponsors": [
+    {
+      "name": "Oxygen",
+      "tierEn": "Sponsor",
+      "tierEl": "Χορηγός",
+      "blurbEn": "",
+      "blurbEl": "",
+      "logo": "/images/sponsors/oxygen.png",
+      "link": "https://www.pelatologio.gr/"
+    }
+  ],
   "supporters": [
     {
       "name": "Blue Greco",
@@ -32,7 +43,9 @@
       "roleEn": "Photographer",
       "roleEl": "Φωτογράφος",
       "textEn": "Special thanks to Nikos Kritsotakis for his incredible photographs.",
-      "textEl": "Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του."
+      "textEl": "Ευχαριστούμε ιδιαίτερα τον Νίκο Κριτσωτάκη για τις καταπληκτικές φωτογραφίες του.",
+      "photo": "",
+      "link": ""
     },
     {
       "name": "Space Pro",

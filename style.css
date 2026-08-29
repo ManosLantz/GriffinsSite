@@ -615,6 +615,64 @@ ul { margin: 0; padding: 0; }
 .player-card--join:hover .player-photo--join { background-image: linear-gradient(160deg, rgba(200,16,46,.55), #141414); }
 .player-card--join .player-info { border-top-color: var(--accent); }
 
+/* ---------- Sponsors ---------- */
+/* Wide rows: logo left, detail right. Deliberately outweighs the supporter
+   cards below, and still reads as substantial with only one sponsor. */
+.sponsor-list {
+  display: grid;
+  gap: var(--gap);
+  max-width: 900px;
+  margin-inline: auto;
+}
+.sponsor-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) 1fr;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+/* Logos keep their own aspect ratio, never cropped into a circle like the
+   supporter photos. Sponsors supply a white-on-transparent version. */
+.sponsor-logo { display: grid; place-items: center; }
+.sponsor-logo img {
+  width: 100%;
+  max-height: 88px;
+  object-fit: contain;
+  object-position: center;
+}
+.sponsor-tier {
+  font-family: var(--ff-head); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .12em; font-size: .76rem; color: var(--accent);
+  margin: 0 0 .35rem;
+}
+.sponsor-name {
+  font-family: var(--ff-display); font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  letter-spacing: .005em;
+  margin: 0;
+}
+/* Logo is optional in the CMS. With no logo the body is the only child, so let
+   it span both tracks instead of being squeezed into the narrow logo column. */
+.sponsor-row > .sponsor-body:only-child { grid-column: 1 / -1; }
+.sponsor-blurb { color: #d6d6d6; margin: .7rem 0 0; }
+.sponsor-link { margin-top: 1.4rem; }
+
+@media (max-width: 700px) {
+  .sponsor-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    border-left-width: 1px;
+    border-top: 4px solid var(--primary);
+  }
+  .sponsor-logo img { max-height: 64px; }
+}
+
 /* ---------- Supporters ---------- */
 .supporter-grid {
   display: grid;
@@ -1009,7 +1067,8 @@ html[data-lang="el"] .section-title,
 html[data-lang="el"] .page-header h1,
 html[data-lang="el"] .cta-band h2,
 html[data-lang="el"] .fixture-score,
-html[data-lang="el"] .player-number { font-weight: 900; }
+html[data-lang="el"] .player-number,
+html[data-lang="el"] .sponsor-name { font-weight: 900; }
 
 /* ============================================================
    POLISH: small UX + aesthetic niceties (added later)

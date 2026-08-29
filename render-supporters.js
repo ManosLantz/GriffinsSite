@@ -1,11 +1,15 @@
-/* Griffins Rugby - render supporters from data/supporters.json.
-   Rebuilds the same .supporter-card markup (photo or heart icon + name + bilingual
-   role and thank-you text) so CSS and the EN/EL toggle keep working. Edited via the
-   CMS. photo and link are both optional: no photo => heart icon (unchanged old
-   behaviour); a link makes the name clickable (safe schemes only). */
+/* Griffins Rugby - render sponsors and supporters from data/supporters.json.
+   One file, two lists, one fetch. Sponsors render as wide .sponsor-row blocks
+   (logo + tier + name + optional blurb + link); supporters keep the existing
+   .supporter-card markup (photo or heart icon + name + bilingual role and
+   thank-you text), so CSS and the EN/EL toggle keep working. Both edited via the
+   CMS. If the sponsors list is empty the whole sponsor section is removed, so no
+   bare heading is left behind. */
 (function () {
+  var sponsorList = document.getElementById('sponsor-list');
+  var sponsorSection = document.getElementById('sponsors-section');
   var grid = document.getElementById('supporter-grid');
-  if (!grid) return;
+  if (!sponsorList && !grid) return;
 
   var HEART_SVG =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
@@ -18,6 +22,14 @@
     try {
       var p = new URL(u, location.origin);
       return ['http:', 'https:', 'mailto:', 'tel:'].indexOf(p.protocol) !== -1 ? u : null;
+    } catch (e) { return null; }
+  }
+  // Same idea for an <img src>: local or remote http(s) only, never javascript:/data:.
+  function safeImg(path) {
+    if (!path) return null;
+    try {
+      var p = new URL(path, location.origin);
+      return ['http:', 'https:'].indexOf(p.protocol) !== -1 ? path : null;
     } catch (e) { return null; }
   }
   // Build a CSS url() value, rejecting characters that could break out of url('...').
@@ -41,6 +53,63 @@
     }
   }
 
+  /* ---------- Sponsors: wide rows, logo left, detail right ---------- */
+  function buildSponsorRow(s) {
+    var row = document.createElement('article');
+    row.className = 'sponsor-row';
+
+    var src = safeImg(s.logo);
+    if (src) {
+      var figure = document.createElement('div');
+      figure.className = 'sponsor-logo';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = (s.name || '') + ' logo';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      figure.appendChild(img);
+      row.appendChild(figure);
+    }
+
+    var body = document.createElement('div');
+    body.className = 'sponsor-body';
+
+    var tier = document.createElement('p');
+    tier.className = 'sponsor-tier';
+    fillBilingual(tier, s.tierEn || 'Sponsor', s.tierEl || 'Χορηγός');
+    body.appendChild(tier);
+
+    var name = document.createElement('h3');
+    name.className = 'sponsor-name';
+    name.textContent = s.name || '';
+    body.appendChild(name);
+
+    if (s.blurbEn || s.blurbEl) {
+      var blurb = document.createElement('p');
+      blurb.className = 'sponsor-blurb';
+      fillBilingual(blurb, s.blurbEn, s.blurbEl);
+      body.appendChild(blurb);
+    }
+
+    // Name goes inside the link text so each link is distinct in a screen
+    // reader's link list, not a page full of identical "Visit website".
+    var link = safeUrl(s.link);
+    if (link) {
+      var a = document.createElement('a');
+      a.className = 'btn btn-outline sponsor-link';
+      a.href = link;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      fillBilingual(a, 'Visit ' + (s.name || 'website'),
+                       'Επισκέψου το ' + (s.name || 'site'));
+      body.appendChild(a);
+    }
+
+    row.appendChild(body);
+    return row;
+  }
+
+  /* ---------- Supporters: existing centered cards ---------- */
   function buildCard(s) {
     var card = document.createElement('article');
     card.className = 'supporter-card';
@@ -91,12 +160,26 @@
       return res.json();
     })
     .then(function (data) {
+      // Accept the keyed object, or a bare array for backwards compatibility.
+      var sponsors = Array.isArray(data) ? [] : (data.sponsors || []);
       var supporters = Array.isArray(data) ? data : (data.supporters || []);
-      var frag = document.createDocumentFragment();
-      supporters.forEach(function (s) { frag.appendChild(buildCard(s)); });
-      grid.appendChild(frag);
+
+      if (sponsorList && sponsors.length) {
+        var sFrag = document.createDocumentFragment();
+        sponsors.forEach(function (s) { sFrag.appendChild(buildSponsorRow(s)); });
+        sponsorList.appendChild(sFrag);
+      } else if (sponsorSection) {
+        // No sponsors yet: drop the whole section rather than leave a bare heading.
+        sponsorSection.remove();
+      }
+
+      if (grid) {
+        var frag = document.createDocumentFragment();
+        supporters.forEach(function (s) { frag.appendChild(buildCard(s)); });
+        grid.appendChild(frag);
+      }
     })
     .catch(function (err) {
-      console.error('Could not load supporters:', err);
+      console.error('Could not load sponsors and supporters:', err);
     });
 })();

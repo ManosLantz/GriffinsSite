@@ -109,16 +109,39 @@ collections:
               - { name: image, label: "Φωτογραφία / Photo", widget: image, hint: "Ανέβασε φωτογραφία από προπόνηση ή αγώνα." }
               - { name: alt, label: "Περιγραφή / Description", widget: string, hint: "Σύντομη περιγραφή στα Αγγλικά (για προσβασιμότητα και SEO). Π.χ. Griffins players training at Lido" }
 
-  # ---------------- SUPPORTERS ----------------
+  # ---------------- SPONSORS & SUPPORTERS ----------------
+  # One file, two lists. Sponsors render first on the page as wide rows,
+  # supporters after as the usual cards.
   - name: supporters
-    label: "🤝 Υποστηρικτές / Supporters"
+    label: "🤝 Χορηγοί & Υποστηρικτές / Sponsors & Supporters"
     delete: false
     files:
       - name: supporters
-        label: "Υποστηρικτές / Supporters"
+        label: "Χορηγοί & Υποστηρικτές / Sponsors & Supporters"
         file: "data/supporters.json"
-        description: "Άνθρωποι ή επιχειρήσεις που βοηθούν τον σύλλογο, εντός κι εκτός γηπέδου. / People or businesses who support the club."
+        description: "Χορηγοί και υποστηρικτές του συλλόγου. Οι χορηγοί εμφανίζονται πρώτοι στη σελίδα. / Sponsors and supporters of the club. Sponsors appear first on the page."
         fields:
+          - name: sponsors
+            label: "Χορηγοί / Sponsors"
+            label_singular: "Χορηγό / Sponsor"
+            widget: list
+            required: false
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Όνομα / Name", widget: string, hint: "Το όνομα της επιχείρησης. Π.χ. Oxygen" }
+              - { name: tierEn, label: "Ιδιότητα στα Αγγλικά / Label (English)", widget: string, required: false, default: "Sponsor", hint: "Π.χ. Sponsor, Main Sponsor, Official Sponsor. Κενό σημαίνει Sponsor." }
+              - { name: tierEl, label: "Ιδιότητα στα Ελληνικά / Label (Greek)", widget: string, required: false, default: "Χορηγός", hint: "Π.χ. Χορηγός, Κύριος Χορηγός. Κενό σημαίνει Χορηγός." }
+              - { name: blurbEn, label: "Περιγραφή στα Αγγλικά / Description (English)", widget: text, required: false, hint: "Προαιρετικό. Μία δύο προτάσεις για το τι κάνει η επιχείρηση." }
+              - { name: blurbEl, label: "Περιγραφή στα Ελληνικά / Description (Greek)", widget: text, required: false, hint: "Το ίδιο στα Ελληνικά." }
+              - name: logo
+                label: "Λογότυπο / Logo"
+                widget: image
+                required: false
+                media_folder: "/images/sponsors"
+                public_folder: "images/sponsors"
+                hint: "Λευκό λογότυπο με διάφανο φόντο (PNG), γιατί η σελίδα έχει σκούρο φόντο. Το λογότυπο δεν κόβεται, κρατάει τις αναλογίες του."
+              - { name: link, label: "Σύνδεσμος / Link", widget: string, required: false, hint: "Η ιστοσελίδα της επιχείρησης. Ανοίγει σε νέα καρτέλα." }
           - name: supporters
             label: "Υποστηρικτές / Supporters"
             label_singular: "Υποστηρικτή / Supporter"

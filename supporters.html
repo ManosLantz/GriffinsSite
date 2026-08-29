@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080A09">
   <script>(function(){try{var l=localStorage.getItem('griffins-lang');if(!l){l=(navigator.language||'en').toLowerCase().indexOf('el')===0?'el':'en';}document.documentElement.setAttribute('data-lang',l);document.documentElement.setAttribute('lang',l);}catch(e){document.documentElement.setAttribute('data-lang','en');}})();</script>
-  <title>Supporters | Griffins Rugby Heraklion</title>
-  <meta name="description" content="The people and businesses who help Griffins Rugby Heraklion thrive, on and off the pitch. Οι υποστηρικτές και χορηγοί του ράγκμπι στο Ηράκλειο. Thank you.">
+  <title>Sponsors &amp; Supporters | Griffins Rugby Heraklion</title>
+  <meta name="description" content="The sponsors and supporters who back Griffins Rugby Heraklion, on and off the pitch. Οι χορηγοί και υποστηρικτές του ράγκμπι στο Ηράκλειο. Thank you.">
   <link rel="canonical" href="https://griffinsrugby.gr/supporters">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -15,22 +15,22 @@
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Griffins Rugby Heraklion">
-  <meta property="og:title" content="Supporters | Griffins Rugby Heraklion">
-  <meta property="og:description" content="The people who help Griffins Rugby Heraklion thrive, on and off the pitch. Thank you.">
+  <meta property="og:title" content="Sponsors &amp; Supporters | Griffins Rugby Heraklion">
+  <meta property="og:description" content="The sponsors and supporters who back Griffins Rugby Heraklion, on and off the pitch. Thank you.">
   <meta property="og:url" content="https://griffinsrugby.gr/supporters">
   <meta property="og:image" content="https://griffinsrugby.gr/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Griffins Rugby players training in Heraklion">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Supporters | Griffins Rugby Heraklion">
-  <meta name="twitter:description" content="The people who help Griffins Rugby Heraklion thrive, on and off the pitch. Thank you.">
+  <meta name="twitter:title" content="Sponsors &amp; Supporters | Griffins Rugby Heraklion">
+  <meta name="twitter:description" content="The sponsors and supporters who back Griffins Rugby Heraklion, on and off the pitch. Thank you.">
   <meta name="twitter:image" content="https://griffinsrugby.gr/images/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260819a">
+  <link rel="stylesheet" href="style.css?v=20260829a">
 
   <!-- Bilingual locale hints + preload the page-header image (LCP) -->
   <meta property="og:locale" content="el_GR">
@@ -67,13 +67,38 @@
     <section class="page-header">
       <div class="container">
         <span class="eyebrow"><span data-lang-en>Behind the Griffins</span><span data-lang-el>Πίσω από τους Griffins</span></span>
-        <h1><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></h1>
-        <p><span data-lang-en>The people who help the Griffins thrive, on and off the pitch. Thank you.</span><span data-lang-el>Οι άνθρωποι που βοηθούν τους Griffins να μεγαλώνουν, εντός κι εκτός γηπέδου. Σας ευχαριστούμε.</span></p>
+        <h1><span data-lang-en>Sponsors &amp; Supporters</span><span data-lang-el>Χορηγοί &amp; Υποστηρικτές</span></h1>
+        <p><span data-lang-en>The businesses and people who back the Griffins, on and off the pitch. Thank you.</span><span data-lang-el>Οι επιχειρήσεις και οι άνθρωποι που στηρίζουν τους Griffins, εντός κι εκτός γηπέδου. Σας ευχαριστούμε.</span></p>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ===================== SPONSORS ===================== -->
+    <!-- Removed wholesale by render-supporters.js when the sponsors list is empty,
+         so an empty list never leaves a bare heading behind. -->
+    <section class="section" id="sponsors-section">
       <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title"><span data-lang-en>Sponsors</span><span data-lang-el>Χορηγοί</span></h2>
+          <div class="title-rule"></div>
+        </div>
+        <!-- Sponsor rows are injected by render-supporters.js from the sponsors list in data/supporters.json. -->
+        <div class="sponsor-list" id="sponsor-list">
+          <noscript>
+            <p style="color:var(--muted);text-align:center;">
+              <span data-lang-en>Enable JavaScript to see our sponsors.</span><span data-lang-el>Ενεργοποίησε τη JavaScript για να δεις τους χορηγούς μας.</span>
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SUPPORTERS ===================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title"><span data-lang-en>Supporters</span><span data-lang-el>Υποστηρικτές</span></h2>
+          <div class="title-rule"></div>
+        </div>
         <!-- Supporter cards are injected by render-supporters.js from data/supporters.json. -->
         <div class="supporter-grid" id="supporter-grid">
           <noscript>
