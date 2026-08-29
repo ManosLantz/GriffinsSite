@@ -75,6 +75,7 @@
           '</div>' +
         '</div>' +
       '</div>' +
+      '<div class="footer-credits container" id="footer-credits" hidden></div>' +
       '<div class="footer-bottom container">' +
         '<p>&copy; 2026 Griffins Rugby Heraklion. All rights reserved.</p>' +
         '<p>Grassroots rugby in Heraklion.</p>' +
@@ -86,6 +87,99 @@
   if (hm) hm.outerHTML = header;
   var fm = document.getElementById('site-footer-mount');
   if (fm) fm.outerHTML = footer;
+
+  /* Footer credits strip: sponsor logos, then supporter names, on every page.
+     Sponsors show their logo (name as fallback); supporters show names only.
+     A supporter with no link is skipped here, since the strip is a row of
+     links. Nothing renders until the data arrives, and a failed fetch or two
+     empty lists leaves the strip hidden rather than showing bare headings. */
+  var credits = document.getElementById('footer-credits');
+  if (credits) {
+    (function () {
+      function safeUrl(u) {
+        if (!u) return null;
+        try {
+          var q = new URL(u, location.origin);
+          return ['http:', 'https:'].indexOf(q.protocol) !== -1 ? u : null;
+        } catch (e) { return null; }
+      }
+
+      function label(en, el) {
+        var h = document.createElement('h4');
+        h.className = 'footer-credits-label';
+        var a = document.createElement('span');
+        a.setAttribute('data-lang-en', '');
+        a.textContent = en;
+        var b = document.createElement('span');
+        b.setAttribute('data-lang-el', '');
+        b.textContent = el;
+        h.appendChild(a);
+        h.appendChild(b);
+        return h;
+      }
+
+      // One entry: a logo when asked for and available, otherwise the name.
+      function entry(item, withLogo) {
+        var href = safeUrl(item.link);
+        var logo = withLogo ? safeUrl(item.logo) : null;
+        var node;
+        if (href) {
+          node = document.createElement('a');
+          node.href = href;
+          node.target = '_blank';
+          node.rel = 'noopener noreferrer';
+        } else {
+          node = document.createElement('span');
+        }
+        node.className = logo ? 'footer-credit footer-credit--logo' : 'footer-credit';
+        if (logo) {
+          var img = document.createElement('img');
+          img.src = logo;
+          img.alt = (item.name || '') + ' logo';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          node.appendChild(img);
+        } else {
+          node.textContent = item.name || '';
+        }
+        return node;
+      }
+
+      function row(items, en, el, withLogo) {
+        if (!items.length) return null;
+        var wrap = document.createElement('div');
+        wrap.className = 'footer-credits-row';
+        wrap.appendChild(label(en, el));
+        var list = document.createElement('div');
+        list.className = 'footer-credits-list';
+        items.forEach(function (it) { list.appendChild(entry(it, withLogo)); });
+        wrap.appendChild(list);
+        return wrap;
+      }
+
+      fetch('data/supporters.json')
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          var sponsors = Array.isArray(data) ? [] : (data.sponsors || []);
+          // No link means no footer entry: this strip is a row of links.
+          var supporters = (Array.isArray(data) ? data : (data.supporters || []))
+            .filter(function (s) { return safeUrl(s.link); });
+
+          var a = row(sponsors, 'Sponsors', 'Χορηγοί', true);
+          var b = row(supporters, 'Supporters', 'Υποστηρικτές', false);
+          if (!a && !b) return;
+          if (a) credits.appendChild(a);
+          if (b) credits.appendChild(b);
+          credits.hidden = false;
+        })
+        .catch(function (err) {
+          console.error('Could not load footer credits:', err);
+        });
+    })();
+  }
 
   // Highlight the current page's nav link from <body data-page="X.html">.
   var page = (document.body.getAttribute('data-page') || '').toLowerCase();

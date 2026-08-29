@@ -959,6 +959,37 @@ a.supporter-name:hover { color: var(--accent); border-bottom-color: var(--accent
 .footer-social a:hover { transform: translateY(-3px); background: var(--primary); color: #fff; border-color: var(--primary); }
 .footer-social svg { width: 20px; height: 20px; }
 
+/* Footer credits: sponsor logos then supporter names, above the legal bar.
+   Injected by partials.js, so it stays hidden until the data actually lands. */
+.footer-credits { padding-bottom: .5rem; }
+.footer-credits[hidden] { display: none; }
+.footer-credits-row {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-credits-label {
+  font-family: var(--ff-head); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .18em; font-size: .72rem; color: var(--muted);
+  margin: 0 0 1rem;
+}
+.footer-credits-list {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+  gap: 1rem clamp(1.5rem, 4vw, 2.75rem);
+}
+.footer-credit {
+  color: var(--muted);
+  font-size: .92rem;
+  transition: color .2s var(--ease), opacity .2s var(--ease);
+}
+a.footer-credit:hover { color: #fff; }
+/* Sponsor logos: chalk-white transparent PNGs, held back a touch so they sit
+   with the footer rather than shouting over it, full strength on hover. */
+.footer-credit--logo { display: inline-flex; opacity: .82; }
+.footer-credit--logo img { max-height: 46px; width: auto; }
+a.footer-credit--logo:hover { opacity: 1; }
+
 .footer-bottom {
   display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
   justify-content: space-between;
