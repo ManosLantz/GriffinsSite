@@ -10,6 +10,8 @@ Supporters/
 
 # Temporary build/helper scripts
 _*.py
+# ...except the local preview server, which every editor needs
+!_serve.py
 
 # OS / editor junk
 Thumbs.db
@@ -18,3 +20,6 @@ Thumbs.db
 # Local screenshots (design iteration, never committed)
 .screenshots/
 .playwright-mcp/
+
+# Files the Claude desktop app saves into this folder (local only)
+Claude outputs/
