@@ -134,7 +134,8 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   `Roster/<Name>/info.txt` (Greek Name, English Name, Position, Gender) + optional photo locally.
 - **Players still needing real photos:** Aggeliki Plevritaki, Alexandra Tamiolaki, Anna Baxouthianaki,
   Athena Maniadi, Dimitris Misirlis, Giannis Moniakis, Giorgos Papadakis, Kostas Xristakis, Maria Daskalaki,
-  Marinos Tountas, Melanie Tiemes, Oguz Baskaya, Tatiana, Theo Krassanakis, Vaggelis Merkouris, Zoi Metoxianaki.
+  Marinos Tountas, Melanie Tiemes, Oguz Baskaya, Stelios Kougioumitzakis, Tatiana, Theo Krassanakis,
+  Vaggelis Merkouris, Zoi Metoxianaki.
   (Have photos: Alex Buzz, Giannis Geronimakis, Gonzalo Otero Seminario, Ioulia Panou, Lais Margiori,
   Manos Lantzourakis, Vaggelis Tsakalides.)
 - Open question: confirm English spelling "Kostas Xristakis" vs "Kostas Christakis".

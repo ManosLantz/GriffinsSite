@@ -582,7 +582,8 @@ ul { margin: 0; padding: 0; }
   padding: .35rem .6rem .25rem;
 }
 .player-info { padding: 1.1rem 1.2rem 1.35rem; border-top: 3px solid var(--primary); }
-.player-name { font-size: 1.25rem; font-weight: 800; text-transform: uppercase; }
+/* overflow-wrap: long single-word surnames (e.g. Κουγιουμιτζάκης) break instead of clipping on phones */
+.player-name { font-size: 1.25rem; font-weight: 800; text-transform: uppercase; overflow-wrap: anywhere; }
 .player-position {
   margin: 0;
   font-family: var(--ff-head); font-weight: 700; text-transform: uppercase;
