@@ -65,7 +65,7 @@
         '</div>' +
         '<div class="footer-col">' +
           '<h4><span data-lang-en>Training</span><span data-lang-el>Προπόνηση</span></h4>' +
-          '<p><span data-lang-en><span class="js-venue">Lido Soccer</span>, <span class="js-area">Heraklion</span><br><span class="js-daysShort">Mon &amp; Thu</span><br><span class="js-time">17:00-19:00</span></span><span data-lang-el><span class="js-venue">Lido Soccer</span>, <span class="js-area">Ηράκλειο</span><br><span class="js-daysShort">Δευτ &amp; Πέμ</span><br><span class="js-time">17:00-19:00</span></span></p>' +
+          '<p><span data-lang-en><span class="js-venue">Calcetto</span>, <span class="js-area">Heraklion</span><br><span class="js-daysShort">Sat</span><br><span class="js-time">20:00-21:30</span></span><span data-lang-el><span class="js-venue">Calcetto</span>, <span class="js-area">Ηράκλειο</span><br><span class="js-daysShort">Σάβ</span><br><span class="js-time">20:00-21:30</span></span></p>' +
         '</div>' +
         '<div class="footer-col">' +
           '<h4><span data-lang-en>Follow us</span><span data-lang-el>Ακολουθήστε μας</span></h4>' +

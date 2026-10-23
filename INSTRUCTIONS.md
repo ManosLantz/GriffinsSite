@@ -157,7 +157,7 @@ If `git push` is rejected, someone (or the CMS, or the image bot) pushed in the 
 - **Privacy policy page.** Analytics is live and the cookie banner refers to a policy that doesn't exist yet. This is the most important gap.
 - **Player photos** still missing for several players (they show the club crest instead). Add them via /admin > Players.
 - **Merch:** no items yet. Add them via /admin > Merch.
-- **Google Map** embed of Lido Soccer on the Contact page.
+- **Google Map** embed of Calcetto on the Contact page.
 - Ask supporters for **white-on-transparent PNG logos**, so the footer can show logos instead of names.
 
 Questions: ask Manos.

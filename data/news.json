@@ -3,6 +3,18 @@
     {
       "categoryEn": "Announcement",
       "categoryEl": "Ανακοίνωση",
+      "titleEn": "Training Moves to Calcetto",
+      "titleEl": "Η προπόνηση πάει στο Calcetto",
+      "bodyEn": "From now on we train at Calcetto in Gazi every Saturday, 20:00-21:30. New night, new ground, same crew. Come find us on the pitch.",
+      "bodyEl": "Από εδώ και πέρα προπονούμαστε στο Calcetto στο Γάζι κάθε Σάββατο, 20:00-21:30. Νέα μέρα, νέο γήπεδο, ίδια παρέα. Έλα να μας βρεις.",
+      "image": "images/img_8913.jpg",
+      "linkHref": "https://www.google.com/maps/search/?api=1&query=Calcetto&query_place_id=ChIJpUqHtFdXmhQR_CkUHiDH190",
+      "linkEn": "Get directions",
+      "linkEl": "Οδηγίες"
+    },
+    {
+      "categoryEn": "Announcement",
+      "categoryEl": "Ανακοίνωση",
       "titleEn": "Field Change!",
       "titleEl": "Αλλαγή γηπέδου!",
       "bodyEn": "Sessions will be conducted at Lido Soccer every Monday and Thursday, 17:00-19:00. Same crew, new ground, come find us on the pitch.",

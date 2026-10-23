@@ -28,7 +28,7 @@ first-class, not an afterthought.
 
 Get more people to training. Griffins Rugby is a real club in Heraklion that needs bodies on
 the pitch, so the site's job is recruitment first: turn a curious visitor into someone who
-shows up Monday or Thursday at Lido Soccer, 17:00-19:00. Everything else (club identity,
+shows up on Saturday at Calcetto, 20:00-21:30. Everything else (club identity,
 sponsor-grade legitimacy, news, photos) exists to make that conversion believable and to keep
 the people who already belong feeling like the badge means something.
 

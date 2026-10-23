@@ -132,10 +132,11 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 - To add a player: add an object to `data/players.json` (the renderer auto-sorts by English name and
   keeps the You card last, so order in the file doesn't matter). Owner still keeps source material as
   `Roster/<Name>/info.txt` (Greek Name, English Name, Position, Gender) + optional photo locally.
-- **Players still needing real photos:** Aggeliki Plevritaki, Anna Baxouthianaki, Dimitris Misirlis,
-  Giorgos Papadakis, Ioulia P., Kostas Xristakis, Lais Margiori, Maria Daskalaki, Marinos Tountas,
-  Melanie Tiemes, Oguz Baskaya, Tatiana, Vaggelis Merkouris.
-  (Have photos: Alex Buzz, Giannis Geronimakis, Gonzalo Otero Seminario, Manos Lantzourakis, Vaggelis Tsakalides.)
+- **Players still needing real photos:** Aggeliki Plevritaki, Alexandra Tamiolaki, Anna Baxouthianaki,
+  Athena Maniadi, Dimitris Misirlis, Giannis Moniakis, Giorgos Papadakis, Kostas Xristakis, Maria Daskalaki,
+  Marinos Tountas, Melanie Tiemes, Oguz Baskaya, Tatiana, Theo Krassanakis, Vaggelis Merkouris, Zoi Metoxianaki.
+  (Have photos: Alex Buzz, Giannis Geronimakis, Gonzalo Otero Seminario, Ioulia Panou, Lais Margiori,
+  Manos Lantzourakis, Vaggelis Tsakalides.)
 - Open question: confirm English spelling "Kostas Xristakis" vs "Kostas Christakis".
 
 ## Contact / join
@@ -145,7 +146,12 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
   `info@griffinsrugby.gr` could be created and added back later.
 
 ## Training info (reused across the site)
-- **Lido Soccer, Heraklion. Monday & Thursday, 17:00-19:00.**
+- **Calcetto (Λεωφ. Ανδρέα Παπανδρέου 37, Gazi), Heraklion. Saturday, 20:00-21:30.**
+  Moved from Lido Soccer (Mon & Thu, 17:00-19:00) in Oct 2026. The site still shows "Heraklion" as the
+  area; Gazi is named only in the news post. Lido Soccer remains listed as a supporter.
+- Venue, days and time are all `.js-*` placeholders filled from `data/settings.json`, including the
+  CTA lines on gallery/roster/merch/news. Only the home page SEO meta tags + JSON-LD and the gallery
+  meta description hardcode them, so a future change = settings via /admin, plus those meta tags by hand.
 
 ## Social
 - Instagram: https://www.instagram.com/griffins_heraklion_rugby/
@@ -191,7 +197,7 @@ Heraklion, Crete. Plain **HTML + CSS + a tiny vanilla JS** — no frameworks, no
 ## Possible next steps
 - Add more real news items to `news.html` (currently 3: field change, recruitment, site launch).
 - Swap crest placeholders for real photos as they arrive.
-- Add the embedded Google Map of Lido Soccer on `contact.html` (currently text + a directions link on the home training card; map URL: https://maps.app.goo.gl/PoLZoSypu89XtTer9).
+- Add the embedded Google Map of Calcetto on `contact.html` (currently text + a directions link on the home training card; map URL: https://www.google.com/maps/search/?api=1&query=Calcetto&query_place_id=ChIJpUqHtFdXmhQR_CkUHiDH190).
 - Add real merch items via `/admin` (`data/merch.json` ships empty; the page shows a "coming soon" note until items are added).
 - **Write the privacy policy page.** Analytics is live and the cookie banner references a policy that
   does not exist yet. This is now a real gap, not a nicety.
